@@ -1,0 +1,15 @@
+{
+    "l5r4": {
+        "attack": {
+            "none": "",
+            "melee": "Melee",
+            "ranged": "Ranged"
+        },
+        "weapon": {
+            "attackType": "Attack Type",
+            "size": "Size",
+            "damageRoll": "Damage Roll",
+            "damageKeep": "Damage Keep"
+        }
+    }
+}
