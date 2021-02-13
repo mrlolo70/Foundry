@@ -1,0 +1,31 @@
+{
+    "Actor":{},
+    "Item":{
+        "types":[
+            "weapon", 
+            "armor"
+        ],
+        "templates": {
+            "itemDescription": {
+                "description": "",
+                "specialRules": ""
+            }
+        },
+        "weapon":{
+            "templates":[
+                "itemDescription"
+            ],
+            "damageRoll": 0,
+            "damageeKeep": 0,
+            "size": "medium"            
+        },
+        "armor":{
+            "templates":[
+                "itemDescription"
+            ],
+            "bonus": 0,
+            "reduction": 0,
+            "specialRues": ""
+        }
+    }
+}

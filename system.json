@@ -1,0 +1,25 @@
+{
+    "name": "l5r4",
+    "title": "Legend of the Five rings 4th Edition",
+    "description": "System to play L5R 4th edition",
+    "Author": "Mateo",
+    "version": "0.01",
+    "minumCoreVersion": "0.7.6",
+    "compatibleCoreVersion": "0.7.8",
+    "esmodules": [
+        "l5r4.js"
+    ],
+    "styles": [
+        "l5r4.css"
+    ],
+    "packs": [
+
+    ],
+    "languages": [
+
+    ],
+    "gridDistance": 5,
+    "gridUnits": "ft",
+    "primaryTokenAttribute": "wounds",
+    "initiative": "@reflexes+@insightRankd10k@reflexesx10"
+}
