@@ -1,31 +1,199 @@
 {
-    "Actor":{},
-    "Item":{
-        "types":[
-            "weapon", 
-            "armor"
-        ],
-        "templates": {
-            "itemDescription": {
-                "description": "",
-                "specialRules": ""
-            }
-        },
-        "weapon":{
-            "templates":[
-                "itemDescription"
-            ],
-            "damageRoll": 0,
-            "damageeKeep": 0,
-            "size": "medium"            
-        },
-        "armor":{
-            "templates":[
-                "itemDescription"
-            ],
-            "bonus": 0,
-            "reduction": 0,
-            "specialRues": ""
-        }
+  "Actor":{
+  "types": [
+    "pc",
+    "npc"
+  ],
+  "templates":{
+    "common":{
+    "traits": {
+      "sta": 2,
+      "wil": 2,
+      "str": 2,
+      "per": 2,
+      "ref": 2,
+      "awa": 2,
+      "agi": 2,
+      "int": 2
+    },
+    "rings": {
+      "fire": 2,
+      "air": 2,
+      "water": 2,
+      "earth": 2
+    },
+    "wounds": {
+      "value": 0,
+      "max": 20
+    },
+    "wound_lvl": {
+      "healthy": 0,
+      "nicked": 0,
+      "grazed": 0,
+      "hurt": 0,
+      "injured": 0,
+      "crippled": 0,
+      "down": 0,
+      "out": 0
+    },
+    "armor":{
+      "armor_tn": 0,
+      "reduction": 0
     }
+    },
+    "npc": {
+      "templates":[
+        "common"
+      ],
+      "initiative" : "2k2",
+      "attack": "4k2",
+      "damage": "4k2",
+      "taint_rank": 2
+    },
+    "pc": {
+      "templates":[
+        "common"
+      ],
+      "rings":{
+        "void":{
+          "value": 2,
+          "max": 2
+        }
+      },
+      "skills":{
+        "acting": {
+          "value": 0,
+          "type": "high",
+          "trait": "awa",
+          "emphasis": []
+        },
+        "artisan": {
+        "value": 0,
+        "type": "high",
+        "trait": "awa",
+        "emphasis": []
+        },
+        "caligraphy": {
+          "value": 0,
+          "type": "high",
+          "trait": "int",
+          "emphasis": []
+        },
+        "courtier": {
+          "value": 0,
+          "type": "high",
+          "trait": "awa",
+          "emphasis": []
+        },
+        "divination": {
+          "value": 0,
+          "type": "high",
+          "trait": "int",
+          "emphasis": []
+        },
+        "etiquette": {
+          "value": 0,
+          "type": "high",
+          "trait": "awa",
+          "emphasis": []
+        },
+        "games": {
+          "value": 0,
+          "type": "high",
+          "trait": "awa",
+          "emphasis": []
+        },
+        "investigation": {
+          "value": 0,
+          "type": "high",
+          "trait": "per",
+          "emphasis": []
+        },
+        "lore": {
+          "value": 0,
+          "type": "high",
+          "trait": "int",
+          "emphasis": []
+        },
+        "medicine": {
+          "value": 0,
+          "type": "high",
+          "trait": "int",
+          "emphasis": []
+        },
+        "meditation": {
+          "value": 0,
+          "type": "high",
+          "trait": "void",
+          "emphasis": []
+        },
+        "perform": {
+          "value": 0,
+          "type": "high",
+          "trait": "awa",
+          "emphasis": []
+        },
+        "sincerity": {
+          "value": 0,
+          "type": "high",
+          "trait": "awa",
+          "emphasis": []
+        },
+        "spellcraft": {
+          "value": 0,
+          "type": "high",
+          "trait": "awa",
+          "emphasis": []
+        },
+        "tea": {
+          "value": 0,
+          "type": "high",
+          "trait": "voud",
+          "emphasis": []
+        }
+      }
+    }
+  }
+  },
+  "Item":{
+    "types":[
+      "weapon", 
+      "armor",
+      "spell"
+    ],
+    "templates": {
+      "itemDescription": {
+      "description": "",
+      "specialRules": ""
+      }
+    },
+    "weapon":{
+      "templates":[
+      "itemDescription"
+      ],
+      "damageRoll": 0,
+      "damageeKeep": 0,
+      "size": "medium"    
+    },
+    "armor":{
+      "templates":[
+      "itemDescription"
+      ],
+      "bonus": 0,
+      "reduction": 0,
+      "specialRues": ""
+    },
+    "spell": {
+      "templates":[
+        "itemDescription"
+      ],
+      "ring": "",
+      "mastery": 1,
+      "keywords": [],
+      "range": "",
+      "aoe": "",
+      "duration": "",
+      "raises": ""
+    }
+  }
 }
