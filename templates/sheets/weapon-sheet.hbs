@@ -3,7 +3,7 @@
   <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
   <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
   </header>
-  <div>
+  <div class="sheet-content">
   <table>
     <tr>
     <th>{{localize "l5r4.weapon.size"}}</th>
@@ -20,15 +20,15 @@
       </select>
     </tr>
     <td>
+    <input name="data.size" type="text" value="{{data.size}}" />
+    </td>
+    <td>
     <input name="data.damageRoll" type="text" value="{{data.damageRoll}}" data-type="Number" />
     </td>
     <td>
     <input name="data.damageKeep" type="text" value="{{data.damageKeep}}" data-type="Number" />
     </td>
-    <td>
-    <input name="data.size" type="text" value="{{data.size}}" />
-    </td>
   </table>
-  <textarea name="data.description">{{data.description}}</textarea>
+    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
   </div>
 </form>

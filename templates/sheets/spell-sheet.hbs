@@ -4,40 +4,40 @@
   <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
   </header>
   <div>
-  <table>
-    <tr>
-      <th>{{localize "l5r4.spell.mastery"}}</th>
-      <th>{{localize "l5r4.spell.range"}}</th>
-      <th>{{localize "l5r4.spell.aoe"}}</th>
-      <th>{{localize "l5r4.spell.duration"}}</th>
-      <th>{{localize "l5r4.spell.raises"}}</th>
-    </tr>
-    <tr>
-    <select name="data.ring">
-      <option selected disabled>{{localize "l5r4.spell.ring"}}</option>
-      {{#select data.ring}}
-      {{#each config.rings as |name type|}}
-      <option value="{{type}}">{{localize name}}</option>
-      {{/each}}
-      {{/select}}
-    </select>
-    </tr>
-    <td>
-      <input name="data.mastery" type="text" value="{{data.mastery}}" data-type="Number" />
-    </td>
-    <td>
-      <input name="data.range" type="text" value="{{data.range}}" data-type="String" />
-    </td>
-    <td>
-      <input name="data.aoe" type="text" value="{{data.aoe}}" data-type="String" />
-    </td>
-    <td>
-      <input name="data.duration" type="text" value="{{data.duration}}" data-type="String" />
-    </td>
-    <td>
-      <input name="data.raises" type="text" value="{{data.raises}}" data-type="String" />
-    </td>
-  </table>
-  <textarea name="data.description">{{data.description}}</textarea>
+    <table>
+      <tr>
+        <th>{{localize "l5r4.spell.mastery"}}</th>
+        <th>{{localize "l5r4.spell.range"}}</th>
+        <th>{{localize "l5r4.spell.aoe"}}</th>
+        <th>{{localize "l5r4.spell.duration"}}</th>
+        <th>{{localize "l5r4.spell.raises"}}</th>
+      </tr>
+      <tr>
+      <select name="data.ring">
+        <option selected disabled>{{localize "l5r4.spell.ring"}}</option>
+        {{#select data.ring}}
+        {{#each config.rings as |name type|}}
+        <option value="{{type}}">{{localize name}}</option>
+        {{/each}}
+        {{/select}}
+      </select>
+      </tr>
+      <td>
+        <input name="data.mastery" type="text" value="{{data.mastery}}" data-type="Number" />
+      </td>
+      <td>
+        <input name="data.range" type="text" value="{{data.range}}" data-type="String" />
+      </td>
+      <td>
+        <input name="data.aoe" type="text" value="{{data.aoe}}" data-type="String" />
+      </td>
+      <td>
+        <input name="data.duration" type="text" value="{{data.duration}}" data-type="String" />
+      </td>
+      <td>
+        <input name="data.raises" type="text" value="{{data.raises}}" data-type="String" />
+      </td>
+    </table>
+    <textarea name="data.description">{{data.description}}</textarea>
   </div>
 </form>
