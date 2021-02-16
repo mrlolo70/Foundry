@@ -10,8 +10,41 @@
 .l5r4.sheet.item .sheet-content .editor {
   height: 100%;
 }
-.l5r4.sheet.pc .sidebar {
+.l5r4.sheet.pc .ranks {
+  text-align: center;
+  text-align-last: center;
+  align-items: center;
+}
+.l5r4.sheet.pc .ranks .rank-name {
+  display: flex;
+  flex-direction: row;
+}
+.l5r4.sheet.pc .ranks select {
+  font-size: 1em;
+}
+.l5r4.sheet.pc .ranks input {
+  border: none;
+  margin-bottom: 0.25em;
+}
+.l5r4.pc .main-stats {
+  display: flex;
+}
+.l5r4.pc .sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.l5r4.pc h1 {
+  text-align: center;
+  color: red;
+}
+.l5r4.pc .actor-img {
+  width: 256px;
+}
+.l5r4.pc input {
+  width: 100%;
+}
+.l5r4.pc select {
+  border: none;
+  text-align: center;
 }

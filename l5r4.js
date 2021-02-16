@@ -50,8 +50,4 @@ Hooks.once("init", function () {
       "%": lvalue % rvalue
     }[operator];
   });
-
-  Item.create({name: "Test Weapon", type: "weapon"}).then(item => {
-    console.log(item.data);
-  })
 });
