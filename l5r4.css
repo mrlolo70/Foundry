@@ -10,3 +10,8 @@
 .l5r4.sheet.item .sheet-content .editor {
   height: 100%;
 }
+.l5r4.sheet.pc .sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

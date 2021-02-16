@@ -1,0 +1,19 @@
+<section>
+  <div class="wounds-heal-table">
+    <table align="center">
+      <tr>
+        <th>{{localize "l5r4.traits.woundHealRate"}}</th>
+      </tr>
+      <tr>
+        <td>{{localize "l5r4.traits.sta"}} x 2 + {{localize "l5r4.ranks.insightRank"}}</td>
+        <td>{{math (math data.traits.sta "*" 2) "+" data.insight.rank}} </td>
+      </tr>
+      <tr>
+        <td>{{localize "l5r4.mech.mod"}}</td>
+        <td><input type="text" name="data.wounds.mod" value="{{data.wounds.mod}}" data-type="Number" /></td>
+      </tr>
+      <td>{{localize "l5r4.mech.current"}} {{localize "l5r4.mech.rate"}}</td>
+      <td><input type="text" name="data.wounds.heal_rate" value="{{data.wounds.heal_rate}}" data-type="Number" /></td>
+    </table>
+  </div>
+</section>

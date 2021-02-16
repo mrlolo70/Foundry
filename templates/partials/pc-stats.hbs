@@ -1,0 +1,111 @@
+<section>
+  <label class="pc-info">
+    <table align="center">
+      <tr>
+        <td>{{localize "l5r4.traits.name"}}</td>
+        <td>
+          <input type="text" name="data.name" value="{{data.name}}" />
+        </td>
+        <td>{{localize "l5r4.traits.rank"}}</td>
+        <td><input type="text" name="data.insight.rank" value="{{data.insight.rank}}" data-type="Number" /></td>
+      </tr>
+      <tr>
+        <td>{{localize "l5r4.traits.clan"}}</td>
+        <td><input name="data.clan" type="text" value="{{data.clan}}" /></td>
+        <td>{{localize "l5r4.traits.xp"}}</td>
+        <td><input type="text" name="data.xp" value="{{data.xp}}" data-type="Number" /></td>
+      </tr>
+      <tr>
+        <td>{{localize "l5r4.traits.school"}}</td>
+        <td><input type="text" name="data.data.school" value="{{data.data.school}}" data-type="Number" /></td>
+        <td>{{localize "l5r4.traits.insight"}}</td>
+        <td><input type="text" name="data.insight.points" value="{{data.insight.points}}" data-type="Number" /></td>
+      </tr>
+    </table>
+  </label>
+  <label class="traits-rings">
+    <div style=background-color:#B4C8DB;>
+      <div>
+        <img width="64%" src="http://i.imgur.com/qkte4EC.png" />
+        <h3>{{localize "l5r4.rings.air"}}</h3>
+      </div>
+      <div>
+        <input name="data.rings.air" type="hidden" value="{{data.rings.air}}" data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.traits.ref"}}</p>
+        <input name="data.traits.ref" type="text" value='{{data.traits.ref}}' data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.traits.awa"}}</p>
+        <input type="number" value='{{data.traits.awa}}' name="data.traits.awa" data-type="Number" />
+      </div>
+    </div>
+    <div class="sheet-col" style=background-color:#B39C85;>
+      <div>
+        <img width="67%" src="http://i.imgur.com/bHoZ2zK.png" />
+        <h3>{{localize "l5r4.rings.earth"}}</h3>
+      </div>
+      <div>
+        <input type="hidden" name="data.rings.earth" value="{{data.rings.earth}}" data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.traits.sta"}}</p>
+        <input type="number" value='{{data.traits.sta}}' name="data.traits.sta" data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.traits.wil"}}</p>
+        <input type="number" value='{{data.traits.wil}}' name="data.traits.wil" data-type="Number" />
+      </div>
+    </div>
+    <div class="sheet-col" style=background-color:#EBA93C;>
+      <div>
+        <img width="62%" src="http://i.imgur.com/7hVQbK7.png" />
+        <h3>{{localize "l5r4.rings.fire"}}</h3>
+      </div>
+      <div>
+        <input type="hidden" name="data.rings.fire" value="{{data.rings.fire}}" data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.traits.agi"}}</p>
+        <input type="number" value='{{data.traits.agi}}' name="data.traits.agi" data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.traits.int"}}</p>
+        <input type="number" value='{{data.traits.int}}' name="data.traits.int" data-type="Number" />
+      </div>
+    </div>
+    <div class="sheet-col" style=background-color:#98ADDA;>
+      <p></p>
+      <div class="attribute">
+        <img width="66%" src="http://i.imgur.com/sOvpnaa.png" />
+        <h3>{{localize "l5r4.rings.water"}}</h3>
+      </div>
+      <div>
+        <input type="hidden" name="data.rings.water" value="{{data.rings.water}}" data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.traits.str"}}</p>
+        <input type="number" value='{{data.traits.str}}' name="data.traits.str" data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.traits.per"}}</p>
+        <input type="number" value='{{data.traits.per}}' name="data.traits.per" data-type="Number" />
+      </div>
+    </div>
+    <div class="sheet-col" style=background-color:#BDA7A8;>
+      <p></p>
+      <div class="attribute">
+        <img width="65%" src="http://i.imgur.com/jnlStIs.png" />
+        <h3>{{localize "l5r4.rings.void"}}</h3>
+      </div>
+      <div>
+        <input type="number" name="data.rings.void.rank" value="{{data.rings.void.rank}}" data-type="Number" />
+      </div>
+      <div>
+        <p>{{localize "l5r4.rings.voidPoints"}}</p>
+        <input type="number" value='{{data.rings.void.value}}' name="data.rings.void.value" data-type="Number" />
+      </div>
+    </div>
+  </label>
+</section>

@@ -1,2 +1,64 @@
-<form class="{{cssClass}}" autocomplete="off">
-</form>
+<section>
+  <label class="ranks-names">
+    <h3>
+      {{localize "l5r4.ranks.honorRank"}}
+      <input name="data.honor.rank" type="text" value="{{data.honor.rank}}" data-type="Number" />
+      {{localize "l5r4.ranks.honorPoints"}}
+      <input name="data.honor.points" type="text" value="{{data.honor.points}}" data-type="Number" />
+    </h3>
+    <h3>
+      {{localize "l5r4.ranks.gloryRank"}}
+      <input name="data.glory.rank" type="text" value="{{data.glory.rank}}" data-type="Number" />
+      {{localize "l5r4.ranks.gloryPoints"}}
+      <input name="data.glory.points" type="text" value="{{data.glory.points}}" data-type="Number" />
+    </h3>
+    <h3>
+      {{localize "l5r4.ranks.statusRank"}}
+      <input name="data.status.rank" type="text" value="{{data.status.rank}}" data-type="Number" />
+      {{localize "l5r4.ranks.statusPoints"}}
+      <input name="data.status.points" type="text" value="{{data.status.points}}" data-type="Number" />
+    </h3>
+    <h3>
+      {{localize "l5r4.ranks.shadowRank"}}
+      <input name="data.shadow_taint.rank" type="text" value="{{data.shadow_taint.rank}}" data-type="Number" />
+      {{localize "l5r4.ranks.shadowPoints"}}
+      <input name="data.shadow_taint.points" type="text" value="{{data.shadow_taint.points}}" data-type="Number" />
+    </h3>
+  </label>
+</section>
+<section>
+  <label class="combat-stats">
+    <div>
+      <table class="initiative-table" align="center">
+        <tr>
+          <th> {{localize "l5r4.mech.init"}} </th>
+        </tr>
+        <tr>
+          <td>{{localize "l5r4.ranks.insightRank"}}+{{localize "l5r4.traits.ref"}}</td>
+          <td colspan="2"><input type="text" disabled="true" name="data.initiative.roll"
+              value="{{data.traits.ref}}+{{data.insight.rank}}" data-type="Number" />
+            <br />
+          </td>
+        <tr>
+        <tr>
+          <td>{{localize "l5r4.mech.roll"}}/{{localize "l5r4.mech.keep"}} {{localize "l5r4.mech.bonus"}}</td>
+          <td><input type="text" name="data.initiative.roll_mod" value="{{data.initiative.roll_mod}}"
+              data-type="Number" /></td>
+          <td><input type="text" name="data.initiative.keep_mod" value="{{data.initiative.keep_mod}}"
+              data-type="Number" /></td>
+        </tr>
+        <tr>
+          <td>{{localize "l5r4.mech.mod"}}</td>
+          <td><input type="text" name="data.initiative.total_mod" value="{{data.initiative.total_mod}}"
+              data-type="Number" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>{{math data.initiative.roll "+" data.initiative.roll_mod}}k{{math data.initiative.keep "+"
+            data.initiative.keep_mod}}+{{data.initiative.total_mod}}</td>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </label>
+</section>

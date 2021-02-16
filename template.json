@@ -1,66 +1,105 @@
 {
-  "Actor":{
-  "types": [
-    "pc",
-    "npc"
-  ],
-  "templates":{
-    "common":{
-    "traits": {
-      "sta": 2,
-      "wil": 2,
-      "str": 2,
-      "per": 2,
-      "ref": 2,
-      "awa": 2,
-      "agi": 2,
-      "int": 2
-    },
-    "rings": {
-      "fire": 2,
-      "air": 2,
-      "water": 2,
-      "earth": 2
-    },
-    "wounds": {
-      "value": 0,
-      "max": 20
-    },
-    "wound_lvl": {
-      "healthy": 0,
-      "nicked": 0,
-      "grazed": 0,
-      "hurt": 0,
-      "injured": 0,
-      "crippled": 0,
-      "down": 0,
-      "out": 0
-    },
-    "armor":{
-      "armor_tn": 0,
-      "reduction": 0
-    }
+  "Actor": {
+    "types": [
+      "pc",
+      "npc"
+    ],
+    "templates": {
+      "common": {
+        "traits": {
+          "sta": 2,
+          "wil": 2,
+          "str": 2,
+          "per": 2,
+          "ref": 2,
+          "awa": 2,
+          "agi": 2,
+          "int": 2
+        },
+        "rings": {
+          "fire": 2,
+          "air": 2,
+          "water": 2,
+          "earth": 2
+        },
+        "wounds": {
+          "value": 0,
+          "max": 20,
+          "mod": 0,
+          "heal_rate": 0
+        },
+        "wound_lvl": {
+          "healthy": 0,
+          "nicked": 0,
+          "grazed": 0,
+          "hurt": 0,
+          "injured": 0,
+          "crippled": 0,
+          "down": 0,
+          "out": 0
+        },
+        "armor": {
+          "armor_tn": 0,
+          "reduction": 0
+        }
+      }
     },
     "npc": {
-      "templates":[
+      "templates": [
         "common"
       ],
-      "initiative" : "2k2",
+      "initiative": "2k2",
       "attack": "4k2",
       "damage": "4k2",
       "taint_rank": 2
     },
     "pc": {
-      "templates":[
+      "templates": [
         "common"
       ],
-      "rings":{
-        "void":{
+      "rings": {
+        "void": {
+          "rank": 2,
           "value": 2,
           "max": 2
         }
       },
-      "skills":{
+      "xp": 0,
+      "clan": "",
+      "school": "",
+      "honor": {
+        "rank": 2,
+        "points": 0
+      },
+      "glory": {
+        "rank": 1,
+        "points": 0
+      },
+      "status": {
+        "rank": 1,
+        "points": 0
+      },
+      "shadow_taint": {
+        "rank": 0,
+        "points": 0
+      },
+      "initiative": {
+        "roll": 2,
+        "keep": 2,
+        "roll_mod": 0,
+        "keep_mod": 0,
+        "total_mod": 0
+      },
+      "insight": {
+        "rank": 1,
+        "points": 0
+      },
+      "armor_tn": {
+        "type": "",
+        "reduction": 0,
+        "current_tn": 0
+      },
+      "skills": {
         "acting": {
           "value": 0,
           "type": "high",
@@ -68,10 +107,10 @@
           "emphasis": []
         },
         "artisan": {
-        "value": 0,
-        "type": "high",
-        "trait": "awa",
-        "emphasis": []
+          "value": 0,
+          "type": "high",
+          "trait": "awa",
+          "emphasis": []
         },
         "caligraphy": {
           "value": 0,
@@ -153,38 +192,37 @@
         }
       }
     }
-  }
   },
-  "Item":{
-    "types":[
-      "weapon", 
+  "Item": {
+    "types": [
+      "weapon",
       "armor",
       "spell"
     ],
     "templates": {
       "itemDescription": {
-      "description": "",
-      "specialRules": ""
+        "description": "",
+        "specialRules": ""
       }
     },
-    "weapon":{
-      "templates":[
-      "itemDescription"
+    "weapon": {
+      "templates": [
+        "itemDescription"
       ],
       "damageRoll": 0,
       "damageeKeep": 0,
-      "size": "medium"    
+      "size": "medium"
     },
-    "armor":{
-      "templates":[
-      "itemDescription"
+    "armor": {
+      "templates": [
+        "itemDescription"
       ],
       "bonus": 0,
       "reduction": 0,
       "specialRues": ""
     },
     "spell": {
-      "templates":[
+      "templates": [
         "itemDescription"
       ],
       "ring": "",

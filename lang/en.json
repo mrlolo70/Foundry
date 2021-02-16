@@ -1,5 +1,16 @@
 {
   "l5r4": {
+    "mech": {
+      "roll": "Roll",
+      "keep": "Keep",
+      "raise": "Raise",
+      "init": "Initiative",
+      "bonus": "Bonus",
+      "mod": "Modifier",
+      "rate": "Rate",
+      "current": "Rurrent",
+      "total": "Rotal"
+    },
     "attack": {
       "none": "",
       "melee": "Melee",
@@ -12,6 +23,7 @@
       "damageKeep": "Damage Keep"
     },
     "armor": {
+      "name": "Armor", 
       "bonus": "Bonus",
       "reduction": "Reduction"
     },
@@ -28,9 +40,16 @@
       "water": "Water",
       "air": "Air",
       "earth": "Earth",
-      "void": "Void"
+      "void": "Void",
+      "voidPoints": "Void Points"
     },
     "traits": {
+      "name": "Name",
+      "clan": "Clan",
+      "school": "School",
+      "rank": "Rank",
+      "xp": "Experience Points",
+      "insight": "Insight",
       "sta": "Stamina",
       "wil": "Willpower",
       "str": "Strength",
@@ -38,7 +57,21 @@
       "ref": "Reflexes",
       "awa": "Awareness",
       "agi": "Agility",
-      "int": "Intelligence"
+      "int": "Intelligence",
+      "wounds": "Wounds",
+      "woundHealRate": "Rate of Wound Heal"
+    },
+    "ranks": {
+      "honorRank": "Honor Rank",
+      "honorPoints": "Honor Points",
+      "gloryRank": "Glory Rank",
+      "gloryPoints": "Glory Points",
+      "statusRank": "Status Rank",
+      "statusPoints": "Status Points",
+      "shadowRank": "Shadowland Taint",
+      "shadowPoints": "Shadow Points",
+      "insightRank": "Insight Rank",
+      "insightPoints": "Insight Points"
     }
   }
 }
