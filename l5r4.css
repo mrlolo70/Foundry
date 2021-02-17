@@ -10,41 +10,110 @@
 .l5r4.sheet.item .sheet-content .editor {
   height: 100%;
 }
-.l5r4.sheet.pc .ranks {
+.l5r4.pc .ranks {
   text-align: center;
   text-align-last: center;
   align-items: center;
 }
-.l5r4.sheet.pc .ranks .rank-name {
+.l5r4.pc .ranks .rank-name {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  flex: 0 1 auto;
 }
-.l5r4.sheet.pc .ranks select {
+.l5r4.pc .ranks select {
   font-size: 1em;
 }
-.l5r4.sheet.pc .ranks input {
+.l5r4.pc .ranks input {
   border: none;
   margin-bottom: 0.25em;
+  flex-shrink: 7;
 }
-.l5r4.pc .main-stats {
+.l5r4.pc .combat-stats .initiative-table {
+  display: flexbox;
+  align-items: center;
+  text-align: center;
+  width: fit-content;
+}
+.l5r4.pc .combat-stats input {
+  border: none;
+  margin-bottom: 0.25em;
+  flex-shrink: 7;
+}
+.l5r4.pc .main-sheet {
   display: flex;
+  flex-flow: row;
 }
-.l5r4.pc .sidebar {
+.l5r4.pc .main-sheet .main-stats {
+  order: 1;
+  flex: 0 0 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.l5r4.pc h1 {
-  text-align: center;
-  color: red;
+.l5r4.pc .main-sheet .sidebar {
+  order: 2;
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.l5r4.pc .actor-img {
+.l5r4.pc .main-sheet .actor-img {
   width: 256px;
+  border: none;
 }
-.l5r4.pc input {
-  width: 100%;
+.l5r4.pc .main-sheet input {
+  flex: 1;
 }
-.l5r4.pc select {
+.l5r4.pc .main-sheet select {
   border: none;
   text-align: center;
+}
+.l5r4.pc {
+  display: flex;
+  flex-direction: column;
+}
+.l5r4.pc .pc-info {
+  display: flex;
+  flex-direction: row;
+}
+.l5r4.pc .traits-rings {
+  display: flex;
+  flex-direction: row;
+}
+.l5r4.pc .ring-img {
+  border: none;
+}
+.l5r4.pc .skills {
+  display: flex;
+  flex-direction: column;
+}
+.l5r4.pc .skills h2 {
+  display: flex;
+  flex-direction: row;
+}
+.l5r4.pc .skills h2 .item-create {
+  margin-left: auto;
+}
+.l5r4.pc .skills .skill-item {
+  display: flex;
+  flex-direction: row;
+}
+.l5r4.pc .skills .skill-item .skill-value {
+  width: 3ch;
+}
+.l5r4.pc .skills .skill-item .skill-emphasis {
+  margin-top: auto;
+}
+.l5r4.pc .rate-heal {
+  display: flexbox;
+  align-items: center;
+  text-align: center;
+  width: fit-content;
+}
+.l5r4.pc .rate-heal input {
+  border: none;
+  margin-bottom: 0.25em;
+  flex-shrink: 7;
 }

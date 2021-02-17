@@ -1,20 +1,22 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <div class="main-stats">
-    {{> "systems/l5r4/templates/partials/pc-stats.hbs"}}
-  </div>
-  <div class="sidebar">
-    <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
-    <div class="honor-and-combat">
-      {{> "systems/l5r4/templates/partials/pc-honor-and-combat.hbs"}}
-      <section class="armor-list">
-        <h3>{{localize "l5r4.armor.name"}}</h3>
-        {{#each armor as |armor id|}}
-        {{> "systems/l5r4/templates/partials/armor-card.hbs" armor}}
-        {{/each}}
-      </section>
-      <section class="wounds">
-        {{> "systems/l5r4/templates/partials/pc-wounds.hbs"}}
-      </section>
+  <div class="main-sheet">
+    <div class="main-stats">
+      {{> "systems/l5r4/templates/partials/pc-stats.hbs"}}
+    </div>
+    <div class="sidebar">
+      <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+      <div class="honor-and-combat">
+        {{> "systems/l5r4/templates/partials/pc-honor-and-combat.hbs"}}
+        <section class="armor-list">
+          <h3>{{localize "l5r4.armor.name"}}</h3>
+          {{#each armor as |armor id|}}
+          {{> "systems/l5r4/templates/partials/armor-card.hbs" armor}}
+          {{/each}}
+        </section>
+        <section class="wounds">
+          {{> "systems/l5r4/templates/partials/pc-wounds.hbs"}}
+        </section>
+      </div>
     </div>
   </div>
 </form>

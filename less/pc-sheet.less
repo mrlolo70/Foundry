@@ -1,28 +1,37 @@
 .l5r4.pc{
-  .main-stats{
-    display: flex;
-  }
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  .main-sheet{
+  display: flex;
+  flex-flow: row;  
 
-  h1 {
-    text-align: center;
-    color: red;
-  }
 
-  .actor-img {
-    width: 256px;
-  }
+    .main-stats{
+      order: 1;
+      flex: 0 0 75%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  input {
-    width: 100%;
-  }
+    .sidebar {
+      order: 2;
+      flex: 0 0 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  select {
-    border: none;
-    text-align: center;
+    .actor-img {
+      width: 256px;
+      border: none;
+    }
+
+    input {
+      flex: 1;
+    }
+
+    select {
+      border: none;
+      text-align: center;
+    }
   }
 }

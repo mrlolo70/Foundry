@@ -1,4 +1,4 @@
-.l5r4.sheet.pc {
+.l5r4.pc {
   .ranks {
     text-align: center;
     text-align-last: center;
@@ -7,6 +7,9 @@
     .rank-name {
       display: flex;
       flex-direction: row;
+      justify-content: space-evenly;
+      align-items: baseline;
+      flex: 0 1 auto;
     }
 
     select {
@@ -15,6 +18,22 @@
     input {
       border: none;
       margin-bottom: 0.25em;
+      flex-shrink: 7;
+    }
+  }
+
+  .combat-stats {
+    .initiative-table {
+      display: flexbox;
+      align-items: center;
+      text-align: center;
+      width: fit-content;
+
+    }
+    input {
+      border: none;
+      margin-bottom: 0.25em;
+      flex-shrink: 7;
     }
   }
 }

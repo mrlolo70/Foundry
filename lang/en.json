@@ -23,7 +23,7 @@
       "damageKeep": "Damage Keep"
     },
     "armor": {
-      "name": "Armor", 
+      "name": "Armor",
       "bonus": "Bonus",
       "reduction": "Reduction"
     },
@@ -43,6 +43,13 @@
       "void": "Void",
       "voidPoints": "Void Points"
     },
+    "skill": {
+      "rank": "Rank",
+      "type": "Type",
+      "trait": "Trait",
+      "emphasis": "Emphases",
+      "school": "School skill"
+    },
     "traits": {
       "name": "Name",
       "clan": "Clan",
@@ -60,6 +67,17 @@
       "int": "Intelligence",
       "wounds": "Wounds",
       "woundHealRate": "Rate of Wound Heal"
+    },
+    "sheet": {
+      "skills": "Skills",
+      "addSkill": "Add skill",
+      "skillName": "Skill name"
+    },
+    "skillTypes": {
+      "high": "High",
+      "bugei": "Bugei",
+      "merch": "Merchant",
+      "low": "Low"
     },
     "ranks": {
       "honorRank": "Honor Rank",

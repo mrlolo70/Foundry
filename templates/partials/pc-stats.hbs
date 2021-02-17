@@ -7,26 +7,26 @@
           <input type="text" name="data.name" value="{{data.name}}" />
         </td>
         <td>{{localize "l5r4.traits.rank"}}</td>
-        <td><input type="text" name="data.insight.rank" value="{{data.insight.rank}}" data-type="Number" /></td>
+        <td><input type="number" name="data.insight.rank" value="{{data.insight.rank}}" data-type="Number" /></td>
       </tr>
       <tr>
         <td>{{localize "l5r4.traits.clan"}}</td>
         <td><input name="data.clan" type="text" value="{{data.clan}}" /></td>
         <td>{{localize "l5r4.traits.xp"}}</td>
-        <td><input type="text" name="data.xp" value="{{data.xp}}" data-type="Number" /></td>
+        <td><input type="number" name="data.xp" value="{{data.xp}}" data-type="Number" /></td>
       </tr>
       <tr>
         <td>{{localize "l5r4.traits.school"}}</td>
-        <td><input type="text" name="data.data.school" value="{{data.data.school}}" data-type="Number" /></td>
+        <td><input type="text" name="data.school" value="{{data.school}}" data-type="String" /></td>
         <td>{{localize "l5r4.traits.insight"}}</td>
-        <td><input type="text" name="data.insight.points" value="{{data.insight.points}}" data-type="Number" /></td>
+        <td><input type="number" name="data.insight.points" value="{{data.insight.points}}" data-type="Number" /></td>
       </tr>
     </table>
   </label>
   <label class="traits-rings">
     <div style=background-color:#B4C8DB;>
       <div>
-        <img width="64%" src="http://i.imgur.com/qkte4EC.png" />
+        <img class="ring-img" src="http://i.imgur.com/qkte4EC.png" />
         <h3>{{localize "l5r4.rings.air"}}</h3>
       </div>
       <div>
@@ -34,7 +34,7 @@
       </div>
       <div>
         <p>{{localize "l5r4.traits.ref"}}</p>
-        <input name="data.traits.ref" type="text" value='{{data.traits.ref}}' data-type="Number" />
+        <input name="data.traits.ref" type="number" value='{{data.traits.ref}}' data-type="Number" />
       </div>
       <div>
         <p>{{localize "l5r4.traits.awa"}}</p>
@@ -43,7 +43,7 @@
     </div>
     <div class="sheet-col" style=background-color:#B39C85;>
       <div>
-        <img width="67%" src="http://i.imgur.com/bHoZ2zK.png" />
+        <img class="ring-img" src="http://i.imgur.com/bHoZ2zK.png" />
         <h3>{{localize "l5r4.rings.earth"}}</h3>
       </div>
       <div>
@@ -60,7 +60,7 @@
     </div>
     <div class="sheet-col" style=background-color:#EBA93C;>
       <div>
-        <img width="62%" src="http://i.imgur.com/7hVQbK7.png" />
+        <img class="ring-img" src="http://i.imgur.com/7hVQbK7.png" />
         <h3>{{localize "l5r4.rings.fire"}}</h3>
       </div>
       <div>
@@ -76,9 +76,8 @@
       </div>
     </div>
     <div class="sheet-col" style=background-color:#98ADDA;>
-      <p></p>
       <div class="attribute">
-        <img width="66%" src="http://i.imgur.com/sOvpnaa.png" />
+        <img class="ring-img" src="http://i.imgur.com/sOvpnaa.png" />
         <h3>{{localize "l5r4.rings.water"}}</h3>
       </div>
       <div>
@@ -94,9 +93,8 @@
       </div>
     </div>
     <div class="sheet-col" style=background-color:#BDA7A8;>
-      <p></p>
       <div class="attribute">
-        <img width="65%" src="http://i.imgur.com/jnlStIs.png" />
+        <img class="ring-img" src="http://i.imgur.com/jnlStIs.png" />
         <h3>{{localize "l5r4.rings.void"}}</h3>
       </div>
       <div>
@@ -108,4 +106,7 @@
       </div>
     </div>
   </label>
+  
+    {{> "systems/l5r4/templates/partials/pc-skills.hbs"}}
+  
 </section>
