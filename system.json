@@ -25,5 +25,5 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "wounds",
-  "initiative": "@reflexesd10"
+  "initiative": ""
 }
