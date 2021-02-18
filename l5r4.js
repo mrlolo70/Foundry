@@ -7,9 +7,11 @@ async function preloadHandlebarsTemplates() {
   const templatePaths = [
     "systems/l5r4/templates/partials/pc-honor-and-combat.hbs",
     "systems/l5r4/templates/partials/armor-card.hbs",
+    "systems/l5r4/templates/partials/weapon-card.hbs",
     "systems/l5r4/templates/partials/pc-wounds.hbs",
     "systems/l5r4/templates/partials/pc-stats.hbs",
-    "systems/l5r4/templates/partials/pc-skills.hbs"
+    "systems/l5r4/templates/partials/pc-skills.hbs",
+    "systems/l5r4/templates/partials/pc-weapons.hbs"
   ];
 
   return loadTemplates(templatePaths);
@@ -32,6 +34,7 @@ Hooks.once("init", function () {
   Handlebars.registerHelper("times", function (n, content) {
     let result = "";
     for (let i = 0; i < n; ++i) {
+      content.data.index = i + 1;
       result += content.fn(i);
     }
 

@@ -1,3 +1,29 @@
+<section class="wounds-grid">
+  <div class="wounds-name">
+    {{localize "l5r4.traits.wounds"}}
+  </div>
+  <div class="wounds-value">
+    <input type="number" name="data.wounds.value" value="{{data.wounds.value}}" data-type="Number"/> 
+  </div>
+  <div class="wounds-level">
+    {{localize "l5r4.traits.woundLevel"}}
+  </div>
+  <div class="wounds-penalty">
+    {{localize "l5r4.traits.penalty"}}
+  </div>
+  <div class="wounds-total">
+    {{localize "l5r4.traits.total"}}
+  </div>
+  <div class="wounds-current">
+    {{localize "l5r4.traits.current"}}
+  </div>
+  {{#each data.wound_lvl as |wound_lvl name|}}
+    <div class="wounds-lvl-name-{{@index}}">{{localize name}}</div>
+    <div class="wounds-lvl-value-{{@index}}">{{value}}</div>
+    <div class="wounds-lvl-penalty-{{@index}}">{{penalty}}</div>
+    <input type="checkbox" disabled class="wounds-lvl-current-{{@index}}" {{checked current}} data-type="Boolean"/>
+  {{/each}}
+</section>
 <section class="wounds-heal-table">
   <div>
     <table class="rate-heal" align="center">

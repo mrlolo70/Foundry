@@ -2,6 +2,13 @@
   display: flex;
   flex-direction: column;
 
+  .misc{
+    height: 100%;
+  }
+  .editor .editor-content {
+    min-height: 400px;
+  }
+
   .pc-info{
     display: flex;
     flex-direction: row;
@@ -16,17 +23,23 @@
     border: none;
   }
 
+  h2{
+    display: flex;
+    flex-direction: row;
+
+    .item-create {
+      margin-left: auto;
+    }
+  }
+
   .skills {
     display: flex;
     flex-direction: column;
-  
-    h2{
+
+    h3 {
       display: flex;
       flex-direction: row;
-  
-      .item-create {
-        margin-left: auto;
-      }
+      justify-content: space-evenly;
     }
   
     .skill-item {
@@ -36,7 +49,8 @@
       .skill-value{
         width: 3ch;
       }
-  
+      
+
       .skill-emphasis{
         margin-top: auto;
       }

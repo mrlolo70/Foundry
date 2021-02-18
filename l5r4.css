@@ -44,6 +44,7 @@
 .l5r4.pc .main-sheet {
   display: flex;
   flex-flow: row;
+  width: fit-content;
 }
 .l5r4.pc .main-sheet .main-stats {
   order: 1;
@@ -74,6 +75,12 @@
   display: flex;
   flex-direction: column;
 }
+.l5r4.pc .misc {
+  height: 100%;
+}
+.l5r4.pc .editor .editor-content {
+  min-height: 400px;
+}
 .l5r4.pc .pc-info {
   display: flex;
   flex-direction: row;
@@ -85,16 +92,21 @@
 .l5r4.pc .ring-img {
   border: none;
 }
+.l5r4.pc h2 {
+  display: flex;
+  flex-direction: row;
+}
+.l5r4.pc h2 .item-create {
+  margin-left: auto;
+}
 .l5r4.pc .skills {
   display: flex;
   flex-direction: column;
 }
-.l5r4.pc .skills h2 {
+.l5r4.pc .skills h3 {
   display: flex;
   flex-direction: row;
-}
-.l5r4.pc .skills h2 .item-create {
-  margin-left: auto;
+  justify-content: space-evenly;
 }
 .l5r4.pc .skills .skill-item {
   display: flex;
@@ -106,6 +118,140 @@
 .l5r4.pc .skills .skill-item .skill-emphasis {
   margin-top: auto;
 }
+.l5r4.pc .wounds {
+  display: flex;
+  flex-direction: column;
+}
+.l5r4.pc .wounds-grid {
+  display: grid;
+  flex: 1;
+  max-height: 100%;
+  gap: 0.5rem;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-areas: "wn wv . ." "wl wp wt wc" "lvl0 lvl0p lvl0t lvl0c" "lvl1 lvl1p lvl1t lvl1c" "lvl2 lvl2p lvl2t lvl2c" "lvl3 lvl3p lvl3t lvl3c" "lvl4 lvl4p lvl4t lvl4c" "lvl5 lvl5p lvl5t lvl5c" "lvl6 lvl6p lvl6t lvl6c" "lvl7 lvl7p lvl7t lvl7c";
+}
+.l5r4.pc .wounds-name {
+  grid-area: wn;
+  font-weight: bold;
+}
+.l5r4.pc .wounds-value {
+  grid-area: wv;
+  font-weight: bold;
+}
+.l5r4.pc .wounds-level {
+  grid-area: wl;
+  font-weight: bold;
+}
+.l5r4.pc .wounds-penalty {
+  grid-area: wp;
+  font-weight: bold;
+}
+.l5r4.pc .wounds-total {
+  grid-area: wt;
+  font-weight: bold;
+}
+.l5r4.pc .wounds-current {
+  grid-area: wc;
+  font-weight: bold;
+}
+.l5r4.pc .wounds-lvl-name-0 {
+  grid-area: lvl0;
+}
+.l5r4.pc .wounds-lvl-penalty-0 {
+  grid-area: lvl0p;
+}
+.l5r4.pc .wounds-lvl-value-0 {
+  grid-area: lvl0t;
+}
+.l5r4.pc .wounds-lvl-current-0 {
+  grid-area: lvl0c;
+}
+.l5r4.pc .wounds-lvl-name-1 {
+  grid-area: lvl1;
+}
+.l5r4.pc .wounds-lvl-penalty-1 {
+  grid-area: lvl1p;
+}
+.l5r4.pc .wounds-lvl-value-1 {
+  grid-area: lvl1t;
+}
+.l5r4.pc .wounds-lvl-current-1 {
+  grid-area: lvl1c;
+}
+.l5r4.pc .wounds-lvl-name-2 {
+  grid-area: lvl2;
+}
+.l5r4.pc .wounds-lvl-penalty-2 {
+  grid-area: lvl2p;
+}
+.l5r4.pc .wounds-lvl-value-2 {
+  grid-area: lvl2t;
+}
+.l5r4.pc .wounds-lvl-current-2 {
+  grid-area: lvl2c;
+}
+.l5r4.pc .wounds-lvl-name-3 {
+  grid-area: lvl3;
+}
+.l5r4.pc .wounds-lvl-penalty-3 {
+  grid-area: lvl3p;
+}
+.l5r4.pc .wounds-lvl-value-3 {
+  grid-area: lvl3t;
+}
+.l5r4.pc .wounds-lvl-current-3 {
+  grid-area: lvl3c;
+}
+.l5r4.pc .wounds-lvl-name-4 {
+  grid-area: lvl4;
+}
+.l5r4.pc .wounds-lvl-penalty-4 {
+  grid-area: lvl4p;
+}
+.l5r4.pc .wounds-lvl-value-4 {
+  grid-area: lvl4t;
+}
+.l5r4.pc .wounds-lvl-current-4 {
+  grid-area: lvl4c;
+}
+.l5r4.pc .wounds-lvl-name-5 {
+  grid-area: lvl5;
+}
+.l5r4.pc .wounds-lvl-penalty-5 {
+  grid-area: lvl5p;
+}
+.l5r4.pc .wounds-lvl-value-5 {
+  grid-area: lvl5t;
+}
+.l5r4.pc .wounds-lvl-current-5 {
+  grid-area: lvl5c;
+}
+.l5r4.pc .wounds-lvl-name-6 {
+  grid-area: lvl6;
+}
+.l5r4.pc .wounds-lvl-penalty-6 {
+  grid-area: lvl6p;
+}
+.l5r4.pc .wounds-lvl-value-6 {
+  grid-area: lvl6t;
+}
+.l5r4.pc .wounds-lvl-current-6 {
+  grid-area: lvl6c;
+}
+.l5r4.pc .wounds-lvl-name-7 {
+  grid-area: lvl7;
+}
+.l5r4.pc .wounds-lvl-penalty-7 {
+  grid-area: lvl7p;
+}
+.l5r4.pc .wounds-lvl-value-7 {
+  grid-area: lvl7t;
+}
+.l5r4.pc .wounds-lvl-current-7 {
+  grid-area: lvl7c;
+}
 .l5r4.pc .rate-heal {
   display: flexbox;
   align-items: center;
@@ -116,4 +262,10 @@
   border: none;
   margin-bottom: 0.25em;
   flex-shrink: 7;
+}
+.l5r4.pc .weapons-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

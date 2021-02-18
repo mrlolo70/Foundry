@@ -108,5 +108,9 @@
   </label>
   
     {{> "systems/l5r4/templates/partials/pc-skills.hbs"}}
-  
+    {{> "systems/l5r4/templates/partials/pc-weapons.hbs"}}
+  <h2>{{localize "l5r4.sheet.notes"}}</h2>
+  <div class="misc"> 
+    {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+    </div>
 </section>

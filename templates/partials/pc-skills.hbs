@@ -1,15 +1,33 @@
 <section class="skills panelBorder">
   <h2>
     <div>{{localize "l5r4.sheet.skills"}}</div>
-    <a class="item-create" data-type="skill" title="{{localize " l5r4.sheet.addSkill"}}">
+    <a class="item-create" data-type="skill" title="{{localize "l5r4.sheet.addSkill"}}">
       <i class="fas fa-plus"></i>
     </a>
   </h2>
-  {{#each skill as |skill id|}}
+  <h3>
+    <div>{{localize "l5r4.sheet.skillName"}}</div>
+    <div>{{localize "l5r4.skill.rank"}}</div>
+    <div>{{localize "l5r4.skill.trait"}}</div>
+    <div>{{localize "l5r4.skill.type"}}</div>
+    <div>{{localize "l5r4.skill.school"}}</div>
+    <div>{{localize "l5r4.skill.emphasis"}}</div>
+  </h3>
+  {{#each skills as |skill id|}}
   <div class="skill-item item" data-item-id="{{skill._id}}">
-    <input class="skill-name" type="text" value="{{skill.name}}" placeholder="{{localize " l5r4.sheet.skillName"}}" />
-    <input class="skill-value" type="number" value="{{skill.data.value}}" placeholder="0" data-type="Number">
-    <select class="skill-type">
+    <input class="skill-name inline-edit" type="text" value="{{skill.name}}" data-field="name"
+    placeholder="{{localize "l5r4.sheet.skillName"}}" />
+    <input class="skill-value inline-edit" type="number" value="{{skill.data.rank}}" data-field="data.rank"
+     placeholder="0" data-type="Number">
+    <select class="skill-trait inline-edit" data-field="data.trait">
+      <option selected disabled>{{localize "l5r4.skill.trait"}}</option>
+      {{#select skill.data.trait}}
+      {{#each @root.config.traits as |name type|}}
+      <option value="{{type}}">{{localize name}}</option>
+      {{/each}}
+      {{/select}}
+    </select>
+    <select class="skill-type inline-edit" data-field="data.type">
       <option selected disabled>{{localize "l5r4.skill.type"}}</option>
       {{#select skill.data.type}}
       {{#each @root.config.skillTypes as |name type|}}
@@ -17,8 +35,11 @@
       {{/each}}
       {{/select}}
     </select>
-    <input class="school-check" type="checkbox" {{checked skill.data.school}} data-type="Boolean" />
-    <input class="skill-emphasis" type="text" value="{{skill.data.emphasis}}" />
+    <input class="school-check inline-edit" data-field="data.school" type="checkbox" {{checked skill.data.school}} data-type="Boolean" />
+    <input class="skill-emphasis inline-edit" data-field="data.emphasis" type="text" value="{{skill.data.emphasis}}" />
+    <a class="item-delete">
+      <i class="fas fa-trash"></i>
+    </a>
   </div>
   {{/each}}
 </section>

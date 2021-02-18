@@ -8,7 +8,7 @@
       "bonus": "Bonus",
       "mod": "Modifier",
       "rate": "Rate",
-      "current": "Rurrent",
+      "current": "Current",
       "total": "Rotal"
     },
     "attack": {
@@ -66,12 +66,29 @@
       "agi": "Agility",
       "int": "Intelligence",
       "wounds": "Wounds",
-      "woundHealRate": "Rate of Wound Heal"
+      "woundLevel": "Wounds Level",
+      "penalty": "Penalty",
+      "total": "Total",
+      "current": "Current",
+      "woundHealRate": "Rate of Wound Heal",
+      "healthy": "Healthy",
+      "nicked": "Nicked ",
+      "grazed": "Grazed",
+      "hurt": "Hurt",
+      "Injured": "Injured",
+      "crippled": "Crippled",
+      "down": "Down"
     },
     "sheet": {
       "skills": "Skills",
       "addSkill": "Add skill",
-      "skillName": "Skill name"
+      "skillName": "Skill name",
+      "edit": "Edit",
+      "delete": "Delete",
+      "weapons": "Weapons",
+      "addWeapon": "Add weapon",
+      "new": "New",
+      "notes": "Notes"
     },
     "skillTypes": {
       "high": "High",

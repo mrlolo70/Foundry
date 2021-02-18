@@ -1,13 +1,17 @@
-<div class="armor-card">
-  <div class="armor-info armor-name">
-    <p>{{name}}</p>
-  </div>
-  <div class="armor-info armor-stats">
-    <p>
-      {{localize "l5r4.armor.bonus"}}: {{data.bonus}}
-    </p>
-    <p>
-      {{localize "l5r4.armor.reduction"}}: {{data.reduction}}
-    </p>
+<div class="armor-border {{data.type}}">
+  <div class="armor-card item" data-item-id="{{_id}}">
+    <div class="armor-info armor-name">
+      <h4 title="{{localize "l5r4.sheet.edit"}}">
+        <a class="item-edit">{{name}}</a>
+      </h4>
+    </div>
+    <div class="armor-info armor-stats">
+      <div class="armor-bonus">
+        {{localize "l5r4.armor.bonus"}}: {{data.bonus}}
+      </div>
+      <div class="armor-reduction">
+        {{localize "l5r4.armor.reduction"}}: {{data.reduction}}
+      </div>
+    </div>
   </div>
 </div>

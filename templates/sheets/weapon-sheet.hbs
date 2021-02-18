@@ -11,8 +11,8 @@
     <th>{{localize "l5r4.weapon.damageKeep"}}</th>
     </tr>
     <tr>
-      <select name="data.attackWith">
-        {{#select data.attackWith}}
+      <select name="data.attackType">
+        {{#select data.attackType}}
         {{#each config.attackTypes as |name type|}}
         <option value="{{type}}">{{localize name}}</option>
         {{/each}}
