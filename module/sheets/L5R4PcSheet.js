@@ -31,6 +31,7 @@ export default class L5R4PcSheet extends ActorSheet {
     data.weapons = data.items.filter(function(item) {return item.type == "weapon"});
     data.armors = data.items.filter(function(item) {return item.type == "armor"});
     data.skills = data.items.filter(function(item) {return item.type == "skill"});
+    data.spells = data.items.filter(function(item) {return item.type == "spell"});
 
     data.data.initiative.roll = parseInt(data.data.traits.ref + data.data.insight.rank);
     data.data.initiative.keep = data.data.traits.ref;
@@ -48,6 +49,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
     new ContextMenu(html, ".armor-card", this.itemContextMenu);
     new ContextMenu(html, ".weapon-card", this.itemContextMenu);
+    new ContextMenu(html, ".spell-card", this.itemContextMenu);
 
     super.activateListeners(html);
   }

@@ -8,10 +8,12 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/pc-honor-and-combat.hbs",
     "systems/l5r4/templates/partials/armor-card.hbs",
     "systems/l5r4/templates/partials/weapon-card.hbs",
+    "systems/l5r4/templates/partials/spell-card.hbs",
     "systems/l5r4/templates/partials/pc-wounds.hbs",
     "systems/l5r4/templates/partials/pc-stats.hbs",
     "systems/l5r4/templates/partials/pc-skills.hbs",
-    "systems/l5r4/templates/partials/pc-weapons.hbs"
+    "systems/l5r4/templates/partials/pc-weapons.hbs",
+    "systems/l5r4/templates/partials/pc-spells.hbs"
   ];
 
   return loadTemplates(templatePaths);

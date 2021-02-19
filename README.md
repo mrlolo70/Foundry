@@ -5,5 +5,6 @@ Added basic sheet functionality.
 TODO:
   - rollable attacks and skills
   - derived atributes
-  - styling and css cleanup
+  - remove tables from pc sheet
+  - styling item sheets and css cleanup
   - initiative tracking

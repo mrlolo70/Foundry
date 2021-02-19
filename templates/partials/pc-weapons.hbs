@@ -5,9 +5,10 @@
         <i class="fas fa-plus"></i>
       </a>
     </h2>
+    
   <section class="weapons-list">
     {{#each weapons as |weapon id|}}
-    {{> "systems/l5r4/templates/partials/weapon-card.hbs" weapon actor=data}}
+    {{> "systems/l5r4/templates/partials/weapon-card.hbs" weapon}}
     {{/each}}
   </section>
 </section>

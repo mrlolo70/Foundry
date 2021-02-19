@@ -152,7 +152,7 @@
         "itemDescription"
       ],
       "damageRoll": 0,
-      "damageeKeep": 0,
+      "damageKeep": 0,
       "size": "medium",
       "attackType": ""
     },
