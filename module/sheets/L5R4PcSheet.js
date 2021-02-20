@@ -53,13 +53,13 @@ export default class L5R4PcSheet extends ActorSheet {
 
     if (this.actor.owner) {
       html.find(".item-roll").click(this._onItemRoll.bind(this));
-      html.find(".task-check").click(this._onTaskCheck.bind(this));
+      html.find(".skill-check").click(this._onSkillCheck.bind(this));
     }
 
     super.activateListeners(html);
   }
 
-  _onTaskCheck(event) {
+  _onSkillCheck(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.getOwnedItem(itemID);
 
