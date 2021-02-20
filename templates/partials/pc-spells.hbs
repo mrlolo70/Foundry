@@ -7,7 +7,7 @@
     </h2>
   <section class="spells-list">
     {{#each spells as |spell id|}}
-    {{> "systems/l5r4/templates/partials/spell-card.hbs" spell}}
+    {{> "systems/l5r4/templates/partials/spell-card.hbs" spell inSheet=true}}
     {{/each}}
   </section>
 </section>

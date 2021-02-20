@@ -51,7 +51,39 @@ export default class L5R4PcSheet extends ActorSheet {
     new ContextMenu(html, ".weapon-card", this.itemContextMenu);
     new ContextMenu(html, ".spell-card", this.itemContextMenu);
 
+    if (this.actor.owner) {
+      html.find(".item-roll").click(this._onItemRoll.bind(this));
+      html.find(".task-check").click(this._onTaskCheck.bind(this));
+    }
+
     super.activateListeners(html);
+  }
+
+  _onTaskCheck(event) {
+    const itemID = event.currentTarget.closest(".item").dataset.itemId;
+    const item = this.actor.getOwnedItem(itemID);
+
+    
+    let skillTrait = item.data.data.trait;
+    let actorTrait = this.actor.data.data.traits[skillTrait];
+    
+    
+    let skillPlussTrait = parseInt(actorTrait) + parseInt(item.data.data.rank);
+    let rollFormula = `${skillPlussTrait}d10k${actorTrait}x10`;
+
+    let messageData = {
+      speaker: ChatMessage.getSpeaker()
+    }
+    new Roll(rollFormula).roll().toMessage(messageData);
+
+  }
+
+
+  _onItemRoll(event){
+    const itemId = event.currentTarget.closest(".item").dataset.itemId; 
+    let item = this.actor.getOwnedItem(itemId);
+
+    item.roll();
   }
 
   _onItemCreate(event) {

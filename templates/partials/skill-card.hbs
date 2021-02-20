@@ -1,16 +1,15 @@
-<div class="skill-card">
-  <div class="skil-info skil-name">
-    <p>{{name}}</p>
-  </div>
-  <div class="skil-info skil-stats">
-    <select class="skill-type">
-      <option selected disabled>{{localize "l5r4.skill.type"}}</option>
-      {{#select skill.data.type}}
-      {{#each config.skillTypes as |name type|}}
-      <option value="{{type}}">{{localize name}}</option>
-      {{/each}}
-      {{/select}}
-    </select>
-    <input class="school-check" type="checkbox" {{checked skill.data.school}} data-type="Boolean" />
+<div class="item-border {{data.type}}">
+  <div class="skill-card skill" data-item-id="{{_id}}">
+    <div class="skill-name">
+      {{name}} 
+    </div>
+    <div class="skill-rank">
+      {{data.rank}}
+    </div>
+    <input disabled class="school-check" data-field="data.school" type="checkbox" {{checked data.school}}
+      data-type="Boolean" />
+    <div class="skill-emphasis">
+      {{data.emphasis}}
+    </div>
   </div>
 </div>

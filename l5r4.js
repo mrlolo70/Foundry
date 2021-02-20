@@ -1,4 +1,5 @@
 import { l5r4 } from "./module/config.js";
+import L5R4Item from "./module/L5R4Item.js";
 import L5R4ItemSheet from "./module/sheets/L5R4ItemSheet.js";
 import L5R4IPcSheet from "./module/sheets/L5R4PcSheet.js";
 import L5R4INpcSheet from "./module/sheets/L5R4NpcSheet.js";
@@ -9,6 +10,7 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/armor-card.hbs",
     "systems/l5r4/templates/partials/weapon-card.hbs",
     "systems/l5r4/templates/partials/spell-card.hbs",
+    "systems/l5r4/templates/partials/skill-card.hbs",
     "systems/l5r4/templates/partials/pc-wounds.hbs",
     "systems/l5r4/templates/partials/pc-stats.hbs",
     "systems/l5r4/templates/partials/pc-skills.hbs",
@@ -23,6 +25,7 @@ Hooks.once("init", function () {
   console.log("l5r4 | Initialising Legend of Five rings 4th ed system");
 
   CONFIG.l5r4 = l5r4;
+  CONFIG.Item.entityClass = L5R4Item;
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("l5r4", L5R4ItemSheet, { makeDefault: true });
