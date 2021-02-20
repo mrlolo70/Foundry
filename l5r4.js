@@ -1,4 +1,5 @@
 import { l5r4 } from "./module/config.js";
+import L5R4Actor from "./module/L5R4Actor.js";
 import L5R4Item from "./module/L5R4Item.js";
 import L5R4ItemSheet from "./module/sheets/L5R4ItemSheet.js";
 import L5R4IPcSheet from "./module/sheets/L5R4PcSheet.js";
@@ -26,6 +27,7 @@ Hooks.once("init", function () {
 
   CONFIG.l5r4 = l5r4;
   CONFIG.Item.entityClass = L5R4Item;
+  CONFIG.Actor.entityClass = L5R4Actor;
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("l5r4", L5R4ItemSheet, { makeDefault: true });

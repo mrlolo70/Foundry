@@ -28,6 +28,7 @@
           "mod": 0,
           "heal_rate": 0
         },
+        "suffered": 0,
         "wound_lvl": {
           "healthy": {
             "value": 0,

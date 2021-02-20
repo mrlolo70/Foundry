@@ -1,3 +1,5 @@
+import * as Dice from "../dice.js";
+
 export default class L5R4PcSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions,{
@@ -53,29 +55,59 @@ export default class L5R4PcSheet extends ActorSheet {
 
     if (this.actor.owner) {
       html.find(".item-roll").click(this._onItemRoll.bind(this));
+      html.find(".weapon-roll").click(this._onWeaponRoll.bind(this));
       html.find(".skill-check").click(this._onSkillCheck.bind(this));
+      html.find(".ring-roll").click(this._onRingRoll.bind(this));
     }
 
     super.activateListeners(html);
   }
 
-  _onSkillCheck(event) {
+  _onRingRoll(event) {
+    let ringRank = event.currentTarget.dataset.ringRank;
+
+    Dice.RingRoll(
+      {ringRank: ringRank}
+    );
+  }
+
+  _onWeaponRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.getOwnedItem(itemID);
 
+    let actorTrait;
+    let diceRoll;
+    if (item.data.data.attackType === 'melee') {
+      actorTrait = this.actor.data.data.traits.str;
+      diceRoll = parseInt(actorTrait) + parseInt(item.data.data.damageRoll);      
+    } else if (item.data.data.attackType === 'ranged') {
+      return ui.notifications.error(`not implemented yet`);
+    } else {
+      return ui.notifications.error(`y u do dis?`);
+    }
     
-    let skillTrait = item.data.data.trait;
-    let actorTrait = this.actor.data.data.traits[skillTrait];
     
-    
-    let skillPlussTrait = parseInt(actorTrait) + parseInt(item.data.data.rank);
-    let rollFormula = `${skillPlussTrait}d10k${actorTrait}x10`;
+    let diceKeep = parseInt(item.data.data.damageKeep)
+    let rollFormula = `${diceRoll}d10k${diceKeep}x10`;
 
     let messageData = {
       speaker: ChatMessage.getSpeaker()
     }
     new Roll(rollFormula).roll().toMessage(messageData);
 
+  }
+
+  _onSkillCheck(event) {
+    const itemID = event.currentTarget.closest(".item").dataset.itemId;
+    const item = this.actor.getOwnedItem(itemID);
+    let skillTrait = item.data.data.trait;
+    let actorTrait = this.actor.data.data.traits[skillTrait];
+    let skillRank = item.data.data.rank;
+
+    Dice.SkillCheck({
+      actorTrait: actorTrait,
+      skillRank: skillRank
+    });
   }
 
 
