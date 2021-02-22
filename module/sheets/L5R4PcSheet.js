@@ -1,4 +1,5 @@
 import * as Dice from "../dice.js";
+import * as Chat from "../chat.js";
 
 export default class L5R4PcSheet extends ActorSheet {
   static get defaultOptions() {
@@ -81,7 +82,8 @@ export default class L5R4PcSheet extends ActorSheet {
     Dice.TraitRoll(
       {
         traitRank: traitRank,
-        traitName: traitName
+        traitName: traitName,
+        askForOptions: event.shiftKey
       }
     );
   }
@@ -89,7 +91,7 @@ export default class L5R4PcSheet extends ActorSheet {
   _onWeaponRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.getOwnedItem(itemID);
-    
+
     let weaponName = item.name;
     let rollData = item.getRollData();
     let actorTrait;
@@ -141,59 +143,23 @@ export default class L5R4PcSheet extends ActorSheet {
     item.roll();
   }
 
-  _onItemCreate(event) {
+  async _onItemCreate(event) {
     event.preventDefault();
     let element = event.currentTarget;
     let elementType = element.dataset.type;
-
+    let itemData = {};
     if (elementType == "weapon") {
-      let createWeapon = `<form autocomplete="off">
-        <div class="form-group">
-            <label> Name</label>
-            <div class="form-fields">
-                <input id="name" type="text" name="name" placeholder="New Item">
-            </div>
-        </div>
-    
-        <div class="form-group">
-            <label>Type</label>
-            <div class="form-fields">
-                <select id="type" name="type">
-                    <option value="weapon" selected="">weapon</option><option value="bow">bow</option>
-                </select>
-            </div>
-        </div>
-    
-    </form>`;
-
-      let confirmed = false;
-      new Dialog({
-        title: `New Weapon`,
-        content: createWeapon,
-        buttons: {
-          ok: { label: "ok", callback: () => confirmed = true },
-          cancel: { label: "Cancel", callback: () => confirmed = false }
-        },
-        close: html => {
-          if (confirmed) {
-            let weponType = html.find('#type').val();
-            let weaponName = html.find('#name').val();
-            
-            let itemData = {
-              name: weaponName,
-              type: weponType
-            }
-            console.log(itemData)
-            return this.actor.createOwnedItem(itemData);
-          }
-        }
-      }).render(true);
+      let weaponOptions = await Chat.GetWeaponOptions();
+      itemData = {
+        name: weaponOptions.name,
+        type: weaponOptions.type
+      }
+      return this.actor.createOwnedItem(itemData);
     } else {
-      let itemData = {
+      itemData = {
         name: game.i18n.localize("l5r4.sheet.new"),
         type: element.dataset.type
       }
-  
       return this.actor.createOwnedItem(itemData);
     }
   }
@@ -224,5 +190,4 @@ export default class L5R4PcSheet extends ActorSheet {
 
     return item.update({ [field]: element.value })
   }
-
 }

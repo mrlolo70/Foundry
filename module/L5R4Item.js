@@ -60,7 +60,7 @@ export default class LF54Item extends Item {
 
     chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);
 
-    chatData.roll = true; //revise later
+    chatData.roll = true; // cheating, revise later
 
     return ChatMessage.create(chatData);
   }

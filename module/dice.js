@@ -20,7 +20,7 @@ export async function SkillCheck({
     content: renderedRoll
   }
   rollResult.toMessage(messageData);
-  
+
 }
 
 export async function RingRoll({
@@ -48,14 +48,34 @@ export async function RingRoll({
 
 export async function TraitRoll({
   traitRank = null,
-  traitName = null } = {}) {
+  traitName = null,
+  askForOptions = true,
+  unskilled = false } = {}) {
   const messageTemplate = "systems/l5r4/templates/chat/simple-roll.hbs";
+
+  let optionsSettings = game.settings.get("l5r4", "showTraitRollOptions");
+
+  if (askForOptions != optionsSettings) {
+    let checkOptions = await GetTraitRollOptions(traitName);
+
+    if (checkOptions.cancelled) {
+      return;
+    }
+
+    unskilled = checkOptions.unskilled;
+  }
   let rollType = game.i18n.localize("l5r4.mech.traitRoll");
-  let label = `${rollType}: ${traitName}`
+  
 
   let rollFormula = `${traitRank}d10k${traitRank}x10`;
   let rollResult = new Roll(rollFormula).roll();
+  if (unskilled) {
+    rollFormula = `${traitRank}d10k${traitRank}`;
+    rollResult = new Roll(rollFormula).roll();
+    rollType = game.i18n.localize("l5r4.mech.unskilledRoll");
+  } 
 
+  let label = `${rollType}: ${traitName}`
   let renderedRoll = await rollResult.render({
     template: messageTemplate,
     flavor: label
@@ -69,10 +89,42 @@ export async function TraitRoll({
   rollResult.toMessage(messageData);
 }
 
+async function GetTraitRollOptions(traitType) {
+  const template = "systems/l5r4/templates/chat/trait-roll-dialog.hbs"
+  const html = await renderTemplate(template, {});
+
+  return new Promise(resolve => {
+    const data = {
+      title: game.i18n.format("l5r4.mech.traitRoll", { type: traitType }),
+      content: html,
+      buttons: {
+        normal: {
+          label: game.i18n.localize("l5r4.mech.roll"),
+          callback: html => resolve(_processTraitRollOptions(html[0].querySelector("form")))
+        },
+        cancel: {
+          label: game.i18n.localize("l5r4.mech.cancel"),
+          callback: html => resolve({ cancelled: true })
+        }
+      },
+      default: "normal",
+      close: () => resolve({ cancelled: true })
+    };
+
+    new Dialog(data, null).render(true);
+  });
+}
+
+function _processTraitRollOptions(form) {
+  return {
+    unskilled: form.unskilled.checked
+  }
+}
+
 export async function WeaponRoll({
   diceRoll = null,
   diceKeep = null,
-  weaponName= null,
+  weaponName = null,
   description = null } = {}) {
   const messageTemplate = "systems/l5r4/templates/chat/weapon-chat.hbs";
   let rollType = game.i18n.localize("l5r4.mech.damageRoll");

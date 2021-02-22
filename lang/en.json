@@ -2,6 +2,8 @@
   "l5r4": {
     "mech": {
       "roll": "Roll",
+      "cancel": "Cancel",
+      "ok": "Ok",
       "keep": "Keep",
       "raise": "Raise",
       "init": "Initiative",
@@ -14,7 +16,9 @@
       "traitRoll": "Trait roll",
       "skillRoll": "Skill roll",
       "damageRoll": "Damage roll",
-      "spellCasting": "Spell Casting roll"
+      "spellCasting": "Spell Casting roll",
+      "unskilledRoll": "Unskilled roll",
+      "emphasis": "Emphasis"
     },
     "attack": {
       "none": "",
@@ -29,6 +33,8 @@
       "str": "Strength",
       "range": "Range",
       "arrow": "Arrow",
+      "typeWeapon": "Weapon",
+      "typeBow": "Bow",
       "damage": "Damage"
     },
     "armor": {
@@ -125,6 +131,12 @@
       "humming": "Humming Bulb",
       "rope": "Rope Cutter",
       "willow": "Willow Leaf"
+    }
+  },
+  "SETTINGS": {
+    "showTraitRollOptions":{
+      "name": "Ask for Trait Rolls options by default.",
+      "label": "Hold Shift to Toggle."
     }
   }
 }

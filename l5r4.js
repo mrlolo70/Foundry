@@ -25,6 +25,17 @@ async function preloadHandlebarsTemplates() {
   return loadTemplates(templatePaths);
 };
 
+function registerSystemSettings() {
+  game.settings.register("l5r4", "showTraitRollOptions", {
+    config: true,
+    scope: "client",
+    name: "SETTINGS.showTraitRollOptions.name",
+    hint: "SETTINGS.showTraitRollOptions.label",
+    type: Boolean,
+    default: true
+  });
+}
+
 Hooks.once("init", function () {
   console.log("l5r4 | Initialising Legend of Five rings 4th ed system");
 
@@ -41,6 +52,8 @@ Hooks.once("init", function () {
   Actors.registerSheet("l5r4", L5R4INpcSheet, { makeDefault: false });
 
   preloadHandlebarsTemplates();
+
+  registerSystemSettings();
 
   Handlebars.registerHelper("times", function (n, content) {
     let result = "";
