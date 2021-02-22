@@ -18,7 +18,7 @@
     {{localize "l5r4.traits.current"}}
   </div>
   {{#each data.wound_lvl as |wound_lvl name|}}
-    <div class="wounds-lvl-name-{{@index}}">{{localize name}}</div>
+    <div class="wounds-lvl-name-{{@index}}">{{localize (concat "l5r4.traits." (name))}}</div>
     <div class="wounds-lvl-value-{{@index}}">{{value}}</div>
     <div class="wounds-lvl-penalty-{{@index}}">{{penalty}}</div>
     <input type="checkbox" disabled class="wounds-lvl-current-{{@index}}" {{checked current}} data-type="Boolean"/>

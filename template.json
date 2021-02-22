@@ -138,6 +138,7 @@
   "Item": {
     "types": [
       "weapon",
+      "bow",
       "armor",
       "spell",
       "skill"
@@ -154,8 +155,19 @@
       ],
       "damageRoll": 0,
       "damageKeep": 0,
-      "size": "medium",
-      "attackType": ""
+      "size": "Medium",
+      "damageFormula": ""
+    },
+    "bow": {
+      "templates": [
+        "itemDescription"
+      ],
+      "str": 1,
+      "size": "Large",
+      "range": 100,
+      "arrow": "willow",
+      "damageRoll": 0,
+      "damageKeep": 0
     },
     "armor": {
       "templates": [

@@ -9,7 +9,12 @@
       "mod": "Modifier",
       "rate": "Rate",
       "current": "Current",
-      "total": "Rotal"
+      "total": "Rotal",
+      "ringRoll": "Ring roll",
+      "traitRoll": "Trait roll",
+      "skillRoll": "Skill roll",
+      "damageRoll": "Damage roll",
+      "spellCasting": "Spell Casting roll"
     },
     "attack": {
       "none": "",
@@ -20,7 +25,11 @@
       "attackType": "Attack Type",
       "size": "Size",
       "damageRoll": "Damage Roll",
-      "damageKeep": "Damage Keep"
+      "damageKeep": "Damage Keep",
+      "str": "Strength",
+      "range": "Range",
+      "arrow": "Arrow",
+      "damage": "Damage"
     },
     "armor": {
       "name": "Armor",
@@ -75,9 +84,10 @@
       "nicked": "Nicked ",
       "grazed": "Grazed",
       "hurt": "Hurt",
-      "Injured": "Injured",
+      "injured": "Injured",
       "crippled": "Crippled",
-      "down": "Down"
+      "down": "Down",
+      "out": "Out"
     },
     "sheet": {
       "skills": "Skills",
@@ -108,6 +118,13 @@
       "shadowPoints": "Shadow Points",
       "insightRank": "Insight Rank",
       "insightPoints": "Insight Points"
+    },
+    "arrows": {
+      "armor": "Armor Piercing",
+      "flesh": "Flesh Cutter",
+      "humming": "Humming Bulb",
+      "rope": "Rope Cutter",
+      "willow": "Willow Leaf"
     }
   }
 }

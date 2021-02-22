@@ -17,6 +17,7 @@ export default class L5R4ItemSheet extends ItemSheet {
 
     data.config = CONFIG.l5r4;
 
+
     return data;
   }
 }

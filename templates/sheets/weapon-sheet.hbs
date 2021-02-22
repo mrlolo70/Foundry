@@ -10,15 +10,6 @@
     <th>{{localize "l5r4.weapon.damageRoll"}}</th>
     <th>{{localize "l5r4.weapon.damageKeep"}}</th>
     </tr>
-    <tr>
-      <select name="data.attackType">
-        {{#select data.attackType}}
-        {{#each config.attackTypes as |name type|}}
-        <option value="{{type}}">{{localize name}}</option>
-        {{/each}}
-        {{/select}}
-      </select>
-    </tr>
     <td>
     <input name="data.size" type="text" value="{{data.size}}" />
     </td>

@@ -8,7 +8,11 @@
     
   <section class="weapons-list">
     {{#each weapons as |weapon id|}}
-    {{> "systems/l5r4/templates/partials/weapon-card.hbs" weapon}}
+    {{> "systems/l5r4/templates/partials/weapon-card.hbs" weapon ranged=false}}
+    {{/each}}
+    
+    {{#each bows as |weapon id|}}
+    {{> "systems/l5r4/templates/partials/weapon-card.hbs" weapon ranged=true}}
     {{/each}}
   </section>
 </section>

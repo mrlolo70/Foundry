@@ -1,0 +1,37 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+  <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+  <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+  </header>
+  <div class="sheet-content">
+  <table>
+    <tr>
+    <th>{{localize "l5r4.weapon.size"}}</th>
+    <th>{{localize "l5r4.weapon.str"}}</th>
+    <th>{{localize "l5r4.weapon.range"}}</th>
+    <th>{{localize "l5r4.weapon.damage"}}</th>
+    </tr>
+    <td>
+    <input name="data.size" type="text" value="{{data.size}}" />
+    </td>
+    <td>
+    <input name="data.str" type="number" value="{{data.str}}" data-type="Number" />
+    </td>
+    <td>
+    <input name="data.range" type="number" value="{{data.range}}" data-type="Number" />
+    </td>
+    <select name="data.arrow">
+        <option selected disabled>{{localize "l5r4.weapon.arrow"}}</option>
+        {{#select data.arrow}}
+        {{#each config.arrows as |name type|}}
+        <option value="{{type}}">{{localize name}}</option>
+        {{/each}}
+        {{/select}}
+    </select>
+    <td>
+    {{data.damageRoll}}k{{data.damageKeep}}
+    </td>
+  </table>
+    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+  </div>
+</form>

@@ -320,6 +320,15 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.l5r4.pc .weapons-list img {
+  height: 1rem;
+  width: 1rem;
+  border: none;
+}
+.l5r4.pc .weapon-name {
+  display: flex;
+  flex-direction: row;
+}
 .l5r4.pc .skills {
   display: flex;
   flex-direction: column;

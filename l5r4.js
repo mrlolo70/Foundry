@@ -16,7 +16,10 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/pc-stats.hbs",
     "systems/l5r4/templates/partials/pc-skills.hbs",
     "systems/l5r4/templates/partials/pc-weapons.hbs",
-    "systems/l5r4/templates/partials/pc-spells.hbs"
+    "systems/l5r4/templates/partials/pc-spells.hbs",
+    "systems/l5r4/templates/chat/simple-roll.hbs",
+    "systems/l5r4/templates/chat/weapon-chat.hbs",
+    "templates/dice/roll.html"
   ];
 
   return loadTemplates(templatePaths);
@@ -31,6 +34,7 @@ Hooks.once("init", function () {
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("l5r4", L5R4ItemSheet, { makeDefault: true });
+
 
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("l5r4", L5R4IPcSheet, { makeDefault: true });
@@ -61,4 +65,16 @@ Hooks.once("init", function () {
       "%": lvalue % rvalue
     }[operator];
   });
+
+  Handlebars.registerHelper('concat', function () {
+    var outStr = '';
+    for (var arg in arguments) {
+      if (typeof arguments[arg] != 'object') {
+        outStr += arguments[arg];
+      }
+    }
+    return outStr;
+  });
+
 });
+

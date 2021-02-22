@@ -1,9 +1,11 @@
 export const l5r4 = {};
 
-l5r4.attackTypes = {
-  none: "",
-  melee: "l5r4.attack.melee",
-  ranged: "l5r4.attack.ranged"
+l5r4.arrows = {
+  armor: "l5r4.arrows.armor",
+  flesh: "l5r4.arrows.flesh",
+  humming: "l5r4.arrows.humming",
+  rope: "l5r4.arrows.rope",
+  willow: "l5r4.arrows.willow"
 }
 
 l5r4.rings = {
