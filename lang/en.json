@@ -126,11 +126,11 @@
       "insightPoints": "Insight Points"
     },
     "arrows": {
-      "armor": "Armor Piercing",
-      "flesh": "Flesh Cutter",
-      "humming": "Humming Bulb",
-      "rope": "Rope Cutter",
-      "willow": "Willow Leaf"
+      "armor": "Armor Piercing 1k1",
+      "flesh": "Flesh Cutter 2k3",
+      "humming": "Humming Bulb 0k1",
+      "rope": "Rope Cutter 1k1",
+      "willow": "Willow Leaf 2k2"
     }
   },
   "SETTINGS": {

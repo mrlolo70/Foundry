@@ -362,6 +362,13 @@
 .l5r4.pc .spells-list .item-border {
   padding-inline: 0.5rem;
 }
+body {
+  background: url("assets/textures/background.webp") no-repeat center;
+  background-size: cover;
+}
+body > * {
+  scrollbar-width: thin;
+}
 .l5r4.pc {
   font-family: "Rotis Serif";
 }

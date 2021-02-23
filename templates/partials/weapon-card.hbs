@@ -19,7 +19,7 @@
       </div>
       <div>
         {{#if ranged}}
-        {{localize "l5r4.weapon.arrow"}}:<select class="arrow-type inline-edit" data-field="data.arrow">
+        <select class="arrow-type inline-edit" data-field="data.arrow">
           <option selected disabled>{{localize "l5r4.weapon.arrow"}}</option>
           {{#select data.arrow}}
           {{#each @root.config.arrows as |name type|}}
