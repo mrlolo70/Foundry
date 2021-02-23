@@ -1,9 +1,9 @@
 <div class="item-border {{data.type}}">
   <div class="armor-card item" data-item-id="{{_id}}">
     <div class="armor-info armor-name">
-      <h4 title="{{localize "l5r4.sheet.edit"}}">
+      <h3 title="{{localize "l5r4.sheet.edit"}}">
         <a class="item-edit">{{name}}</a>
-      </h4>
+      </h3>
     </div>
     <div class="armor-info armor-stats">
       <div class="armor-bonus">
@@ -11,6 +11,10 @@
       </div>
       <div class="armor-reduction">
         {{localize "l5r4.armor.reduction"}}: {{data.reduction}}
+      </div>
+      <div>{{localize "l5r4.armor.equiped"}}?
+        <input class="equiped-check inline-edit" data-field="data.equiped" type="checkbox" {{checked data.equiped}}
+        data-type="Boolean" />
       </div>
     </div>
   </div>

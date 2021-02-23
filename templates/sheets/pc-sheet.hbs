@@ -7,12 +7,7 @@
       <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
       <div class="honor-and-combat">
         {{> "systems/l5r4/templates/partials/pc-honor-and-combat.hbs"}}
-        <section class="armor-list">
-          <h2>{{localize "l5r4.armor.name"}}</h2>
-          {{#each armors as |armor id|}}
-          {{> "systems/l5r4/templates/partials/armor-card.hbs" armor}}
-          {{/each}}
-        </section>
+        
         <section class="wounds">
           {{> "systems/l5r4/templates/partials/pc-wounds.hbs"}}
         </section>

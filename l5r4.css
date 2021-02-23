@@ -362,6 +362,17 @@
 .l5r4.pc .spells-list .item-border {
   padding-inline: 0.5rem;
 }
+.l5r4.pc .armors-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.l5r4.pc .armors-list input {
+  height: 1rem;
+  width: 1rem;
+  border: none;
+}
 body {
   background: url("assets/textures/background.webp") no-repeat center;
   background-size: cover;

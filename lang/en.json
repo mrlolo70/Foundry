@@ -18,7 +18,8 @@
       "damageRoll": "Damage roll",
       "spellCasting": "Spell Casting roll",
       "unskilledRoll": "Unskilled roll",
-      "emphasis": "Emphasis"
+      "emphasis": "Emphasis",
+      "toChat": "To chat"
     },
     "attack": {
       "none": "",
@@ -40,7 +41,8 @@
     "armor": {
       "name": "Armor",
       "bonus": "Bonus",
-      "reduction": "Reduction"
+      "reduction": "Reduction",
+      "equiped": "Equipped"
     },
     "spell": {
       "ring": "Ring",
@@ -81,7 +83,10 @@
       "agi": "Agility",
       "int": "Intelligence",
       "wounds": "Wounds",
+      "armorTn": "Armor TN",
+      "armorTnBase": "Armor TN Base",
       "woundLevel": "Wounds Level",
+      "woundsSuffered": "Wounds suffered",
       "penalty": "Penalty",
       "total": "Total",
       "current": "Current",
@@ -105,7 +110,9 @@
       "addWeapon": "Add weapon",
       "new": "New",
       "notes": "Notes",
-      "spells": "Spells"
+      "spells": "Spells",
+      "armors": "Armors",
+      "addArmor": "Add Armor"
     },
     "skillTypes": {
       "high": "High",

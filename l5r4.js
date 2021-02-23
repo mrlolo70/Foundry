@@ -17,6 +17,8 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/pc-skills.hbs",
     "systems/l5r4/templates/partials/pc-weapons.hbs",
     "systems/l5r4/templates/partials/pc-spells.hbs",
+    "systems/l5r4/templates/partials/pc-armors.hbs",
+    "systems/l5r4/templates/partials/pc-armor-tn.hbs",
     "systems/l5r4/templates/chat/simple-roll.hbs",
     "systems/l5r4/templates/chat/weapon-chat.hbs",
     "templates/dice/roll.html"

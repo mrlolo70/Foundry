@@ -187,7 +187,13 @@ export default class L5R4PcSheet extends ActorSheet {
     let itemId = element.closest(".item").dataset.itemId;
     let item = this.actor.getOwnedItem(itemId);
     let field = element.dataset.field;
-
+    console.log("skill edit");
+    
+    if (element.type == "checkbox") {
+      console.log({ [field]: element.checked })
+      return item.update({ [field]: element.checked })
+    }
+    console.log({ [field]: element.value })
     return item.update({ [field]: element.value })
   }
 }

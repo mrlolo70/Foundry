@@ -131,7 +131,8 @@
       "armor_tn": {
         "type": "",
         "reduction": 0,
-        "current_tn": 0
+        "current": 0,
+        "mod": 0
       }
     }
   },
