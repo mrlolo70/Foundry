@@ -11,9 +11,16 @@ export default class LF54Item extends Item {
 
     let itemData = this.data;
     let data = itemData.data;
-
+   
     // get damage from arrows for bows
     if (itemData.type == "bow") {
+      let actorData;
+      let actorStr = 0;
+      // get pc str
+      if (this.actor){
+        actorData = this.actor.data.data;
+        actorStr = parseInt(actorData.traits.str);
+      }
       let arrowRoll = 0;
       let arrowKeep = 0;
       let arrow = game.i18n.localize(`l5r4.arrows.${data.arrow}`);
@@ -39,7 +46,7 @@ export default class LF54Item extends Item {
           arrowKeep = 2;
           break;
       }
-      data.damageRoll = parseInt(data.str) + arrowRoll;
+      data.damageRoll = Math.min(parseInt(data.str), actorStr) + arrowRoll;
       data.damageKeep = arrowKeep;
       data.damageFormula = `${data.damageRoll}k${data.damageKeep}`;
     }

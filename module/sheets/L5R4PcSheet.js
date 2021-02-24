@@ -28,14 +28,21 @@ export default class L5R4PcSheet extends ActorSheet {
   ];
 
   getData() {
-    const data = super.getData();
+    //const data = super.getData();
+    const data = {
+      ...super.getData(),
+      items: this.actor.items.map(item => item.data)
+    };
     data.config = CONFIG.l5r4;
-
+    
+    
     data.weapons = data.items.filter(function (item) { return item.type == "weapon" });
     data.armors = data.items.filter(function (item) { return item.type == "armor" });
     data.skills = data.items.filter(function (item) { return item.type == "skill" });
     data.spells = data.items.filter(function (item) { return item.type == "spell" });
     data.bows = data.items.filter(function (item) { return item.type == "bow" });
+    
+    
 
     return data;
   }
@@ -46,7 +53,7 @@ export default class L5R4PcSheet extends ActorSheet {
     html.find(".item-create").click(this._onItemCreate.bind(this));
     html.find(".item-edit").click(this._onItemEdit.bind(this));
     html.find(".item-delete").click(this._onItemDelete.bind(this));
-    html.find(".inline-edit").change(this._onSkillEdit.bind(this));
+    html.find(".inline-edit").change(this._onInlineItemEdit.bind(this));
 
     new ContextMenu(html, ".armor-card", this.itemContextMenu);
     new ContextMenu(html, ".weapon-card", this.itemContextMenu);
@@ -55,7 +62,7 @@ export default class L5R4PcSheet extends ActorSheet {
     if (this.actor.owner) {
       html.find(".item-roll").click(this._onItemRoll.bind(this));
       html.find(".weapon-roll").click(this._onWeaponRoll.bind(this));
-      html.find(".skill-check").click(this._onSkillCheck.bind(this));
+      html.find(".skill-check").click(this._onSkillRoll.bind(this));
       html.find(".ring-roll").click(this._onRingRoll.bind(this));
       html.find(".trait-roll").click(this._onTraitRoll.bind(this));
     }
@@ -66,11 +73,14 @@ export default class L5R4PcSheet extends ActorSheet {
   _onRingRoll(event) {
     let ringRank = event.currentTarget.dataset.ringRank;
     let ringName = event.currentTarget.dataset.ringName;
+    let schoolRank = this.actor.data.data.insight.rank;
 
     Dice.RingRoll(
       {
         ringRank: ringRank,
-        ringName: ringName
+        ringName: ringName,
+        schoolRank: schoolRank,
+        askForOptions: event.shiftKey
       }
     );
   }
@@ -120,7 +130,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
   }
 
-  _onSkillCheck(event) {
+  _onSkillRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.getOwnedItem(itemID);
     let skillTrait = item.data.data.trait;
@@ -128,10 +138,11 @@ export default class L5R4PcSheet extends ActorSheet {
     let skillRank = item.data.data.rank;
     let skillName = item.name;
 
-    Dice.SkillCheck({
+    Dice.SkillRoll({
       actorTrait: actorTrait,
       skillRank: skillRank,
-      skillName: skillName
+      skillName: skillName,
+      askForOptions: event.shiftKey
     });
   }
 
@@ -181,19 +192,18 @@ export default class L5R4PcSheet extends ActorSheet {
     return this.actor.deleteOwnedItem(itemId);
   }
 
-  _onSkillEdit(event) {
+  _onInlineItemEdit(event) {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest(".item").dataset.itemId;
     let item = this.actor.getOwnedItem(itemId);
     let field = element.dataset.field;
-    console.log("skill edit");
+
     
     if (element.type == "checkbox") {
-      console.log({ [field]: element.checked })
       return item.update({ [field]: element.checked })
     }
-    console.log({ [field]: element.value })
+
     return item.update({ [field]: element.value })
   }
 }

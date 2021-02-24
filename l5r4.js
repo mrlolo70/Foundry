@@ -36,6 +36,22 @@ function registerSystemSettings() {
     type: Boolean,
     default: true
   });
+  game.settings.register("l5r4", "showSpellRollOptions", {
+    config: true,
+    scope: "client",
+    name: "SETTINGS.showSpellRollOptions.name",
+    hint: "SETTINGS.showSpellRollOptions.label",
+    type: Boolean,
+    default: true
+  });
+  game.settings.register("l5r4", "showSkillRollOptions", {
+    config: true,
+    scope: "client",
+    name: "SETTINGS.showSkillRollOptions.name",
+    hint: "SETTINGS.showSkillRollOptions.label",
+    type: Boolean,
+    default: true
+  });
 }
 
 Hooks.once("init", function () {

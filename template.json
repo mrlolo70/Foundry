@@ -133,7 +133,8 @@
         "reduction": 0,
         "current": 0,
         "mod": 0
-      }
+      },
+      "woundsMod": 0
     }
   },
   "Item": {

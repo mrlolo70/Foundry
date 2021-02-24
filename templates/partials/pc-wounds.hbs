@@ -7,6 +7,12 @@
     <div class="wounds-value">
       <input type="number" name="data.suffered" value="{{data.suffered}}" data-type="Number" />
     </div>
+    <div class="wounds-mod">
+      {{localize "l5r4.traits.wounds"}} {{localize "l5r4.mech.mod"}}
+    </div>
+    <div class="wounds-mod-value">
+      <input type="number" name="data.woundsMod" value="{{data.woundsMod}}" data-type="Number" />
+    </div>
     <div class="wounds-level">
       {{localize "l5r4.traits.woundLevel"}}
     </div>
@@ -22,8 +28,8 @@
     {{#each data.wound_lvl as |wound_lvl name|}}
     <div class="wounds-lvl-name-{{@index}}">{{localize (concat "l5r4.traits." (name))}}</div>
     <div class="wounds-lvl-value-{{@index}}">{{value}}</div>
-    <div class="wounds-lvl-penalty-{{@index}}">{{penalty}}</div>
-    <input type="checkbox" disabled class="wounds-lvl-current-{{@index}}" {{checked current}} data-type="Boolean" />
+    <input type="number" name="data.wound_lvl.{{name}}.penalty" value="{{penalty}}" class="wounds-lvl-penalty-{{@index}}" />
+    <input type="checkbox" disabled class="wounds-lvl-current-{{@index}}" {{checked current}} data-type="Boolean"/>
     {{/each}}
   </section>
   <section class="wounds-heal-table">

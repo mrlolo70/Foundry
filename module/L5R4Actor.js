@@ -7,6 +7,7 @@ export default class L5R4Actor extends Actor {
 
     let skills = this.items.filter(function (item) { return item.type == "skill" });
     let armors = this.items.filter(function (item) { return item.type == "armor" });
+
     // data for pcs
     if (actorData.type == "pc") {
 
@@ -24,10 +25,10 @@ export default class L5R4Actor extends Actor {
       let previousLevel = 0;
       for (const [lvl, lvlData] of Object.entries(data.wound_lvl)) {
         if (lvl == "healthy") {
-          lvlData.value = parseInt(data.rings.earth) * 5;
+          lvlData.value = parseInt(data.rings.earth) * 5 + parseInt(data.woundsMod);
           previousLevel = parseInt(lvlData.value);
         } else {
-          lvlData.value = parseInt(data.rings.earth) * 2 + previousLevel;
+          lvlData.value = parseInt(data.rings.earth) * 2 + previousLevel + parseInt(data.woundsMod);
           previousLevel = parseInt(lvlData.value);
         }
       }
@@ -73,7 +74,6 @@ export default class L5R4Actor extends Actor {
         insighSkills += parseInt(skillData.data.data.rank);
       }
       data.insight.points = insightRings + insighSkills;
-
 
     }
   }

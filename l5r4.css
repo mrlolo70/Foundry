@@ -181,7 +181,7 @@
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  grid-template-areas: "wn wv . ." "wl wp wt wc" "lvl0 lvl0p lvl0t lvl0c" "lvl1 lvl1p lvl1t lvl1c" "lvl2 lvl2p lvl2t lvl2c" "lvl3 lvl3p lvl3t lvl3c" "lvl4 lvl4p lvl4t lvl4c" "lvl5 lvl5p lvl5t lvl5c" "lvl6 lvl6p lvl6t lvl6c" "lvl7 lvl7p lvl7t lvl7c";
+  grid-template-areas: "wn wv wm wmv" "wl wp wt wc" "lvl0 lvl0p lvl0t lvl0c" "lvl1 lvl1p lvl1t lvl1c" "lvl2 lvl2p lvl2t lvl2c" "lvl3 lvl3p lvl3t lvl3c" "lvl4 lvl4p lvl4t lvl4c" "lvl5 lvl5p lvl5t lvl5c" "lvl6 lvl6p lvl6t lvl6c" "lvl7 lvl7p lvl7t lvl7c";
 }
 .l5r4.pc .wounds-name {
   grid-area: wn;
@@ -189,6 +189,14 @@
 }
 .l5r4.pc .wounds-value {
   grid-area: wv;
+  font-weight: bold;
+}
+.l5r4.pc .wounds-mod {
+  grid-area: wm;
+  font-weight: bold;
+}
+.l5r4.pc .wounds-name-value {
+  grid-area: wmv;
   font-weight: bold;
 }
 .l5r4.pc .wounds-level {
@@ -372,6 +380,44 @@
   height: 1rem;
   width: 1rem;
   border: none;
+}
+.l5r4.pc .pc-armor-grid {
+  display: grid;
+  flex: 1;
+  max-height: 100%;
+  gap: 0.5rem;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: "armorbase basevalue" "armorbonus bonusvalue" "armormod modvalue" "totalarmor armorvalue";
+}
+.l5r4.pc .armor-tn-base {
+  grid-area: armorbase;
+  font-weight: bold;
+}
+.l5r4.pc .armor-tn-value {
+  grid-area: basevalue;
+}
+.l5r4.pc .armor-tn-armor-bonus {
+  grid-area: armorbonus;
+  font-weight: bold;
+}
+.l5r4.pc .armor-tn-armor-bonus-value {
+  grid-area: bonusvalue;
+}
+.l5r4.pc .armor-tn-mod {
+  grid-area: armormod;
+  font-weight: bold;
+}
+.l5r4.pc .armor-tn-mod-value {
+  grid-area: modvalue;
+}
+.l5r4.pc .armor-tn-current {
+  grid-area: totalarmor;
+  font-weight: bold;
+}
+.l5r4.pc .armor-tn-current-value {
+  grid-area: armorvalue;
 }
 body {
   background: url("assets/textures/background.webp") no-repeat center;

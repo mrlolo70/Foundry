@@ -12,7 +12,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(10, 1fr);
     grid-template-areas: 
-      "wn wv . ."
+      "wn wv wm wmv"
       "wl wp wt wc"
       "lvl0 lvl0p lvl0t lvl0c"
       "lvl1 lvl1p lvl1t lvl1c"
@@ -32,6 +32,14 @@
   }
   .wounds-value {
     grid-area: wv;
+    font-weight: bold;
+  }
+  .wounds-mod {
+    grid-area: wm;
+    font-weight: bold;
+  }
+  .wounds-name-value {
+    grid-area: wmv;
     font-weight: bold;
   }
   .wounds-level {

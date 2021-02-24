@@ -1,5 +1,13 @@
 {
   "l5r4": {
+    "chat": {
+      "traitRoll": "Trait roll {trait}",
+      "ringRoll": "Ring roll {ring}",
+      "skillRoll": "Skill roll {skill}"
+    },
+    "errors": {
+      "scoolRankZero": "You can't cast a spell with School Rank reduced to zero"
+    },
     "mech": {
       "roll": "Roll",
       "cancel": "Cancel",
@@ -50,7 +58,9 @@
       "range": "Range",
       "aoe": "Area of Effect",
       "duration": "Duration",
-      "raises": "Raises"
+      "raises": "Raises",
+      "affinity": "Affinity",
+      "deficiency": "Deficiency"
     },
     "rings": {
       "fire": "Fire",
@@ -133,16 +143,24 @@
       "insightPoints": "Insight Points"
     },
     "arrows": {
-      "armor": "Armor Piercing 1k1",
-      "flesh": "Flesh Cutter 2k3",
-      "humming": "Humming Bulb 0k1",
-      "rope": "Rope Cutter 1k1",
-      "willow": "Willow Leaf 2k2"
+      "armor": "Armor Piercing",
+      "flesh": "Flesh Cutter",
+      "humming": "Humming Bulb",
+      "rope": "Rope Cutter",
+      "willow": "Willow Leaf"
     }
   },
   "SETTINGS": {
     "showTraitRollOptions":{
       "name": "Ask for Trait Rolls options by default.",
+      "label": "Hold Shift to Toggle."
+    },
+    "showSpellRollOptions":{
+      "name": "Ask if the Ring Roll is a spell by default.",
+      "label":"Hold Shift to Toggle."
+    },
+    "showSkillRollOptions":{
+      "name": "Ask for Skill Rolls options by default.",
       "label": "Hold Shift to Toggle."
     }
   }
