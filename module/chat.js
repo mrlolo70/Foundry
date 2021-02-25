@@ -1,19 +1,22 @@
-export async function GetWeaponOptions() {
-  const template = "systems/l5r4/templates/chat/create-weapon-dialog.hbs"
+export async function GetItemOptions(elementType) {
+  let template = "systems/l5r4/templates/chat/create-equipment-dialog.hbs"
+  if (elementType == "spell") {
+    template = "systems/l5r4/templates/chat/create-spell-dialog.hbs"
+  }
   const html = await renderTemplate(template, {});
 
   return new Promise(resolve => {
     const data = {
-      title: game.i18n.localize("l5r4.sheet.addWeapon"),
+      title: game.i18n.localize("l5r4.sheet.addEquipment"),
       content: html,
       buttons: {
         ok: {
           label: game.i18n.localize("l5r4.mech.ok"),
-          callback: html => resolve(_processWeaponOptions(html[0].querySelector("form")))
+          callback: html => resolve(_processItemOptions(html[0].querySelector("form")))
         },
         cancel: {
           label: game.i18n.localize("l5r4.mech.cancel"),
-          callback: html => resolve({ cancelled: true })
+          callback: () => resolve({ cancelled: true })
         }
       },
       default: "ok",
@@ -24,9 +27,9 @@ export async function GetWeaponOptions() {
   });
 }
 
-function _processWeaponOptions(form) {
+function _processItemOptions(form) {
   return {
-    name: form.weaponName.value,
-    type: form.weaponType.value
+    name: form.itemName.value,
+    type: form.itemType.value
   }
 }

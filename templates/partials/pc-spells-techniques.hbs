@@ -1,0 +1,16 @@
+<section class="spells techniques panelBorder">
+  <h2>
+      <div>{{localize "l5r4.sheet.techniques"}}/{{localize "l5r4.sheet.spells"}}</div>
+      <a class="item-create" data-type="spell" title="{{localize "l5r4.sheet.addTechSpell"}}">
+        <i class="fas fa-plus"></i>
+      </a>
+    </h2>
+  <section class="techniques-list spells-list">
+    {{#each techniques as |technique id|}}
+    {{> "systems/l5r4/templates/partials/technique-card.hbs" technique inSheet=true}}
+    {{/each}}
+    {{#each spells as |spell id|}}
+    {{> "systems/l5r4/templates/partials/spell-card.hbs" spell inSheet=true}}
+    {{/each}}
+  </section>
+</section>

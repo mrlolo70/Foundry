@@ -12,11 +12,12 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/weapon-card.hbs",
     "systems/l5r4/templates/partials/spell-card.hbs",
     "systems/l5r4/templates/partials/skill-card.hbs",
+    "systems/l5r4/templates/partials/technique-card.hbs",
     "systems/l5r4/templates/partials/pc-wounds.hbs",
     "systems/l5r4/templates/partials/pc-stats.hbs",
     "systems/l5r4/templates/partials/pc-skills.hbs",
-    "systems/l5r4/templates/partials/pc-weapons.hbs",
-    "systems/l5r4/templates/partials/pc-spells.hbs",
+    "systems/l5r4/templates/partials/pc-equipment.hbs",
+    "systems/l5r4/templates/partials/pc-spells-techniques.hbs",
     "systems/l5r4/templates/partials/pc-armors.hbs",
     "systems/l5r4/templates/partials/pc-armor-tn.hbs",
     "systems/l5r4/templates/chat/simple-roll.hbs",
@@ -61,13 +62,26 @@ Hooks.once("init", function () {
   CONFIG.Item.entityClass = L5R4Item;
   CONFIG.Actor.entityClass = L5R4Actor;
 
+  // custom initiative
+  Combat.prototype._getInitiativeFormula = function(combatant) {
+    const actor = combatant.actor;
+    const initRoll = actor.data.data.initiative.roll;
+    const initKeep = actor.data.data.initiative.keep;
+    if (actor.data.type == "npc") {
+      return `${initRoll}d10k${initKeep}x10`;
+    }
+    const initMod = actor.data.data.initiative.total_mod;
+
+    return `${initRoll}d10k${initKeep}x10+${initMod}`;
+  }
+
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("l5r4", L5R4ItemSheet, { makeDefault: true });
 
 
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("l5r4", L5R4IPcSheet, { makeDefault: true });
-  Actors.registerSheet("l5r4", L5R4INpcSheet, { makeDefault: false });
+  Actors.registerSheet("l5r4", L5R4IPcSheet, { types: ["pc"], makeDefault: true });
+  Actors.registerSheet("l5r4", L5R4INpcSheet, { types: ["npc"], makeDefault: true });
 
   preloadHandlebarsTemplates();
 

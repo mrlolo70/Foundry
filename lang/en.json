@@ -27,10 +27,15 @@
       "spellCasting": "Spell Casting roll",
       "unskilledRoll": "Unskilled roll",
       "emphasis": "Emphasis",
-      "toChat": "To chat"
+      "toChat": "To chat",
+      "effect": "Effect",
+      "simple": "Simple",
+      "complex": "Complex",
+      "free": "Free",
+      "attack": "Attack",
+      "action": "Action"
     },
     "attack": {
-      "none": "",
       "melee": "Melee",
       "ranged": "Ranged"
     },
@@ -118,11 +123,19 @@
       "delete": "Delete",
       "weapons": "Weapons",
       "addWeapon": "Add weapon",
+      "addEquipment": "Add Equipment",
       "new": "New",
       "notes": "Notes",
+      "spell": "Spell",
       "spells": "Spells",
       "armors": "Armors",
-      "addArmor": "Add Armor"
+      "addArmor": "Add Armor",
+      "effect": "Effect",
+      "technique": "Technique",
+      "techniques": "Techniques",
+      "addTechSpell": "Add technique/spell",
+      "shugenja": "Shugenja",
+      "equipment": "Equipment"
     },
     "skillTypes": {
       "high": "High",

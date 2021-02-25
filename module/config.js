@@ -34,3 +34,9 @@ l5r4.skillTypes = {
   merch: "l5r4.skillTypes.merch",
   low: "l5r4.skillTypes.low"
 }
+
+l5r4.actionTypes = {
+  simple: "l5r4.mech.simple",
+  complex: "l5r4.mech.complex",
+  free: "l5r4.mech.free"
+}

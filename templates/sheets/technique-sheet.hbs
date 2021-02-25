@@ -1,0 +1,51 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+  </header>
+  <div class="sheet-content">
+    <table>
+      <tr>
+        {{#unless data.shugenja}}
+        <th>{{localize "l5r4.skill.rank"}}</th>
+        {{/unless}}
+        <th>{{localize "l5r4.sheet.shugenja"}}</th>
+        {{#if data.shugenja}}
+        <th>{{localize "l5r4.spell.affinity"}}</th>
+        <th>{{localize "l5r4.spell.deficiency"}}</th>
+        {{/if}}
+      </tr>
+      {{#unless data.shugenja}}
+      <td>
+        <input name="data.rank" type="number" value="{{data.rank}}" data-type="Number" />
+      </td>
+      {{/unless}}
+      <td>
+        <input type="checkbox" name="data.shugenja" {{checked data.shugenja}} data-type="Boolean" />
+      </td>
+      {{#if data.shugenja}}
+      <td>
+        <select name="data.affinity">
+          <option selected disabled>{{localize "l5r4.spell.ring"}}</option>
+          {{#select data.affinity}}
+          {{#each config.rings as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+        {{log data.affinity}}
+      </td>
+      <td>
+        <select name="data.deficiency">
+          <option selected disabled>{{localize "l5r4.spell.ring"}}</option>
+          {{#select data.deficiency}}
+          {{#each config.rings as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </td>
+      {{/if}}
+    </table>
+    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+  </div>
+</form>

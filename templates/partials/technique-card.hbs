@@ -1,0 +1,33 @@
+<div class="item-border {{data.type}}">
+  <div class="technique-card item" data-item-id="{{_id}}">
+    <div class="technique-info technique-name">
+      <h3>
+        {{#if inSheet}}
+        <a title="{{localize "l5r4.mech.toChat"}}" class="item-roll">{{name}}</a>
+        {{else}}
+        {{name}}
+        {{/if}}
+      </h3>
+    </div>
+    <div class="technique-info technique-stats">
+      {{#unless data.shugenja}}
+      <div class="technique-rank">
+        {{localize "l5r4.skill.rank"}}: {{data.rank}}
+      </div>
+      {{/unless}}
+      {{#if data.shugenja}}
+      <div class="technique-affiniy">
+        {{localize "l5r4.spell.affinity"}}: {{localize (concat "l5r4.rings." data.affinity)}}
+      </div>
+      <div class="technique-deficiency">
+        {{localize "l5r4.spell.deficiency"}}: {{localize (concat "l5r4.rings." data.deficiency)}}
+      </div>
+      {{/if}}
+      {{#unless inSheet}}
+      <div class="technique-effects">
+        {{localize "l5r4.mech.effect"}}: {{{data.description}}}
+      </div>
+      {{/unless}}
+    </div>
+  </div>
+</div>

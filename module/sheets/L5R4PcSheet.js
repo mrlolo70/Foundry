@@ -40,6 +40,7 @@ export default class L5R4PcSheet extends ActorSheet {
     data.armors = data.items.filter(function (item) { return item.type == "armor" });
     data.skills = data.items.filter(function (item) { return item.type == "skill" });
     data.spells = data.items.filter(function (item) { return item.type == "spell" });
+    data.techniques = data.items.filter(function (item) { return item.type == "technique" });
     data.bows = data.items.filter(function (item) { return item.type == "bow" });
     
     
@@ -58,6 +59,7 @@ export default class L5R4PcSheet extends ActorSheet {
     new ContextMenu(html, ".armor-card", this.itemContextMenu);
     new ContextMenu(html, ".weapon-card", this.itemContextMenu);
     new ContextMenu(html, ".spell-card", this.itemContextMenu);
+    new ContextMenu(html, ".technique-card", this.itemContextMenu);
 
     if (this.actor.owner) {
       html.find(".item-roll").click(this._onItemRoll.bind(this));
@@ -159,11 +161,20 @@ export default class L5R4PcSheet extends ActorSheet {
     let element = event.currentTarget;
     let elementType = element.dataset.type;
     let itemData = {};
-    if (elementType == "weapon") {
-      let weaponOptions = await Chat.GetWeaponOptions();
+    if (elementType == "equipment") {
+      let equipmentOptions = await Chat.GetItemOptions(elementType);
+      if (equipmentOptions.cancelled) {return;}
       itemData = {
-        name: weaponOptions.name,
-        type: weaponOptions.type
+        name: equipmentOptions.name,
+        type: equipmentOptions.type
+      }
+      return this.actor.createOwnedItem(itemData);
+    } else if (elementType == "spell") {
+      let spellOptions = await Chat.GetItemOptions(elementType);
+      if (spellOptions.cancelled) {return;}
+      itemData = {
+        name: spellOptions.name,
+        type: spellOptions.type
       }
       return this.actor.createOwnedItem(itemData);
     } else {

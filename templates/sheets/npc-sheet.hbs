@@ -1,8 +1,77 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <header class="sheet-header">
-    <table>
-      <th>{{localize "l5r4.mech.init"}}</th>
-      <td><input name="data.initiative" type="text" value="{{data.initiative}}" data-type="String" /></td>
-    </table>
-  </header>
+  <section class="top">
+    <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <div class="npc-stats">
+      <div class="npc-init">
+        {{localize "l5r4.mech.init"}}:
+        <input name="data.initiative.roll" type="number" value="{{data.initiative.roll}}" data-type="Number" />
+        k
+        <input name="data.initiative.keep" type="number" value="{{data.initiative.keep}}" data-type="Number" />
+      </div>
+      <div class="npc-attack">
+        {{localize "l5r4.mech.attack"}}:
+        <input name="data.attack.roll" type="number" value="{{data.attack.roll}}" data-type="Number" />
+        k
+        <input name="data.attack.keep" type="number" value="{{data.attack.keep}}" data-type="Number" />
+        <select name="data.attack.type">
+          <option selected disabled>{{localize "l5r4.mech.action"}}</option>
+          {{#select data.attack.type}}
+          {{#each config.actionTypes as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </div>
+      <div class="npc-damage">
+        {{localize "l5r4.weapon.damage"}}:
+        <input name="data.damage.roll" type="number" value="{{data.damage.roll}}" data-type="Number" />
+        k
+        <input name="data.damage.keep" type="number" value="{{data.damage.keep}}" data-type="Number" />
+        {{localize "l5r4.skill.type"}}:
+        <input class="damage-type" name="data.damage.type" type="text" value="{{data.damage.type}}" data-type="string" />
+      </div>
+      <div class="npc-armor-tn">
+        {{localize "l5r4.traits.armorTn"}}:
+        <input name="data.armor.armor_tn" type="number" value="{{data.armor.armor_tn}}" data-type="Number" />
+      </div>
+      <div class="npc-reduction">
+        {{localize "l5r4.armor.reduction"}}:
+        <input name="data.armor.reduction" type="number" value="{{data.armor.reduction}}" data-type="Number" />
+      </div>
+    </div>
+  </section>
+  <table class="npc-rings">
+    <th>{{localize "l5r4.rings.air"}}</th>
+    <td><input name="data.rings.air" type="number" value="{{data.rings.air}}" data-type="Number" /></td>
+    <th>{{localize "l5r4.rings.earth"}}</th>
+    <td><input name="data.rings.earth" type="number" value="{{data.rings.earth}}" data-type="Number" /></td>
+    <th>{{localize "l5r4.rings.fire"}}</th>
+    <td><input name="data.rings.fire" type="number" value="{{data.rings.fire}}" data-type="Number" /></td>
+    <th>{{localize "l5r4.rings.water"}}</th>
+    <td><input name="data.rings.water" type="number" value="{{data.rings.water}}" data-type="Number" /></td>
+    <tr>
+      <td>{{localize "l5r4.traits.ref"}}</td>
+      <td><input name="data.traits.ref" type="number" value="{{data.traits.ref}}" data-type="Number" /></td>
+      <td>{{localize "l5r4.traits.sta"}}</td>
+      <td><input name="data.traits.sta" type="number" value="{{data.traits.sta}}" data-type="Number" /></td>
+      <td>{{localize "l5r4.traits.agi"}}</td>
+      <td><input name="data.traits.agi" type="number" value="{{data.traits.agi}}" data-type="Number" /></td>
+      <td>{{localize "l5r4.traits.str"}}</td>
+      <td><input name="data.traits.str" type="number" value="{{data.traits.str}}" data-type="Number" /></td>
+    </tr>
+    <tr>
+      <td>{{localize "l5r4.traits.awa"}}</td>
+      <td><input name="data.traits.awa" type="number" value="{{data.traits.awa}}" data-type="Number" /></td>
+      <td>{{localize "l5r4.traits.wil"}}</td>
+      <td><input name="data.traits.wil" type="number" value="{{data.traits.wil}}" data-type="Number" /></td>
+      <td>{{localize "l5r4.traits.int"}}</td>
+      <td><input name="data.traits.int" type="number" value="{{data.traits.int}}" data-type="Number" /></td>
+      <td>{{localize "l5r4.traits.per"}}</td>
+      <td><input name="data.traits.per" type="number" value="{{data.traits.per}}" data-type="Number" /></td>
+    </tr>
+  </table>
+  <div class="npc-notes">
+    <h2>{{localize "l5r4.sheet.notes"}}</h2>
+    {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+  </div>
 </form>

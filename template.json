@@ -82,10 +82,20 @@
       "templates": [
         "common"
       ],
-      "initiative": "2k2",
-      "attack": "4k2",
-      "damage": "4k2",
-      "taint_rank": 2
+      "initiative": {
+        "roll": 2,
+        "keep": 2
+      },
+      "attack": {
+        "roll": 2,
+        "keep": 2,
+        "type": ""
+      },
+      "damage":{
+        "roll": 2,
+        "keep": 2,
+        "type": ""
+      }
     },
     "pc": {
       "templates": [
@@ -143,7 +153,8 @@
       "bow",
       "armor",
       "spell",
-      "skill"
+      "skill",
+      "technique"
     ],
     "templates": {
       "itemDescription": {
@@ -191,6 +202,15 @@
       "aoe": "",
       "duration": "",
       "raises": ""
+    },
+    "technique": {
+      "templates": [
+        "itemDescription"
+      ],
+      "rank": 1,
+      "shugenja": false,
+      "affinity": "",
+      "deficiency": ""
     },
     "skill": {
       "rank": 0,

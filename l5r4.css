@@ -322,11 +322,20 @@
   margin-bottom: 0.25em;
   flex-shrink: 7;
 }
+.l5r4.pc .equipment-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.l5r4.pc .equipment-list .item-border {
+  padding-inline: 0.5rem;
+}
 .l5r4.pc .weapons-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: spa;
 }
 .l5r4.pc .weapons-list img {
   height: 1rem;
@@ -336,6 +345,17 @@
 .l5r4.pc .weapon-name {
   display: flex;
   flex-direction: row;
+}
+.l5r4.pc .armors-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.l5r4.pc .armors-list input {
+  height: 1rem;
+  width: 1rem;
+  border: none;
 }
 .l5r4.pc .skills {
   display: flex;
@@ -374,7 +394,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .l5r4.pc .armors-list input {
   height: 1rem;
@@ -418,6 +438,52 @@
 }
 .l5r4.pc .armor-tn-current-value {
   grid-area: armorvalue;
+}
+.l5r4.npc .top {
+  display: flex;
+  flex-flow: row;
+  width: fit-content;
+}
+.l5r4.npc .top .npc-stats {
+  display: flex;
+  flex-flow: column;
+}
+.l5r4.npc .actor-img {
+  width: 256px;
+  border: none;
+  border-radius: 8px;
+}
+.l5r4.npc input {
+  width: 2rem;
+}
+.l5r4.npc .damage-type {
+  width: fit-content;
+}
+.l5r4.npc {
+  font-family: "Rotis Serif";
+}
+.l5r4.npc .window-content {
+  background: #fffae6 url("assets/textures/scroll2.webp") no-repeat;
+  background-size: cover;
+}
+.l5r4.npc input,
+.l5r4.npc select,
+.l5r4.npc textarea {
+  background: none;
+  border: none;
+  background-color: #d6cd9fa3;
+}
+.l5r4.npc .title {
+  font-family: "Rotis Serif";
+  text-transform: none;
+  font-weight: bold;
+}
+.l5r4.npc .top {
+  font-family: "Rotis Serif";
+  text-transform: none;
+  background: url("assets/textures/brush.webp") no-repeat 0 0;
+  background-size: 75% 100%;
+  background-position-x: 117%;
 }
 body {
   background: url("assets/textures/background.webp") no-repeat center;

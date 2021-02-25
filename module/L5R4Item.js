@@ -3,7 +3,8 @@ export default class LF54Item extends Item {
     "weapon": "systems/l5r4/templates/chat/weapon-chat.hbs",
     "skill": "systems/l5r4/templates/partials/skill-card.hbs",
     "armor": "systems/l5r4/templates/partials/armor-card.hbs",
-    "spell": "systems/l5r4/templates/partials/spell-card.hbs"
+    "spell": "systems/l5r4/templates/partials/spell-card.hbs",
+    "technique": "systems/l5r4/templates/partials/technique-card.hbs"
   };
 
   prepareData() {
