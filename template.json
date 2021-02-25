@@ -86,12 +86,22 @@
         "roll": 2,
         "keep": 2
       },
-      "attack": {
+      "attack1": {
         "roll": 2,
         "keep": 2,
         "type": ""
       },
-      "damage":{
+      "attack2": {
+        "roll": 2,
+        "keep": 2,
+        "type": ""
+      },
+      "damage1":{
+        "roll": 2,
+        "keep": 2,
+        "type": ""
+      },
+      "damage2":{
         "roll": 2,
         "keep": 2,
         "type": ""

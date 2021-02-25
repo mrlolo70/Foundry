@@ -11,7 +11,6 @@ Download this repo into your foundry data: `your_foundry_data_path/systems/`
 You need to setup less to edit the styles for the system. Use the provided gulpfile and tasks.json for VS code and follow this guide for setup: https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into-css
 
 ## TODO:
-  - link tokens for pc
   - rolling from sheet and wound tracking for npcs
   - styling item sheets and cards
   - remove tables from pc sheet?

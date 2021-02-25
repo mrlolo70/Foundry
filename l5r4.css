@@ -439,6 +439,9 @@
 .l5r4.pc .armor-tn-current-value {
   grid-area: armorvalue;
 }
+.l5r4.npc .editor .editor-content {
+  min-height: 400px;
+}
 .l5r4.npc .top {
   display: flex;
   flex-flow: row;
@@ -447,6 +450,11 @@
 .l5r4.npc .top .npc-stats {
   display: flex;
   flex-flow: column;
+}
+.l5r4.npc .top .npc-stats img {
+  height: 1rem;
+  width: 1rem;
+  border: none;
 }
 .l5r4.npc .actor-img {
   width: 256px;

@@ -8,14 +8,46 @@
         k
         <input name="data.initiative.keep" type="number" value="{{data.initiative.keep}}" data-type="Number" />
       </div>
-      <div class="npc-attack">
+      <div class="npc-attack1">
+        <a class="attack1-roll" data-roll="{{data.attack1.roll}}" data-keep="{{data.attack1.keep}}" data-desc="{{data.attack1.type}}">
+          <img title="{{localize "l5r4.mech.attackRoll"}}" src="icons/dice/d10black.svg" />
+        </a>
         {{localize "l5r4.mech.attack"}}:
-        <input name="data.attack.roll" type="number" value="{{data.attack.roll}}" data-type="Number" />
+        <input name="data.attack1.roll" type="number" value="{{data.attack1.roll}}" data-type="Number" />
         k
-        <input name="data.attack.keep" type="number" value="{{data.attack.keep}}" data-type="Number" />
-        <select name="data.attack.type">
+        <input name="data.attack1.keep" type="number" value="{{data.attack1.keep}}" data-type="Number" />
+        <select name="data.attack1.type">
           <option selected disabled>{{localize "l5r4.mech.action"}}</option>
-          {{#select data.attack.type}}
+          {{#select data.attack1.type}}
+          {{#each config.actionTypes as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </div>
+      <div class="npc-damage1">
+        <a class="damage1-roll" data-roll="{{data.damage1.roll}}" data-keep="{{data.damage1.keep}}" data-desc="{{data.damage1.type}}">
+          <img title="{{localize "l5r4.mech.damageRoll"}}" src="icons/dice/d10black.svg" />
+        </a>
+        {{localize "l5r4.weapon.damage"}}:
+        <input name="data.damage1.roll" type="number" value="{{data.damage1.roll}}" data-type="Number" />
+        k
+        <input name="data.damage1.keep" type="number" value="{{data.damage1.keep}}" data-type="Number" />
+        {{localize "l5r4.skill.type"}}:
+        <input class="damage-type" name="data.damage1.type" type="text" value="{{data.damage1.type}}"
+          data-type="string" />
+      </div>
+      <div class="npc-attack2">
+        <a class="attack2-roll" data-roll="{{data.attack2.roll}}" data-keep="{{data.attack2.keep}}" data-desc="{{data.attack2.type}}">
+          <img title="{{localize "l5r4.mech.attackRoll"}}" src="icons/dice/d10black.svg" />
+        </a>
+        {{localize "l5r4.mech.attack"}}:
+        <input name="data.attack2.roll" type="number" value="{{data.attack2.roll}}" data-type="Number" />
+        k
+        <input name="data.attack2.keep" type="number" value="{{data.attack2.keep}}" data-type="Number" />
+        <select name="data.attack2.type">
+          <option selected disabled>{{localize "l5r4.mech.action"}}</option>
+          {{#select data.attack2.type}}
           {{#each config.actionTypes as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
           {{/each}}
@@ -23,12 +55,16 @@
         </select>
       </div>
       <div class="npc-damage">
+        <a class="damage2-roll" data-roll="{{data.damage2.roll}}" data-keep="{{data.damage2.keep}}" data-desc="{{data.damage2.type}}">
+          <img title="{{localize "l5r4.mech.damageRoll"}}" src="icons/dice/d10black.svg" />
+        </a>
         {{localize "l5r4.weapon.damage"}}:
-        <input name="data.damage.roll" type="number" value="{{data.damage.roll}}" data-type="Number" />
+        <input name="data.damage2.roll" type="number" value="{{data.damage2.roll}}" data-type="Number" />
         k
-        <input name="data.damage.keep" type="number" value="{{data.damage.keep}}" data-type="Number" />
+        <input name="data.damage2.keep" type="number" value="{{data.damage2.keep}}" data-type="Number" />
         {{localize "l5r4.skill.type"}}:
-        <input class="damage-type" name="data.damage.type" type="text" value="{{data.damage.type}}" data-type="string" />
+        <input class="damage-type" name="data.damage2.type" type="text" value="{{data.damage2.type}}"
+          data-type="string" />
       </div>
       <div class="npc-armor-tn">
         {{localize "l5r4.traits.armorTn"}}:

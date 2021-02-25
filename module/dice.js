@@ -343,3 +343,23 @@ export async function WeaponRoll({
 
   ChatMessage.create(chatData);
 }
+
+export function NpcRoll({
+  diceRoll = null,
+  diceKeep = null,
+  rollName = null,
+  description = null } = {}) {
+  let label = `${rollName}`
+  let rollFormula = `${diceRoll}d10k${diceKeep}x10`;
+  
+  if (description) {
+    label += ` (${description})`
+  }
+
+  let messageData = {
+    flavor: label,
+    speaker: ChatMessage.getSpeaker()
+  }
+
+  new Roll(rollFormula).roll().toMessage(messageData)
+}
