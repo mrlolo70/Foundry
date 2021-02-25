@@ -5,11 +5,10 @@ export default class L5R4Actor extends Actor {
     let actorData = this.data;
     let data = actorData.data;
 
-    let skills = this.items.filter(function (item) { return item.type == "skill" });
-    let armors = this.items.filter(function (item) { return item.type == "armor" });
-
     // data for pcs
     if (actorData.type == "pc") {
+      let skills = this.items.filter(function (item) { return item.type == "skill" });
+      let armors = this.items.filter(function (item) { return item.type == "armor" });
 
       // calculate rings
       data.rings.air = Math.min(data.traits.ref, data.traits.awa);
@@ -75,6 +74,12 @@ export default class L5R4Actor extends Actor {
       }
       data.insight.points = insightRings + insighSkills;
 
+    }
+
+    if (actorData.type == "npc") {
+      // calculate current "hp"
+      
+      data.wounds.value = parseInt(data.wounds.max) - parseInt(data.suffered);
     }
   }
 }
