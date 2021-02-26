@@ -3,7 +3,7 @@
     <div class="spell-info spell-name">
       <h3>
         {{#if inSheet}}
-        <a title="{{localize "l5r4.mech.toChat"}}" class="item-roll">{{name}}</a>
+        <a title="{{localize "l5r4.sheet.edit"}}" class="item-edit">{{name}}</a>
         {{else}}
         {{name}}
         {{/if}}
@@ -28,6 +28,11 @@
       <div class="spell-raises">
         {{localize "l5r4.spell.raises"}}: {{data.raises}}
       </div>
+      {{#unless inSheet}}
+      <div class="spell-effects">
+        {{{data.specialRules}}}
+      </div>
+      {{/unless}}
     </div>
   </div>
 </div>

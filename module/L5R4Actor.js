@@ -31,11 +31,14 @@ export default class L5R4Actor extends Actor {
           previousLevel = parseInt(lvlData.value);
         }
       }
+      // calculate heal rate
+      data.wounds.heal_rate = parseInt((data.traits.sta * 2)) + parseInt(data.insight.rank) + parseInt(data.wounds.mod);
+
       // calculate armor tn
       data.armor_tn.base = parseInt((data.traits.ref * 5)) + 5;
       data.armor_tn.bonus = 0;
 
-      //data.armor_tn.current = data.armor_tn.base + parseInt(data.armor_tn.mod);
+    
 
       let armorData = {};
       let armorBonus = 0;

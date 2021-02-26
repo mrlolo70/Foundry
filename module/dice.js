@@ -176,7 +176,7 @@ export async function TraitRoll({
   if (unskilled) {
     rollFormula = `${diceToRoll}d10k${diceToKeep}`;
     rollResult = new Roll(rollFormula).roll();
-    rollType = game.i18n.localize("l5r4.mech.unskilledRoll");
+    label += ` (${game.i18n.localize("l5r4.mech.unskilledRoll")})`
   }
 
   let renderedRoll = await rollResult.render({
@@ -315,14 +315,39 @@ export async function WeaponRoll({
   diceRoll = null,
   diceKeep = null,
   weaponName = null,
-  description = null } = {}) {
+  description = null,
+  askForOptions = true} = {}) {
   const messageTemplate = "systems/l5r4/templates/chat/weapon-chat.hbs";
+
+  let optionsSettings = game.settings.get("l5r4", "showSkillRollOptions");
   let rollType = game.i18n.localize("l5r4.mech.damageRoll");
   let label = `${rollType}: ${weaponName}`
 
-  let rollFormula = `${diceRoll}d10k${diceKeep}x10`;
-  let rollResult = new Roll(rollFormula).roll();
+  let rollMod = 0;
+  let keepMod = 0;
+  if (askForOptions != optionsSettings) {
+    let checkOptions = await GetWeaponOptions(weaponName);
 
+    if (checkOptions.cancelled) {
+      return;
+    }
+
+    rollMod = parseInt(checkOptions.rollMod);
+    keepMod = parseInt(checkOptions.keepMod);
+    
+    if (checkOptions.void) {
+      rollMod += 1;
+      keepMod += 1;
+      label += ` ${game.i18n.localize("l5r4.rings.void")}!`
+    }
+  }
+
+  
+  let diceToRoll = parseInt(diceRoll) + parseInt(rollMod);
+  let diceToKeep = parseInt(diceKeep) + parseInt(keepMod);
+  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10`;
+
+  let rollResult = new Roll(rollFormula).roll();
   let renderedRoll = await rollResult.render();
 
   let templateContext = {
@@ -342,6 +367,40 @@ export async function WeaponRoll({
   }
 
   ChatMessage.create(chatData);
+}
+
+async function GetWeaponOptions(weaponName) {
+  const template = "systems/l5r4/templates/chat/weapon-roll-dialog.hbs"
+  const html = await renderTemplate(template, {});
+
+  return new Promise(resolve => {
+    const data = {
+      title: game.i18n.format("l5r4.chat.damageRoll", { weapon: weaponName }),
+      content: html,
+      buttons: {
+        normal: {
+          label: game.i18n.localize("l5r4.mech.roll"),
+          callback: html => resolve(_processWeaponRollOptions(html[0].querySelector("form")))
+        },
+        cancel: {
+          label: game.i18n.localize("l5r4.mech.cancel"),
+          callback: () => resolve({ cancelled: true })
+        }
+      },
+      default: "normal",
+      close: () => resolve({ cancelled: true })
+    };
+
+    new Dialog(data, null).render(true);
+  });
+}
+
+function _processWeaponRollOptions(form) {
+  return {
+    rollMod: form.rollMod.value,
+    keepMod: form.keepMod.value,
+    void: form.void.checked
+  }
 }
 
 export function NpcRoll({

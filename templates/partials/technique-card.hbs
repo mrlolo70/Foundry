@@ -3,7 +3,7 @@
     <div class="technique-info technique-name">
       <h3>
         {{#if inSheet}}
-        <a title="{{localize "l5r4.mech.toChat"}}" class="item-roll">{{name}}</a>
+        <a title="{{localize "l5r4.sheet.edit"}}" class="item-edit">{{name}}</a>
         {{else}}
         {{name}}
         {{/if}}
@@ -25,7 +25,7 @@
       {{/if}}
       {{#unless inSheet}}
       <div class="technique-effects">
-        {{localize "l5r4.mech.effect"}}: {{{data.description}}}
+        {{{data.specialRules}}}
       </div>
       {{/unless}}
     </div>

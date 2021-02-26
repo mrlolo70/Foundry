@@ -5,7 +5,8 @@ export default class L5R4PcSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       template: "systems/l5r4/templates/sheets/pc-sheet.hbs",
-      classes: ["l5r4", "pc"]
+      classes: ["l5r4", "pc"],
+      width: 879
     })
   }
 
@@ -16,6 +17,14 @@ export default class L5R4PcSheet extends ActorSheet {
       callback: element => {
         const item = this.actor.getOwnedItem(element.data("item-id"));
         item.sheet.render(true);
+      }
+    },
+    {
+      name: game.i18n.localize("l5r4.mech.toChat"),
+      icon: '<i class="fas fa-edit"></i>',
+      callback: element => {
+        let item = this.actor.getOwnedItem(element.data("item-id"));
+        item.roll();
       }
     },
     {
@@ -34,16 +43,16 @@ export default class L5R4PcSheet extends ActorSheet {
       items: this.actor.items.map(item => item.data)
     };
     data.config = CONFIG.l5r4;
-    
-    
+
+
     data.weapons = data.items.filter(function (item) { return item.type == "weapon" });
     data.armors = data.items.filter(function (item) { return item.type == "armor" });
     data.skills = data.items.filter(function (item) { return item.type == "skill" });
     data.spells = data.items.filter(function (item) { return item.type == "spell" });
     data.techniques = data.items.filter(function (item) { return item.type == "technique" });
     data.bows = data.items.filter(function (item) { return item.type == "bow" });
-    
-    
+
+
 
     return data;
   }
@@ -126,7 +135,8 @@ export default class L5R4PcSheet extends ActorSheet {
         diceRoll: diceRoll,
         diceKeep: diceKeep,
         weaponName: weaponName,
-        description: rollData.description
+        description: rollData.description,
+        askForOptions: event.shiftKey
       }
     )
 
@@ -163,7 +173,7 @@ export default class L5R4PcSheet extends ActorSheet {
     let itemData = {};
     if (elementType == "equipment") {
       let equipmentOptions = await Chat.GetItemOptions(elementType);
-      if (equipmentOptions.cancelled) {return;}
+      if (equipmentOptions.cancelled) { return; }
       itemData = {
         name: equipmentOptions.name,
         type: equipmentOptions.type
@@ -171,7 +181,7 @@ export default class L5R4PcSheet extends ActorSheet {
       return this.actor.createOwnedItem(itemData);
     } else if (elementType == "spell") {
       let spellOptions = await Chat.GetItemOptions(elementType);
-      if (spellOptions.cancelled) {return;}
+      if (spellOptions.cancelled) { return; }
       itemData = {
         name: spellOptions.name,
         type: spellOptions.type
@@ -210,7 +220,7 @@ export default class L5R4PcSheet extends ActorSheet {
     let item = this.actor.getOwnedItem(itemId);
     let field = element.dataset.field;
 
-    
+
     if (element.type == "checkbox") {
       return item.update({ [field]: element.checked })
     }

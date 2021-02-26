@@ -3,7 +3,8 @@
     "chat": {
       "traitRoll": "Trait roll {trait}",
       "ringRoll": "Ring roll {ring}",
-      "skillRoll": "Skill roll {skill}"
+      "skillRoll": "Skill roll {skill}",
+      "damageRoll": "Damage roll {weapon}"
     },
     "errors": {
       "scoolRankZero": "You can't cast a spell with School Rank reduced to zero"
@@ -136,7 +137,9 @@
       "techniques": "Techniques",
       "addTechSpell": "Add technique/spell",
       "shugenja": "Shugenja",
-      "equipment": "Equipment"
+      "equipment": "Equipment",
+      "rulesSummary": "Rules Summary",
+      "description": "Description"
     },
     "skillTypes": {
       "high": "High",

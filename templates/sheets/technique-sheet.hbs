@@ -46,6 +46,9 @@
       </td>
       {{/if}}
     </table>
+    <h2>{{localize "l5r4.sheet.rulesSummary"}}</h2>
+    {{editor content=data.specialRules target="data.specialRules" button=true owner=owner editable=editable}}
+    <h2>{{localize "l5r4.sheet.description"}}</h2>
     {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
   </div>
 </form>

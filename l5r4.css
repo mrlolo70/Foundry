@@ -58,6 +58,9 @@
 .l5r4.sheet.item .sheet-content .editor {
   height: 100%;
 }
+.l5r4.sheet.item td {
+  text-align: center;
+}
 .l5r4.pc .ranks {
   text-align: center;
   text-align-last: center;
