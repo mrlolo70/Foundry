@@ -105,7 +105,8 @@
         "roll": 2,
         "keep": 2,
         "type": ""
-      }
+      },
+      "nrWoundLvls": 1
     },
     "pc": {
       "templates": [

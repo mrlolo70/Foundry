@@ -139,7 +139,8 @@
       "shugenja": "Shugenja",
       "equipment": "Equipment",
       "rulesSummary": "Rules Summary",
-      "description": "Description"
+      "description": "Description",
+      "nrWoundLvls": "Number of Wound levels"
     },
     "skillTypes": {
       "high": "High",
@@ -177,7 +178,7 @@
       "label":"Hold Shift to Toggle."
     },
     "showSkillRollOptions":{
-      "name": "Ask for Skill Rolls options by default.",
+      "name": "Ask for Skill Rolls and Damage Roll options by default.",
       "label": "Hold Shift to Toggle."
     }
   }

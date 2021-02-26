@@ -23,9 +23,25 @@ export default class L5R4NpcSheet extends ActorSheet {
       html.find(".attack2-roll").click(this._onAttackRoll.bind(this));
       html.find(".damage1-roll").click(this._onDamageRoll.bind(this));
       html.find(".damage2-roll").click(this._onDamageRoll.bind(this));
+      html.find(".simple-roll").click(this._onSimpleRoll.bind(this));
     }
 
     super.activateListeners(html);
+  }
+
+  _onSimpleRoll(event) {
+    let diceRoll = event.currentTarget.dataset.roll;
+    let diceKeep = event.currentTarget.dataset.keep;
+    let rolltype = event.currentTarget.dataset.type;
+    let rollName = `${this.actor.name}: ${rolltype}`;
+
+    Dice.NpcRoll(
+      {
+        diceRoll: diceRoll,
+        diceKeep: diceKeep,
+        rollName: rollName
+      }
+    )
   }
 
   _onAttackRoll(event) {
