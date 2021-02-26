@@ -2,6 +2,10 @@
   <section class="top">
     <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     <div class="npc-stats">
+      <h2 class="npc-name">
+        {{localize "l5r4.traits.name"}}:
+        <input class="npc-name-in" type="text" name="name" value="{{actor.name}}" placeholder="Name" />
+      </h2>
       <div class="npc-init">
         {{localize "l5r4.mech.init"}}:
         <input name="data.initiative.roll" type="number" value="{{data.initiative.roll}}" data-type="Number" />

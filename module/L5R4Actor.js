@@ -82,11 +82,11 @@ export default class L5R4Actor extends Actor {
     if (actorData.type == "npc") {
       // calculate current "hp"
       data.wounds.value = parseInt(data.wounds.max) - parseInt(data.suffered);
-
+      console.log("nr wond levels before:",data.nrWoundLvls)
       // calculate nr of wound lvls
       let nrWoundLvls = parseInt(data.nrWoundLvls);
-      console.log(data.wound_lvl)
-      console.log(nrWoundLvls)
+      
+      console.log("nr wond levels:", nrWoundLvls)
       data.woundLvlsUsed = Object.fromEntries(
         Object.entries(data.wound_lvl).slice(0,nrWoundLvls));
 

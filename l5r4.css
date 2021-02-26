@@ -461,6 +461,7 @@
 }
 .l5r4.npc .actor-img {
   width: 256px;
+  max-height: 256px;
   border: none;
   border-radius: 8px;
 }
@@ -468,6 +469,9 @@
   width: 2rem;
 }
 .l5r4.npc .damage-type {
+  width: fit-content;
+}
+.l5r4.npc .npc-name-in {
   width: fit-content;
 }
 .l5r4.npc {
