@@ -33,7 +33,8 @@ export default class L5R4NpcSheet extends ActorSheet {
     let diceRoll = event.currentTarget.dataset.roll;
     let diceKeep = event.currentTarget.dataset.keep;
     let rolltype = event.currentTarget.dataset.type;
-    let rollName = `${this.actor.name}: ${rolltype}`;
+    let trait = event.currentTarget.dataset.trait;
+    let rollName = `${this.actor.name}: ${rolltype} ${trait}`;
 
     Dice.NpcRoll(
       {
