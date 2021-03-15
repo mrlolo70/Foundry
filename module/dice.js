@@ -408,7 +408,7 @@ export function NpcRoll({
   diceKeep = null,
   rollName = null,
   description = null } = {}) {
-  let label = `${rollName}`
+  let label = `${rollName}`;
   let rollFormula = `${diceRoll}d10k${diceKeep}x10`;
   
   if (description) {

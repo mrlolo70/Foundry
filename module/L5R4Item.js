@@ -1,4 +1,4 @@
-export default class LF54Item extends Item {
+export default class L5R4Item extends Item {
   chatTemplate = {
     "weapon": "systems/l5r4/templates/chat/weapon-chat.hbs",
     "skill": "systems/l5r4/templates/partials/skill-card.hbs",
