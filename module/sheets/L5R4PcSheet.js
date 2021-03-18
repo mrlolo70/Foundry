@@ -36,6 +36,13 @@ export default class L5R4PcSheet extends ActorSheet {
     }
   ];
 
+  get template() {
+    if (!game.user.isGM && this.actor.limited) {
+        return "systems/l5r4/templates/sheets/limited-pc-sheet.hbs";
+    }
+    return this.options.template;
+  }
+
   getData() {
     //const data = super.getData();
     const data = {
@@ -60,17 +67,18 @@ export default class L5R4PcSheet extends ActorSheet {
   activateListeners(html) {
     //TEMPLATE: html.find(cssSelector).event(this._someCallBack.bind(this)); 
 
-    html.find(".item-create").click(this._onItemCreate.bind(this));
-    html.find(".item-edit").click(this._onItemEdit.bind(this));
-    html.find(".item-delete").click(this._onItemDelete.bind(this));
-    html.find(".inline-edit").change(this._onInlineItemEdit.bind(this));
-
-    new ContextMenu(html, ".armor-card", this.itemContextMenu);
-    new ContextMenu(html, ".weapon-card", this.itemContextMenu);
-    new ContextMenu(html, ".spell-card", this.itemContextMenu);
-    new ContextMenu(html, ".technique-card", this.itemContextMenu);
-
+    // only owners should edit and add things
     if (this.actor.owner) {
+      html.find(".item-create").click(this._onItemCreate.bind(this));
+      html.find(".item-edit").click(this._onItemEdit.bind(this));
+      html.find(".item-delete").click(this._onItemDelete.bind(this));
+      html.find(".inline-edit").change(this._onInlineItemEdit.bind(this));
+
+      new ContextMenu(html, ".armor-card", this.itemContextMenu);
+      new ContextMenu(html, ".weapon-card", this.itemContextMenu);
+      new ContextMenu(html, ".spell-card", this.itemContextMenu);
+      new ContextMenu(html, ".technique-card", this.itemContextMenu);
+
       html.find(".item-roll").click(this._onItemRoll.bind(this));
       html.find(".weapon-roll").click(this._onWeaponRoll.bind(this));
       html.find(".skill-check").click(this._onSkillRoll.bind(this));
