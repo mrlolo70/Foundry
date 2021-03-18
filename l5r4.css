@@ -500,6 +500,23 @@
   background-size: 75% 100%;
   background-position-x: 117%;
 }
+.l5r4.pc .limited-sheet {
+  flex-flow: column;
+}
+.l5r4.pc .limited-sheet .actor-img {
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+}
+.l5r4.pc .limited {
+  display: flex;
+  flex-flow: column;
+}
+.l5r4.pc .limited .limited-info {
+  display: flex;
+  flex-flow: column;
+}
 body {
   background: url("assets/textures/background.webp") no-repeat center;
   background-size: cover;
