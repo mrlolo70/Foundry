@@ -1,9 +1,9 @@
 {
   "name": "l5r4",
-  "title": "Legend of the Five rings 4th Edition",
+  "title": "Legend of the Five Rings 4th Edition",
   "description": "System to play L5R 4th edition",
   "author": "Mateo Caycedo Alvarez",
-  "version": "0.24",
+  "version": "0.3",
   "minumCoreVersion": "0.7.6",
   "compatibleCoreVersion": "0.7.9",
   "esmodules": [
