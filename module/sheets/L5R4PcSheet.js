@@ -154,7 +154,13 @@ export default class L5R4PcSheet extends ActorSheet {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.getOwnedItem(itemID);
     let skillTrait = item.data.data.trait;
-    let actorTrait = this.actor.data.data.traits[skillTrait];
+    let actorTrait = null;
+    // some skills use the void ring as a trait
+    if (skillTrait == 'void') {
+      actorTrait = this.actor.data.data.rings.void.rank;
+    } else {
+      actorTrait = this.actor.data.data.traits[skillTrait];
+    }
     let skillRank = item.data.data.rank;
     let skillName = item.name;
 
