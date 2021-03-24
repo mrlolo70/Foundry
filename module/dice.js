@@ -11,6 +11,7 @@ export async function SkillRoll({
   let emphasis = false;
   let rollMod = 0;
   let keepMod = 0;
+  let totalMod = 0;
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetSkillOptions(skillName);
 
@@ -21,21 +22,22 @@ export async function SkillRoll({
     emphasis = checkOptions.emphasis;
     rollMod = parseInt(checkOptions.rollMod);
     keepMod = parseInt(checkOptions.keepMod);
+    totalMod = parseInt(checkOptions.totalMod);
     
     if (checkOptions.void) {
       rollMod += 1;
       keepMod += 1;
-      label += ` ${game.i18n.localize("l5r4.rings.void")}!`
+      label += ` ${game.i18n.localize("l5r4.rings.void")}!`;
     }
   }
 
   let diceToRoll = parseInt(actorTrait) + parseInt(skillRank) + parseInt(rollMod);
   let diceToKeep = parseInt(actorTrait) + parseInt(keepMod);
-  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10`;
+  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
 
   if (emphasis) {
-    label += ` (${game.i18n.localize("l5r4.mech.emphasis")})`
-    rollFormula = `${diceToRoll}d10r1k${diceToKeep}x10`
+    label += ` (${game.i18n.localize("l5r4.mech.emphasis")})`;
+    rollFormula = `${diceToRoll}d10r1k${diceToKeep}x10+${totalMod}`;
   }
 
   let rollResult = new Roll(rollFormula).roll();
@@ -68,6 +70,7 @@ export async function RingRoll({
   let normalRoll = true;
   let rollMod = 0;
   let keepMod = 0;
+  let totalMod = 0;
   let voidRoll = false;
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetSpellOptions(ringName);
@@ -81,6 +84,7 @@ export async function RingRoll({
     normalRoll = checkOptions.normalRoll;
     rollMod = parseInt(checkOptions.rollMod);
     keepMod = parseInt(checkOptions.keepMod);
+    totalMod = parseInt(checkOptions.totalMod);
     voidRoll = checkOptions.void;
     
     if (voidRoll) {
@@ -93,7 +97,7 @@ export async function RingRoll({
   if (normalRoll) {
     let diceToRoll = parseInt(ringRank) + parseInt(rollMod);
     let diceToKeep = parseInt(ringRank) + parseInt(keepMod);
-    let rollFormula = `${diceToRoll}d10k${diceToKeep}x10`;
+    let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
     let rollResult = new Roll(rollFormula).roll();
 
     let renderedRoll = await rollResult.render({
@@ -123,7 +127,7 @@ export async function RingRoll({
     }
     let diceToRoll = parseInt(ringRank) + parseInt(schoolRank) + parseInt(rollMod);
     let diceToKeep = parseInt(ringRank) + parseInt(keepMod);
-    let rollFormula = `${diceToRoll}d10k${diceToKeep}x10`;
+    let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
     let rollResult = new Roll(rollFormula).roll();
 
     let renderedRoll = await rollResult.render({
@@ -152,6 +156,7 @@ export async function TraitRoll({
   
   let rollMod = 0;
   let keepMod = 0;
+  let totalMod = 0;
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetTraitRollOptions(traitName);
 
@@ -162,6 +167,7 @@ export async function TraitRoll({
     unskilled = checkOptions.unskilled;
     rollMod = parseInt(checkOptions.rollMod);
     keepMod = parseInt(checkOptions.keepMod);
+    totalMod = parseInt(checkOptions.totalMod);
     
     if (checkOptions.void) {
       rollMod += 1;
@@ -171,7 +177,7 @@ export async function TraitRoll({
   }
   let diceToRoll = parseInt(traitRank) + parseInt(rollMod);
   let diceToKeep = parseInt(traitRank) + parseInt(keepMod);
-  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10`;
+  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
   let rollResult = new Roll(rollFormula).roll();
   if (unskilled) {
     rollFormula = `${diceToRoll}d10k${diceToKeep}`;
@@ -193,8 +199,8 @@ export async function TraitRoll({
 }
 
 async function GetSkillOptions(skillName) {
-  const template = "systems/l5r4/templates/chat/skill-roll-dialog.hbs"
-  const html = await renderTemplate(template, {});
+  const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
+  const html = await renderTemplate(template, {skill: true});
 
   return new Promise(resolve => {
     const data = {
@@ -223,13 +229,14 @@ function _processSkillRollOptions(form) {
     emphasis: form.emphasis.checked,
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
+    totalMod: form.totalMod.value,
     void: form.void.checked
   }
 }
 
 async function GetTraitRollOptions(traitName) {
-  const template = "systems/l5r4/templates/chat/trait-roll-dialog.hbs"
-  const html = await renderTemplate(template, {});
+  const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
+  const html = await renderTemplate(template, {trait: true});
 
   return new Promise(resolve => {
     const data = {
@@ -258,13 +265,14 @@ function _processTraitRollOptions(form) {
     unskilled: form.unskilled.checked,
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
+    totalMod: form.totalMod.value,
     void: form.void.checked
   }
 }
 
 async function GetSpellOptions(ringName) {
-  const template = "systems/l5r4/templates/chat/spell-roll-dialog.hbs"
-  const html = await renderTemplate(template, {});
+  const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
+  const html = await renderTemplate(template, {spell: true});
 
   return new Promise(resolve => {
     const data = {
@@ -298,6 +306,7 @@ function _processSpellRollOptions(form) {
     deficiency: form.deficiency.checked,
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
+    totalMod: form.totalMod.value,
     void: form.void.checked
   }
 }
@@ -306,6 +315,7 @@ function _processRingRollOptions(form){
   return {
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
+    totalMod: form.totalMod.value,
     void: form.void.checked,
     normalRoll: true
   }
@@ -325,6 +335,7 @@ export async function WeaponRoll({
 
   let rollMod = 0;
   let keepMod = 0;
+  let totalMod = 0;
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetWeaponOptions(weaponName);
 
@@ -334,6 +345,7 @@ export async function WeaponRoll({
 
     rollMod = parseInt(checkOptions.rollMod);
     keepMod = parseInt(checkOptions.keepMod);
+    totalMod = parseInt(checkOptions.totalMod);
     
     if (checkOptions.void) {
       rollMod += 1;
@@ -345,7 +357,7 @@ export async function WeaponRoll({
   
   let diceToRoll = parseInt(diceRoll) + parseInt(rollMod);
   let diceToKeep = parseInt(diceKeep) + parseInt(keepMod);
-  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10`;
+  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
 
   let rollResult = new Roll(rollFormula).roll();
   let renderedRoll = await rollResult.render();
@@ -370,7 +382,7 @@ export async function WeaponRoll({
 }
 
 async function GetWeaponOptions(weaponName) {
-  const template = "systems/l5r4/templates/chat/weapon-roll-dialog.hbs"
+  const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
   const html = await renderTemplate(template, {});
 
   return new Promise(resolve => {
@@ -399,6 +411,7 @@ function _processWeaponRollOptions(form) {
   return {
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
+    totalMod: form.totalMod.value,
     void: form.void.checked
   }
 }

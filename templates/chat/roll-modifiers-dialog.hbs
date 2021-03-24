@@ -3,6 +3,19 @@
     <label>{{localize "l5r4.rings.void"}}?</label>
     <input type="checkbox" name="void" />
   </div>
+  {{#if skill}}
+  <div class="form-group">
+    <label>{{localize "l5r4.mech.emphasis"}}?</label>
+    <input type="checkbox" name="emphasis" />
+  </div>
+  {{/if}}
+  {{#if trait}}
+  <div class="form-group">
+    <label>{{localize "l5r4.mech.unskilledRoll"}}?</label>
+    <input type="checkbox" name="unskilled" />
+  </div>
+  {{/if}}
+  {{#if spell}}
   <div class="form-group">
     <label>{{localize "l5r4.spell.affinity"}}?</label>
     <input type="checkbox" name="affinity" />
@@ -11,6 +24,7 @@
     <label>{{localize "l5r4.spell.deficiency"}}?</label>
     <input type="checkbox" name="deficiency" />
   </div>
+  {{/if}}
   <div class="form-group">
     <label>{{localize "l5r4.mech.roll"}} {{localize "l5r4.mech.mod"}}?</label>
     <input type="number" name="rollMod" value="0" />
@@ -18,5 +32,9 @@
   <div class="form-group">
     <label>{{localize "l5r4.mech.keep"}} {{localize "l5r4.mech.mod"}}?</label>
     <input type="number" name="keepMod" value="0" />
+  </div>
+  <div class="form-group">
+    <label>{{localize "l5r4.mech.total"}} {{localize "l5r4.mech.mod"}} ?</label>
+    <input type="number" name="totalMod" value="0" />
   </div>
 </form>
