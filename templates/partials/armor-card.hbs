@@ -1,9 +1,16 @@
 <div class="item-border {{data.type}}">
   <div class="armor-card item" data-item-id="{{_id}}">
     <div class="armor-info armor-name">
+      {{#if inSheet}}
       <h3 title="{{localize "l5r4.sheet.edit"}}">
         <a class="item-edit">{{name}}</a>
       </h3>
+      {{/if}}
+      {{#unless inSheet}}
+      <h3 title="{{localize "l5r4.sheet.edit"}}">
+        {{name}}
+      </h3>
+      {{/unless}}
     </div>
     <div class="armor-info armor-stats">
       <div class="armor-bonus">
@@ -12,10 +19,12 @@
       <div class="armor-reduction">
         {{localize "l5r4.armor.reduction"}}: {{data.reduction}}
       </div>
+      {{#if inSheet}}
       <div>{{localize "l5r4.armor.equiped"}}?
         <input class="equiped-check inline-edit" data-field="data.equiped" type="checkbox" {{checked data.equiped}}
         data-type="Boolean" />
       </div>
+      {{/if}}
     </div>
   </div>
 </div>

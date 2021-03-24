@@ -1,12 +1,19 @@
 <div class="item-border {{data.type}}">
   <div class="weapon-card item" data-item-id="{{_id}}">
     <div class="weapon-info weapon-name">
+      {{#if inSheet}}
       <h3 title="{{localize "l5r4.sheet.edit"}}">
         <a class="item-edit">{{name}}</a>
       </h3>
       <a class="weapon-roll">
         <img title="{{localize "l5r4.mech.damageRoll"}}" src="icons/dice/d10black.svg" />
       </a>
+      {{/if}}
+      {{#unless inSheet}}
+        <h3 title="{{localize "l5r4.sheet.edit"}}">
+          {{name}}
+        </h3>
+      {{/unless}}
     </div>
     <div class="weapon-info weapon-stats">
       <div>
@@ -33,5 +40,10 @@
         {{/if}}
       </div>
     </div>
+    {{#unless inSheet}}
+      <div class="spell-effects">
+        {{{data.description}}}
+      </div>
+      {{/unless}}
   </div>
 </div>
