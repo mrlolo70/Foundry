@@ -3,7 +3,6 @@
     <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     <div class="npc-stats">
       <h2 class="npc-name">
-        {{localize "l5r4.traits.name"}}:
         <input class="npc-name-in" type="text" name="name" value="{{actor.name}}" placeholder="Name" />
       </h2>
       <div class="npc-init">
@@ -61,7 +60,7 @@
           {{/select}}
         </select>
       </div>
-      <div class="npc-damage">
+      <div class="npc-damage2">
         <a class="damage2-roll" data-roll="{{data.damage2.roll}}" data-keep="{{data.damage2.keep}}"
           data-desc="{{data.damage2.type}}">
           <img title="{{localize "l5r4.mech.damageRoll"}}" src="icons/dice/d10black.svg" />
@@ -90,82 +89,63 @@
         {{localize "l5r4.traits.wounds"}}:
         <input name="data.wounds.max" type="number" value="{{data.wounds.max}}" data-type="Number" />
       </div>
-      <div class="npc-nr-wounds">
-        {{localize "l5r4.sheet.nrWoundLvls"}}
-        <select name="data.nrWoundLvls" >
-          {{#select data.nrWoundLvls}}
-          {{#each data.wound_lvl}}
-          <option value="{{math @index "+" 1}}">{{math @index "+" 1}}</option>
-          {{/each}}
-          {{/select}}
-        </select>
-      </div>
-      {{#each data.woundLvlsUsed as |wound_lvl name|}}
-      <div class="npc-wound-lvls">
-        <input type="number" name="data.wound_lvl.{{name}}.value" value="{{value}}"
-          class="wounds-lvl-value-{{@index}}" />
-        <input type="text" name="data.wound_lvl.{{name}}.penalty" value="{{penalty}}"
-          class="wounds-lvl-penalty-{{@index}}" />
-        <input type="checkbox" disabled name="data.wound_lvl.{{name}}.current" class="wounds-lvl-current-{{@index}}" 
-        {{checked current}} data-type="Boolean" />
-      </div>
-      {{/each}}
     </div>
+    
   </section>
   <table class="npc-rings">
     <th>
-      <a class="simple-roll" data-roll="{{data.rings.air}}" data-keep="{{data.rings.air}}"
-       data-trait="{{localize "l5r4.rings.air"}}" data-type="{{localize "l5r4.mech.ringRoll"}}">
+      <a class="simple-roll" data-roll="{{data.rings.air}}" data-keep="{{data.rings.air}}" data-trait="{{localize "
+        l5r4.rings.air"}}" data-type="{{localize "l5r4.mech.ringRoll"}}">
         {{localize "l5r4.rings.air"}}
       </a>
     </th>
     <td><input name="data.rings.air" type="number" value="{{data.rings.air}}" data-type="Number" /></td>
     <th>
-      <a class="simple-roll" data-roll="{{data.rings.earth}}" data-keep="{{data.rings.earth}}"
-      data-trait="{{localize "l5r4.rings.earth"}}" data-type="{{localize "l5r4.mech.ringRoll"}}">
+      <a class="simple-roll" data-roll="{{data.rings.earth}}" data-keep="{{data.rings.earth}}" data-trait="{{localize "
+        l5r4.rings.earth"}}" data-type="{{localize "l5r4.mech.ringRoll"}}">
         {{localize "l5r4.rings.earth"}}
       </a>
     </th>
     <td><input name="data.rings.earth" type="number" value="{{data.rings.earth}}" data-type="Number" /></td>
     <th>
-      <a class="simple-roll" data-roll="{{data.rings.fire}}" data-keep="{{data.rings.fire}}"
-      data-trait="{{localize "l5r4.rings.fire"}}" data-type="{{localize "l5r4.mech.ringRoll"}}">
+      <a class="simple-roll" data-roll="{{data.rings.fire}}" data-keep="{{data.rings.fire}}" data-trait="{{localize "
+        l5r4.rings.fire"}}" data-type="{{localize "l5r4.mech.ringRoll"}}">
         {{localize "l5r4.rings.fire"}}
       </a>
     </th>
     <td><input name="data.rings.fire" type="number" value="{{data.rings.fire}}" data-type="Number" /></td>
     <th>
-      <a class="simple-roll" data-roll="{{data.rings.water}}" data-keep="{{data.rings.water}}"
-      data-trait="{{localize "l5r4.rings.water"}}" data-type="{{localize "l5r4.mech.ringRoll"}}">
+      <a class="simple-roll" data-roll="{{data.rings.water}}" data-keep="{{data.rings.water}}" data-trait="{{localize "
+        l5r4.rings.water"}}" data-type="{{localize "l5r4.mech.ringRoll"}}">
         {{localize "l5r4.rings.water"}}
       </a>
     </th>
     <td><input name="data.rings.water" type="number" value="{{data.rings.water}}" data-type="Number" /></td>
     <tr>
       <td>
-        <a class="simple-roll" data-roll="{{data.traits.ref}}" data-keep="{{data.traits.ref}}"
-        data-trait="{{localize "l5r4.traits.ref"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
+        <a class="simple-roll" data-roll="{{data.traits.ref}}" data-keep="{{data.traits.ref}}" data-trait="{{localize "
+          l5r4.traits.ref"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
           {{localize "l5r4.traits.ref"}}
         </a>
       </td>
       <td><input name="data.traits.ref" type="number" value="{{data.traits.ref}}" data-type="Number" /></td>
       <td>
-        <a class="simple-roll" data-roll="{{data.traits.sta}}" data-keep="{{data.traits.sta}}"
-        data-trait="{{localize "l5r4.traits.sta"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
+        <a class="simple-roll" data-roll="{{data.traits.sta}}" data-keep="{{data.traits.sta}}" data-trait="{{localize "
+          l5r4.traits.sta"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
           {{localize "l5r4.traits.sta"}}
         </a>
       </td>
       <td><input name="data.traits.sta" type="number" value="{{data.traits.sta}}" data-type="Number" /></td>
       <td>
-        <a class="simple-roll" data-roll="{{data.traits.agi}}" data-keep="{{data.traits.agi}}"
-        data-trait="{{localize "l5r4.traits.agi"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
+        <a class="simple-roll" data-roll="{{data.traits.agi}}" data-keep="{{data.traits.agi}}" data-trait="{{localize "
+          l5r4.traits.agi"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
           {{localize "l5r4.traits.agi"}}
         </a>
       </td>
       <td><input name="data.traits.agi" type="number" value="{{data.traits.agi}}" data-type="Number" /></td>
       <td>
-        <a class="simple-roll" data-roll="{{data.traits.str}}" data-keep="{{data.traits.str}}"
-        data-trait="{{localize "l5r4.traits.str"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
+        <a class="simple-roll" data-roll="{{data.traits.str}}" data-keep="{{data.traits.str}}" data-trait="{{localize "
+          l5r4.traits.str"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
           {{localize "l5r4.traits.str"}}
         </a>
       </td>
@@ -173,37 +153,68 @@
     </tr>
     <tr>
       <td>
-        <a class="simple-roll" data-roll="{{data.traits.awa}}" data-keep="{{data.traits.awa}}"
-        data-trait="{{localize "l5r4.traits.awa"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
+        <a class="simple-roll" data-roll="{{data.traits.awa}}" data-keep="{{data.traits.awa}}" data-trait="{{localize "
+          l5r4.traits.awa"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
           {{localize "l5r4.traits.awa"}}
         </a>
       </td>
       <td><input name="data.traits.awa" type="number" value="{{data.traits.awa}}" data-type="Number" /></td>
       <td>
-        <a class="simple-roll" data-roll="{{data.traits.wil}}" data-keep="{{data.traits.wil}}"
-        data-trait="{{localize "l5r4.traits.wil"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
+        <a class="simple-roll" data-roll="{{data.traits.wil}}" data-keep="{{data.traits.wil}}" data-trait="{{localize "
+          l5r4.traits.wil"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
           {{localize "l5r4.traits.wil"}}
         </a>
       </td>
       <td><input name="data.traits.wil" type="number" value="{{data.traits.wil}}" data-type="Number" /></td>
       <td>
-        <a class="simple-roll" data-roll="{{data.traits.int}}" data-keep="{{data.traits.int}}"
-        data-trait="{{localize "l5r4.traits.int"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
+        <a class="simple-roll" data-roll="{{data.traits.int}}" data-keep="{{data.traits.int}}" data-trait="{{localize "
+          l5r4.traits.int"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
           {{localize "l5r4.traits.int"}}
         </a>
       </td>
       <td><input name="data.traits.int" type="number" value="{{data.traits.int}}" data-type="Number" /></td>
       <td>
-        <a class="simple-roll" data-roll="{{data.traits.per}}" data-keep="{{data.traits.per}}"
-        data-trait="{{localize "l5r4.traits.per"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
+        <a class="simple-roll" data-roll="{{data.traits.per}}" data-keep="{{data.traits.per}}" data-trait="{{localize "
+          l5r4.traits.per"}}" data-type="{{localize "l5r4.mech.traitRoll"}}">
           {{localize "l5r4.traits.per"}}
         </a>
       </td>
       <td><input name="data.traits.per" type="number" value="{{data.traits.per}}" data-type="Number" /></td>
     </tr>
   </table>
-  <div class="npc-notes">
-    <h2>{{localize "l5r4.sheet.notes"}}</h2>
-    {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
-  </div>
+  <section class="bottom">
+    <div class="npc-notes">
+      <h2>{{localize "l5r4.sheet.notes"}}</h2>
+      {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+    </div>
+    <div class="npc-wounds">
+      <div class="npc-nr-wounds">
+        {{localize "l5r4.sheet.nrWoundLvls"}}
+        <select name="data.nrWoundLvls">
+          {{#select data.nrWoundLvls}}
+          {{#each data.wound_lvl}}
+          <option value="{{math @index "+" 1}}">{{math @index "+" 1}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </div>
+      <div class="npc-wounds-header">
+        <div>{{localize "l5r4.traits.total"}}</div>
+        <div>{{localize "l5r4.traits.penalty"}}</div>
+        <div>{{localize "l5r4.traits.current"}}</div>
+      </div>
+      <div class="npc-wound-lvls">
+        {{#each data.woundLvlsUsed as |wound_lvl name|}}
+        <div class="npc-wound-lvl">
+          <input type="number" name="data.wound_lvl.{{name}}.value" value="{{value}}"
+            class="wounds-lvl-value-{{@index}}" />
+          <input type="text" name="data.wound_lvl.{{name}}.penalty" value="{{penalty}}"
+            class="wounds-lvl-penalty-{{@index}}" />
+          <input type="checkbox" disabled name="data.wound_lvl.{{name}}.current" class="wounds-lvl-current-{{@index}}"
+            {{checked current}} data-type="Boolean" />
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
 </form>
