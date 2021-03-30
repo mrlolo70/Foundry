@@ -17,7 +17,23 @@
       }
     }
   }
-
+  .bottom{
+    display: flex;
+    flex-flow: row;
+    width: fit-content;
+    .npc-wounds {
+      display: flex;
+      flex-flow: column;
+      .npc-wounds-header{
+        display: flex;
+        flex-flow: row;
+      }
+      .npc-wound-lvls{
+        display: flex;
+        flex-flow: column;
+      }
+    }
+  }
   .actor-img {
     width: 256px;
     max-height: 256px;
@@ -30,8 +46,17 @@
   .damage-type {
     width: fit-content;
   }
+  .npc-name{
+    display: flex;
+  }
   .npc-name-in {
     width: fit-content;
+  }
+  .npc-damage1{
+    display: flex;
+  }
+  .npc-damage2{
+    display: flex;
   }
   
 }
