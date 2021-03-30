@@ -1,6 +1,7 @@
 export default class L5R4Item extends Item {
   chatTemplate = {
-    "weapon": "systems/l5r4/templates/chat/weapon-chat.hbs",
+    "weapon": "systems/l5r4/templates/partials/weapon-card.hbs",
+    "bow": "systems/l5r4/templates/partials/weapon-card.hbs",
     "skill": "systems/l5r4/templates/partials/skill-card.hbs",
     "armor": "systems/l5r4/templates/partials/armor-card.hbs",
     "spell": "systems/l5r4/templates/partials/spell-card.hbs",
