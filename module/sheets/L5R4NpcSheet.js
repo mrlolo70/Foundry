@@ -155,7 +155,7 @@ export default class L5R4NpcSheet extends ActorSheet {
     let actorTrait = null;
     // some skills use the void ring as a trait
     if (skillTrait == 'void') {
-      actorTrait = this.actor.data.data.rings.void.rank;
+      return ui.notifications.error(`NPCs don't have Void`);
     } else {
       actorTrait = this.actor.data.data.traits[skillTrait];
     }
