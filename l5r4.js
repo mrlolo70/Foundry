@@ -20,6 +20,10 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/pc-spells-techniques.hbs",
     "systems/l5r4/templates/partials/pc-armors.hbs",
     "systems/l5r4/templates/partials/pc-armor-tn.hbs",
+    "systems/l5r4/templates/partials/npc-skills.hbs",
+    "systems/l5r4/templates/partials/npc-wounds.hbs",
+    "systems/l5r4/templates/partials/npc-stats.hbs",
+    "systems/l5r4/templates/partials/npc-rings.hbs",
     "systems/l5r4/templates/chat/simple-roll.hbs",
     "systems/l5r4/templates/chat/weapon-chat.hbs",
     "templates/dice/roll.html"

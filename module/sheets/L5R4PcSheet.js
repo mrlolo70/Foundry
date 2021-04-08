@@ -81,7 +81,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
       html.find(".item-roll").click(this._onItemRoll.bind(this));
       html.find(".weapon-roll").click(this._onWeaponRoll.bind(this));
-      html.find(".skill-check").click(this._onSkillRoll.bind(this));
+      html.find(".skill-roll").click(this._onSkillRoll.bind(this));
       html.find(".ring-roll").click(this._onRingRoll.bind(this));
       html.find(".trait-roll").click(this._onTraitRoll.bind(this));
     }

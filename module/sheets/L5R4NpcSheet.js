@@ -12,6 +12,9 @@ export default class L5R4NpcSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.config = CONFIG.l5r4;
+
+    data.skills = data.items.filter(function (item) { return item.type == "skill" });
+
     return data;
   }
 
@@ -19,11 +22,17 @@ export default class L5R4NpcSheet extends ActorSheet {
     //TEMPLATE: html.find(cssSelector).event(this._someCallBack.bind(this)); 
 
     if (this.actor.owner) {
+      html.find(".item-create").click(this._onItemCreate.bind(this));
+      html.find(".item-edit").click(this._onItemEdit.bind(this));
+      html.find(".item-delete").click(this._onItemDelete.bind(this));
+      html.find(".inline-edit").change(this._onInlineItemEdit.bind(this));
+
       html.find(".attack1-roll").click(this._onAttackRoll.bind(this));
       html.find(".attack2-roll").click(this._onAttackRoll.bind(this));
       html.find(".damage1-roll").click(this._onDamageRoll.bind(this));
       html.find(".damage2-roll").click(this._onDamageRoll.bind(this));
       html.find(".simple-roll").click(this._onSimpleRoll.bind(this));
+      html.find(".skill-roll").click(this._onSkillRoll.bind(this));
     }
 
     super.activateListeners(html);
@@ -75,5 +84,89 @@ export default class L5R4NpcSheet extends ActorSheet {
         description: description
       }
     )
+  }
+
+  async _onItemCreate(event) {
+    event.preventDefault();
+    let element = event.currentTarget;
+    let elementType = element.dataset.type;
+    let itemData = {};
+    if (elementType == "equipment") {
+      let equipmentOptions = await Chat.GetItemOptions(elementType);
+      if (equipmentOptions.cancelled) { return; }
+      itemData = {
+        name: equipmentOptions.name,
+        type: equipmentOptions.type
+      }
+      return this.actor.createOwnedItem(itemData);
+    } else if (elementType == "spell") {
+      let spellOptions = await Chat.GetItemOptions(elementType);
+      if (spellOptions.cancelled) { return; }
+      itemData = {
+        name: spellOptions.name,
+        type: spellOptions.type
+      }
+      return this.actor.createOwnedItem(itemData);
+    } else {
+      itemData = {
+        name: game.i18n.localize("l5r4.sheet.new"),
+        type: element.dataset.type
+      }
+      return this.actor.createOwnedItem(itemData);
+    }
+  }
+
+  _onItemEdit(event) {
+    event.preventDefault();
+    let element = event.currentTarget;
+    let itemId = element.closest(".item").dataset.itemId;
+    let item = this.actor.getOwnedItem(itemId);
+
+    item.sheet.render(true);
+  }
+
+  _onItemDelete(event) {
+    event.preventDefault();
+    let element = event.currentTarget;
+    let itemId = element.closest(".item").dataset.itemId;
+
+    return this.actor.deleteOwnedItem(itemId);
+  }
+
+  _onInlineItemEdit(event) {
+    event.preventDefault();
+    let element = event.currentTarget;
+    let itemId = element.closest(".item").dataset.itemId;
+    let item = this.actor.getOwnedItem(itemId);
+    let field = element.dataset.field;
+
+
+    if (element.type == "checkbox") {
+      return item.update({ [field]: element.checked })
+    }
+
+    return item.update({ [field]: element.value })
+  }
+
+  _onSkillRoll(event) {
+    const itemID = event.currentTarget.closest(".item").dataset.itemId;
+    const item = this.actor.getOwnedItem(itemID);
+    let skillTrait = item.data.data.trait;
+    let actorTrait = null;
+    // some skills use the void ring as a trait
+    if (skillTrait == 'void') {
+      return ui.notifications.error(`NPCs don't have Void`);
+    } else {
+      actorTrait = this.actor.data.data.traits[skillTrait];
+    }
+    let skillRank = item.data.data.rank;
+    let skillName = item.name;
+
+    Dice.SkillRoll({
+      actorTrait: actorTrait,
+      skillRank: skillRank,
+      skillName: skillName,
+      askForOptions: event.shiftKey
+    });
   }
 }
