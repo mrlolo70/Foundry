@@ -1,20 +1,29 @@
-# Unoficial L5R 4th Edition System for FVTT
+# Unoficial L5R 4th Edition System for Foundry VTT
 
-Unoficial implementation of the Legend of the Five Rings 4th edition for Foundry VTT - Very WIP!
+Unoficial implementation of the Legend of the Five Rings 4th edition for Foundry VTT. Provides character sheets for pcs and npcs.
+
+### Features
+
+- Trait rolls, ring rolls, spellcasting rolls, skill rolls and damage rolls from the character sheet.
+- Automatically calculates derived attributes such as initiative, Armor TN and rings.
+- Automatically calculates the current would level based on the wounds suffered.
+- A simplified sheet for npcs with rollable attacks, skills and damage.
+
 
 ## Installation
 
 Download this repo into your foundry data: `your_foundry_data_path/systems/`
 
-## Editing styles
+## Recomended modules
 
-You need to setup less to edit the styles for the system. Use the provided gulpfile and tasks.json for VS code and follow this guide for setup: https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into-css
+The L5R4ed dice rolles allows for rolls directly into the chat for quick rolls that are not covered by the system
+https://github.com/eupolemo/fvtt-l5r4ed-dice-roller
 
-## TODO:
-  - rollable skills for npcs?
-  - standarize chat templates for dice rolls
-  - styling item sheets and cards
-  - remove tables from pc sheet?
-  - make things pretty
-  - currency?
-  - check https://gitlab.com/woodentavern/foundryvtt-bar-brawl for custom bars?
+Compatible with Dice So Nice!
+https://gitlab.com/riccisi/foundryvtt-dice-so-nice
+
+## License
+
+All icons and images are property of their respective owners.
+
+This work is licensed under a GNU General Public License v3.0 and [Foundry Virtual Tabletop EULA - Limited License Agreement for module development.](https://foundryvtt.com/article/license/)

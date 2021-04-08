@@ -24,5 +24,8 @@
     }
   ],
   "gridDistance": 5,
-  "gridUnits": "ft"
+  "gridUnits": "ft",
+  "url": "https://bitbucket.org/TeoCay/l5r4",
+  "manifest": "https://bitbucket.org/TeoCay/l5r4/raw/master/system.json",
+  "download": ""
 }
