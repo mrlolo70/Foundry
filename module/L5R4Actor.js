@@ -58,15 +58,16 @@ export default class L5R4Actor extends Actor {
       data.wounds.max = data.wound_lvl.out.value;
       data.wounds.value = parseInt(data.wounds.max) - parseInt(data.suffered);
 
+
       // calculate current would level
+      let prev = {value: -1};
       for (const [lvl, lvlData] of Object.entries(data.wound_lvl)) {
-        if (data.suffered >= lvlData.value && lvl != "healthy") {
-          lvlData.current = true;
-        } else if (lvl == "healthy") {
+        if (data.suffered <= lvlData.value && data.suffered > prev.value) {
           lvlData.current = true;
         } else {
           lvlData.current = false;
-        }
+        } 
+        prev = lvlData
       }
 
       // calculate insight points
