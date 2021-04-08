@@ -1,6 +1,6 @@
-# Unoficial L5R 4th Edition System for Foundry VTT
+# Unofficial L5R 4th Edition System for Foundry VTT
 
-Unoficial implementation of the Legend of the Five Rings 4th edition for Foundry VTT. Provides character sheets for pcs and npcs.
+Unofficial implementation of the Legend of the Five Rings 4th edition for Foundry VTT. Provides character sheets for pcs and npcs.
 
 ### Features
 
