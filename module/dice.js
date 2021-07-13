@@ -40,7 +40,7 @@ export async function SkillRoll({
     rollFormula = `${diceToRoll}d10r1k${diceToKeep}x10+${totalMod}`;
   }
 
-  let rollResult = new Roll(rollFormula).roll();
+  let rollResult = await new Roll(rollFormula).roll({async: true});
   
   let renderedRoll = await rollResult.render({
     template: messageTemplate,
@@ -98,7 +98,7 @@ export async function RingRoll({
     let diceToRoll = parseInt(ringRank) + parseInt(rollMod);
     let diceToKeep = parseInt(ringRank) + parseInt(keepMod);
     let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
-    let rollResult = new Roll(rollFormula).roll();
+    let rollResult = await new Roll(rollFormula).roll({async: true});
 
     let renderedRoll = await rollResult.render({
       template: messageTemplate,
@@ -128,7 +128,7 @@ export async function RingRoll({
     let diceToRoll = parseInt(ringRank) + parseInt(schoolRank) + parseInt(rollMod);
     let diceToKeep = parseInt(ringRank) + parseInt(keepMod);
     let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
-    let rollResult = new Roll(rollFormula).roll();
+    let rollResult = await new Roll(rollFormula).roll({async: true});
 
     let renderedRoll = await rollResult.render({
       template: messageTemplate,
@@ -178,10 +178,10 @@ export async function TraitRoll({
   let diceToRoll = parseInt(traitRank) + parseInt(rollMod);
   let diceToKeep = parseInt(traitRank) + parseInt(keepMod);
   let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
-  let rollResult = new Roll(rollFormula).roll();
+  let rollResult = await new Roll(rollFormula).roll({async: true});
   if (unskilled) {
     rollFormula = `${diceToRoll}d10k${diceToKeep}`;
-    rollResult = new Roll(rollFormula).roll();
+    rollResult = await new Roll(rollFormula).roll({async: true});
     label += ` (${game.i18n.localize("l5r4.mech.unskilledRoll")})`
   }
 
@@ -359,7 +359,7 @@ export async function WeaponRoll({
   let diceToKeep = parseInt(diceKeep) + parseInt(keepMod);
   let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
 
-  let rollResult = new Roll(rollFormula).roll();
+  let rollResult = await new Roll(rollFormula).roll({async: true});
   let renderedRoll = await rollResult.render();
 
   let templateContext = {
@@ -370,7 +370,7 @@ export async function WeaponRoll({
   }
 
   let chatData = {
-    user: game.user._id,
+    user: game.user.id,
     speaker: ChatMessage.getSpeaker(),
     roll: rollResult,
     content: await renderTemplate(messageTemplate, templateContext),
@@ -433,5 +433,5 @@ export function NpcRoll({
     speaker: ChatMessage.getSpeaker()
   }
 
-  new Roll(rollFormula).roll().toMessage(messageData)
+  new Roll(rollFormula).roll({async: false}).toMessage(messageData)
 }

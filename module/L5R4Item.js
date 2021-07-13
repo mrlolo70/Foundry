@@ -13,15 +13,17 @@ export default class L5R4Item extends Item {
 
     let itemData = this.data;
     let data = itemData.data;
-   
+
     // get damage from arrows for bows
     if (itemData.type == "bow") {
       let actorData;
       let actorStr = 0;
       // get pc str
-      if (this.actor){
-        actorData = this.actor.data.data;
-        actorStr = parseInt(actorData.traits.str);
+      if (this.actor) {
+        if (this.actor.data) {
+          actorData = this.actor.data.data;
+          actorStr = parseInt(actorData.traits.str);
+        }
       }
       let arrowRoll = 0;
       let arrowKeep = 0;
@@ -52,13 +54,13 @@ export default class L5R4Item extends Item {
       data.damageKeep = arrowKeep;
       data.damageFormula = `${data.damageRoll}k${data.damageKeep}`;
     }
-    
-    
+
+
   }
 
   async roll() {
     let chatData = {
-      user: game.user._id,
+      user: game.user.id,
       speaker: ChatMessage.getSpeaker()
     };
 

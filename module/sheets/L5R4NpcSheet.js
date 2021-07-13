@@ -10,18 +10,26 @@ export default class L5R4NpcSheet extends ActorSheet {
   }
 
   getData() {
-    const data = super.getData();
-    data.config = CONFIG.l5r4;
+    const baseData = super.getData();
 
-    data.skills = data.items.filter(function (item) { return item.type == "skill" });
+    let sheetData = {
+      owner: this.actor.isOwner,
+      editable: this.actor.isEditable,
+      actor: baseData.actor,
+      data: baseData.actor.data.data,
+      config: CONFIG.l5r4,
+      items: baseData.items
+    }
 
-    return data;
+    sheetData.skills = sheetData.items.filter(function (item) { return item.type == "skill" });
+
+    return sheetData;
   }
 
   activateListeners(html) {
     //TEMPLATE: html.find(cssSelector).event(this._someCallBack.bind(this)); 
 
-    if (this.actor.owner) {
+    if (this.actor.isOwner) {
       html.find(".item-create").click(this._onItemCreate.bind(this));
       html.find(".item-edit").click(this._onItemEdit.bind(this));
       html.find(".item-delete").click(this._onItemDelete.bind(this));
@@ -98,7 +106,7 @@ export default class L5R4NpcSheet extends ActorSheet {
         name: equipmentOptions.name,
         type: equipmentOptions.type
       }
-      return this.actor.createOwnedItem(itemData);
+      return this.actor.createEmbeddedDocuments("Item", [itemData]);
     } else if (elementType == "spell") {
       let spellOptions = await Chat.GetItemOptions(elementType);
       if (spellOptions.cancelled) { return; }
@@ -106,13 +114,13 @@ export default class L5R4NpcSheet extends ActorSheet {
         name: spellOptions.name,
         type: spellOptions.type
       }
-      return this.actor.createOwnedItem(itemData);
+      return this.actor.createEmbeddedDocuments("Item", [itemData]);
     } else {
       itemData = {
         name: game.i18n.localize("l5r4.sheet.new"),
         type: element.dataset.type
       }
-      return this.actor.createOwnedItem(itemData);
+      return this.actor.createEmbeddedDocuments("Item", [itemData]);
     }
   }
 
@@ -120,7 +128,7 @@ export default class L5R4NpcSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest(".item").dataset.itemId;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
 
     item.sheet.render(true);
   }
@@ -130,14 +138,14 @@ export default class L5R4NpcSheet extends ActorSheet {
     let element = event.currentTarget;
     let itemId = element.closest(".item").dataset.itemId;
 
-    return this.actor.deleteOwnedItem(itemId);
+    return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
   }
 
   _onInlineItemEdit(event) {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest(".item").dataset.itemId;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
     let field = element.dataset.field;
 
 
@@ -150,7 +158,7 @@ export default class L5R4NpcSheet extends ActorSheet {
 
   _onSkillRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
-    const item = this.actor.getOwnedItem(itemID);
+    const item = this.actor.items.get(itemID);
     let skillTrait = item.data.data.trait;
     let actorTrait = null;
     // some skills use the void ring as a trait

@@ -63,8 +63,8 @@ Hooks.once("init", function () {
   console.log("l5r4 | Initialising Legend of Five rings 4th ed system");
 
   CONFIG.l5r4 = l5r4;
-  CONFIG.Item.entityClass = L5R4Item;
-  CONFIG.Actor.entityClass = L5R4Actor;
+  CONFIG.Item.documentClass = L5R4Item;
+  CONFIG.Actor.documentClass = L5R4Actor;
 
   // custom initiative
   Combat.prototype._getInitiativeFormula = function(combatant) {
@@ -127,39 +127,5 @@ Hooks.once("init", function () {
 
 });
 
-Hooks.on("preCreateActor", (createData) => {
 
-  console.log("preCreateActor", "createData", createData);
-
-  if (!createData.token) {
-    if (createData.type === "pc") {
-      console.log("preCreateActor", "createData:PC");
-      mergeObject(createData,
-        {
-          "token.bar1": { "attribute": "wounds" },                  // Default Bar 1 to "hp"
-          "token.bar2": { "attribute": "suffered" },
-          "token.displayName": CONST.TOKEN_DISPLAY_MODES.ALWAYS,    // Default display name to be on always
-          "token.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER ,    // Default display bars to be on always
-          "token.disposition": CONST.TOKEN_DISPOSITIONS.FRIENDLY,   // Default disposition to friendly
-          "token.name": createData.name                             // Set token name to actor name
-        })
-      // Default characters to HasVision = true and Link Data = true
-      createData.token.vision = true;
-      createData.token.actorLink = true;
-    } else {
-      // NPC settings
-      console.log("preCreateActor", "createData:NPC");
-      mergeObject(createData,
-        {
-          "token.bar1": { "attribute": "wounds" },                        // Default Bar 1 to hp
-          "token.bar2": { "attribute": "suffered" },
-          "token.displayName": CONST.TOKEN_DISPLAY_MODES.OWNER ,          // Default display name to be on always for owner
-          "token.displayBars": CONST.TOKEN_DISPLAY_MODES.OWNER ,          // Default display bars to be on always for owner
-          "token.disposition": CONST.TOKEN_DISPOSITIONS.HOSTILE,          // Default disposition to hostile
-          "token.name": createData.name                                   // Set token name to actor name
-        })
-
-    }
-  }
-})
 

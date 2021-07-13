@@ -1,4 +1,36 @@
 export default class L5R4Actor extends Actor {
+
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+    if (this.data.type === "pc") { 
+      // pc token settings
+      this.data.token.update(
+        {
+          bar1: { "attribute": "wounds" },
+          bar2: { "attribute": "suffered" },
+          displayName: CONST.TOKEN_DISPLAY_MODES.ALWAYS,
+          displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER,
+          disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
+          name: this.data.name,
+          vision: true,
+          actorLink: true,
+        });
+    } else {
+      // npc token settings
+      this.data.token.update(
+        {
+          bar1: { "attribute": "wounds" },
+          bar2: { "attribute": "suffered" },
+          displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
+          displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER,
+          disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
+          name: this.data.name,
+        });
+    }
+
+  }
+
   prepareData() {
     super.prepareData();
 
@@ -38,14 +70,14 @@ export default class L5R4Actor extends Actor {
       data.armor_tn.base = parseInt((data.traits.ref * 5)) + 5;
       data.armor_tn.bonus = 0;
 
-    
+
 
       let armorData = {};
       let armorBonus = 0;
       armors.forEach(armor => {
         armorData = armor.getRollData();
         if (armorData.equiped) {
-          if ( parseInt(armorData.bonus)>armorBonus) {
+          if (parseInt(armorData.bonus) > armorBonus) {
             armorBonus = parseInt(armorData.bonus);
           }
         }
@@ -60,13 +92,13 @@ export default class L5R4Actor extends Actor {
 
 
       // calculate current would level
-      let prev = {value: -1};
+      let prev = { value: -1 };
       for (const [lvl, lvlData] of Object.entries(data.wound_lvl)) {
         if (data.suffered <= lvlData.value && data.suffered > prev.value) {
           lvlData.current = true;
         } else {
           lvlData.current = false;
-        } 
+        }
         prev = lvlData
       }
 
@@ -83,13 +115,13 @@ export default class L5R4Actor extends Actor {
     if (actorData.type == "npc") {
       // calculate current "hp"
       data.wounds.value = parseInt(data.wounds.max) - parseInt(data.suffered);
-      console.log("nr wond levels before:",data.nrWoundLvls)
+      //console.log("nr wond levels before:", data.nrWoundLvls)
       // calculate nr of wound lvls
       let nrWoundLvls = parseInt(data.nrWoundLvls);
-      
-      console.log("nr wond levels:", nrWoundLvls)
+
+      //console.log("nr wond levels:", nrWoundLvls)
       data.woundLvlsUsed = Object.fromEntries(
-        Object.entries(data.wound_lvl).slice(0,nrWoundLvls));
+        Object.entries(data.wound_lvl).slice(0, nrWoundLvls));
 
       // calculate current would level
       for (const [lvl, lvlData] of Object.entries(data.wound_lvl)) {

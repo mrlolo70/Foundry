@@ -13,11 +13,15 @@ export default class L5R4ItemSheet extends ItemSheet {
   }
 
   getData() {
-    const data = super.getData();
+    const baseData = super.getData();
+    let sheetData = {
+      owner: this.item.isOwner,
+      editable: this.isEditable,
+      item: baseData.item,
+      data: baseData.item.data.data,
+      config: CONFIG.l5r4
+    };
 
-    data.config = CONFIG.l5r4;
-
-
-    return data;
+    return sheetData;
   }
 }

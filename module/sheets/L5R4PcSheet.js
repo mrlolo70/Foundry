@@ -15,7 +15,7 @@ export default class L5R4PcSheet extends ActorSheet {
       name: game.i18n.localize("l5r4.sheet.edit"),
       icon: '<i class="fas fa-edit"></i>',
       callback: element => {
-        const item = this.actor.getOwnedItem(element.data("item-id"));
+        const item = this.actor.items.get(element.data("item-id"));
         item.sheet.render(true);
       }
     },
@@ -23,7 +23,7 @@ export default class L5R4PcSheet extends ActorSheet {
       name: game.i18n.localize("l5r4.mech.toChat"),
       icon: '<i class="fas fa-edit"></i>',
       callback: element => {
-        let item = this.actor.getOwnedItem(element.data("item-id"));
+        let item = this.actor.items.get(element.data("item-id"));
         item.roll();
       }
     },
@@ -31,7 +31,7 @@ export default class L5R4PcSheet extends ActorSheet {
       name: game.i18n.localize("l5r4.sheet.delete"),
       icon: '<i class="fas fa-trash"></i>',
       callback: element => {
-        this.actor.deleteOwnedItem(element.data("item-id"));
+        this.actor.deleteEmbeddedDocuments("Item",[element.data("item-id")]);
       }
     }
   ];
@@ -44,31 +44,37 @@ export default class L5R4PcSheet extends ActorSheet {
   }
 
   getData() {
-    //const data = super.getData();
-    const data = {
+    const baseData = {
       ...super.getData(),
       items: this.actor.items.map(item => item.data)
     };
-    data.config = CONFIG.l5r4;
+    let sheetData = {
+      owner: this.actor.isOwner,
+      editable: this.actor.isEditable,
+      actor: baseData.actor,
+      data: baseData.actor.data.data,
+      config: CONFIG.l5r4,
+      items: baseData.items
+    }
 
 
-    data.weapons = data.items.filter(function (item) { return item.type == "weapon" });
-    data.armors = data.items.filter(function (item) { return item.type == "armor" });
-    data.skills = data.items.filter(function (item) { return item.type == "skill" });
-    data.spells = data.items.filter(function (item) { return item.type == "spell" });
-    data.techniques = data.items.filter(function (item) { return item.type == "technique" });
-    data.bows = data.items.filter(function (item) { return item.type == "bow" });
+    sheetData.weapons = sheetData.items.filter(function (item) { return item.type == "weapon" });
+    sheetData.armors = sheetData.items.filter(function (item) { return item.type == "armor" });
+    sheetData.skills = sheetData.items.filter(function (item) { return item.type == "skill" });
+    sheetData.spells = sheetData.items.filter(function (item) { return item.type == "spell" });
+    sheetData.techniques = sheetData.items.filter(function (item) { return item.type == "technique" });
+    sheetData.bows = sheetData.items.filter(function (item) { return item.type == "bow" });
 
 
 
-    return data;
+    return sheetData;
   }
 
   activateListeners(html) {
     //TEMPLATE: html.find(cssSelector).event(this._someCallBack.bind(this)); 
 
     // only owners should edit and add things
-    if (this.actor.owner) {
+    if (this.actor.isOwner) {
       html.find(".item-create").click(this._onItemCreate.bind(this));
       html.find(".item-edit").click(this._onItemEdit.bind(this));
       html.find(".item-delete").click(this._onItemDelete.bind(this));
@@ -119,7 +125,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
   _onWeaponRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
-    const item = this.actor.getOwnedItem(itemID);
+    const item = this.actor.items.get(itemID);
 
     let weaponName = item.name;
     let rollData = item.getRollData();
@@ -152,7 +158,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
   _onSkillRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
-    const item = this.actor.getOwnedItem(itemID);
+    const item = this.actor.items.get(itemID);
     let skillTrait = item.data.data.trait;
     let actorTrait = null;
     // some skills use the void ring as a trait
@@ -175,7 +181,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
   _onItemRoll(event) {
     const itemId = event.currentTarget.closest(".item").dataset.itemId;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
 
     item.roll();
   }
@@ -192,7 +198,7 @@ export default class L5R4PcSheet extends ActorSheet {
         name: equipmentOptions.name,
         type: equipmentOptions.type
       }
-      return this.actor.createOwnedItem(itemData);
+      return this.actor.createEmbeddedDocuments("Item", [itemData]);
     } else if (elementType == "spell") {
       let spellOptions = await Chat.GetItemOptions(elementType);
       if (spellOptions.cancelled) { return; }
@@ -200,13 +206,13 @@ export default class L5R4PcSheet extends ActorSheet {
         name: spellOptions.name,
         type: spellOptions.type
       }
-      return this.actor.createOwnedItem(itemData);
+      return this.actor.createEmbeddedDocuments("Item", [itemData]);
     } else {
       itemData = {
         name: game.i18n.localize("l5r4.sheet.new"),
         type: element.dataset.type
       }
-      return this.actor.createOwnedItem(itemData);
+      return this.actor.createEmbeddedDocuments("Item", [itemData]);
     }
   }
 
@@ -214,7 +220,7 @@ export default class L5R4PcSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest(".item").dataset.itemId;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
 
     item.sheet.render(true);
   }
@@ -224,14 +230,14 @@ export default class L5R4PcSheet extends ActorSheet {
     let element = event.currentTarget;
     let itemId = element.closest(".item").dataset.itemId;
 
-    return this.actor.deleteOwnedItem(itemId);
+    return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
   }
 
   _onInlineItemEdit(event) {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest(".item").dataset.itemId;
-    let item = this.actor.getOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
     let field = element.dataset.field;
 
 
