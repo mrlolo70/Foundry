@@ -70,6 +70,7 @@
       "deficiency": "Deficiency"
     },
     "rings": {
+      "Ring": "Ring",
       "fire": "Fire",
       "water": "Water",
       "air": "Air",
