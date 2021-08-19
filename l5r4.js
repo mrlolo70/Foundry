@@ -67,8 +67,8 @@ Hooks.once("init", function () {
   CONFIG.Actor.documentClass = L5R4Actor;
 
   // custom initiative
-  Combat.prototype._getInitiativeFormula = function(combatant) {
-    const actor = combatant.actor;
+  Combatant.prototype._getInitiativeFormula = function() {
+    const actor = this.actor;
     const initRoll = actor.data.data.initiative.roll;
     const initKeep = actor.data.data.initiative.keep;
     if (actor.data.type == "npc") {
