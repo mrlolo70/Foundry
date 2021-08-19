@@ -33,13 +33,13 @@ export async function SkillRoll({
 
   let diceToRoll = parseInt(actorTrait) + parseInt(skillRank) + parseInt(rollMod);
   let diceToKeep = parseInt(actorTrait) + parseInt(keepMod);
-  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
+  let {diceRoll, diceKeep, bonus} = TenDiceRule(diceToRoll, diceToKeep, totalMod);
+  let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
 
   if (emphasis) {
     label += ` (${game.i18n.localize("l5r4.mech.emphasis")})`;
-    rollFormula = `${diceToRoll}d10r1k${diceToKeep}x10+${totalMod}`;
+    rollFormula = `${diceRoll}d10r1k${diceKeep}x10+${bonus}`;
   }
-
   let rollResult = await new Roll(rollFormula).roll({async: true});
   
   let renderedRoll = await rollResult.render({
@@ -97,7 +97,8 @@ export async function RingRoll({
   if (normalRoll) {
     let diceToRoll = parseInt(ringRank) + parseInt(rollMod);
     let diceToKeep = parseInt(ringRank) + parseInt(keepMod);
-    let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
+    let {diceRoll, diceKeep, bonus} = TenDiceRule(diceToRoll, diceToKeep, totalMod);
+    let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
     let rollResult = await new Roll(rollFormula).roll({async: true});
 
     let renderedRoll = await rollResult.render({
@@ -127,7 +128,8 @@ export async function RingRoll({
     }
     let diceToRoll = parseInt(ringRank) + parseInt(schoolRank) + parseInt(rollMod);
     let diceToKeep = parseInt(ringRank) + parseInt(keepMod);
-    let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
+    let {diceRoll, diceKeep, bonus} = TenDiceRule(diceToRoll, diceToKeep, totalMod);
+    let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
     let rollResult = await new Roll(rollFormula).roll({async: true});
 
     let renderedRoll = await rollResult.render({
@@ -177,10 +179,11 @@ export async function TraitRoll({
   }
   let diceToRoll = parseInt(traitRank) + parseInt(rollMod);
   let diceToKeep = parseInt(traitRank) + parseInt(keepMod);
-  let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
+  let {diceRoll, diceKeep, bonus} = TenDiceRule(diceToRoll, diceToKeep, totalMod);
+  let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
   let rollResult = await new Roll(rollFormula).roll({async: true});
   if (unskilled) {
-    rollFormula = `${diceToRoll}d10k${diceToKeep}`;
+    rollFormula = `${diceRoll}d10k${diceKeep}`;
     rollResult = await new Roll(rollFormula).roll({async: true});
     label += ` (${game.i18n.localize("l5r4.mech.unskilledRoll")})`
   }
@@ -422,7 +425,10 @@ export function NpcRoll({
   rollName = null,
   description = null } = {}) {
   let label = `${rollName}`;
-  let rollFormula = `${diceRoll}d10k${diceKeep}x10`;
+  let bonus = 0;
+  ({diceRoll, diceKeep, bonus} = TenDiceRule(diceRoll, diceKeep, 0));
+  console.log(diceRoll, diceKeep, bonus)
+  let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
   
   if (description) {
     label += ` (${description})`
@@ -435,3 +441,33 @@ export function NpcRoll({
 
   new Roll(rollFormula).roll({async: false}).toMessage(messageData)
 }
+
+function TenDiceRule(diceRoll, diceKeep, bonus) {
+	let extras = 0;
+  if (diceRoll > 10) {
+    extras = diceRoll - 10;
+    diceRoll = 10;
+  }
+	
+  if (diceRoll < 10) {
+    if (diceKeep > 10) {
+      diceKeep = 10;
+    }
+  } else if (diceKeep >= 10) {
+    extras += diceKeep - 10;
+    diceKeep = 10;
+  }
+
+  while (diceKeep < 10) {
+    if (extras > 1) {
+      diceKeep++;
+      extras -= 2;
+    } else {
+      break;
+    }
+  }
+  
+  bonus += extras * 2;
+
+  return {diceRoll, diceKeep, bonus}
+} 
