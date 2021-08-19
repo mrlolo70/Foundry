@@ -1,0 +1,186 @@
+{
+  "l5r4": {
+    "chat": {
+      "traitRoll": "Tirada rasgo {trait}",
+      "ringRoll": "Tirada anillo {ring}",
+      "skillRoll": "Tirada habilidad {skill}",
+      "damageRoll": "Tirada daño {weapon}"
+    },
+    "errors": {
+      "scoolRankZero": "No puedes lanzar ningún conjuro con rango de escuela reducido a cero."
+    },
+    "mech": {
+      "roll": "Tirada",
+      "cancel": "Cancelar",
+      "ok": "Vale",
+      "keep": "Guardar",
+      "raise": "Aumentar",
+      "init": "Iniciativa",
+      "bonus": "Bonificador",
+      "mod": "Modificador",
+      "rate": "Velocidad",
+      "current": "Actual",
+      "total": "Total",
+      "ringRoll": "Tirada anillo",
+      "traitRoll": "Tirada rasgo",
+      "skillRoll": "Tirada habilidad",
+      "damageRoll": "Tirada daño",
+      "attackRoll": "Tirada ataque",
+      "spellCasting": "Tirada para Lanzamiento de Conjuro",
+      "unskilledRoll": "Tirada sin habilidad",
+      "emphasis": "Énfasis",
+      "toChat": "Al chat",
+      "effect": "Efecto",
+      "simple": "Simple",
+      "complex": "Complejo",
+      "free": "Libre",
+      "attack": "Ataque",
+      "action": "Acción"
+    },
+    "attack": {
+      "melee": "Melé",
+      "ranged": "A distancia"
+    },
+    "weapon": {
+      "attackType": "Tipo de Ataque",
+      "size": "Tamaño",
+      "damageRoll": "Tirada daño",
+      "damageKeep": "Mantener daño",
+      "str": "Fuerza",
+      "range": "Alcance",
+      "arrow": "Flecha",
+      "typeWeapon": "Arma",
+      "typeBow": "Arco",
+      "damage": "Daño"
+    },
+    "armor": {
+      "name": "Armadura",
+      "bonus": "Bonificador",
+      "reduction": "Reducción",
+      "equiped": "Equipado"
+    },
+    "spell": {
+      "ring": "Anillo",
+      "mastery": "Maestría",
+      "range": "Alcance",
+      "aoe": "Área de Efecto",
+      "duration": "Duración",
+      "raises": "Aumentar",
+      "affinity": "Afinidad",
+      "deficiency": "Deficiencia"
+    },
+    "rings": {
+      "Ring": "Anillo",
+      "fire": "Fuego",
+      "water": "Agua",
+      "air": "Aire",
+      "earth": "Tierra",
+      "void": "Vacío",
+      "voidPoints": "Puntos de Vacío Gastados"
+    },
+    "skill": {
+      "rank": "Rango",
+      "type": "Tipo",
+      "trait": "Rasgo",
+      "emphasis": "Énfasis",
+      "school": "Escuela de habilidad"
+    },
+    "traits": {
+      "name": "Nombre",
+      "clan": "Clan",
+      "school": "Escuela",
+      "rank": "Rango",
+      "xp": "Puntos de Experiencia",
+      "insight": "Reconocimiento",
+      "sta": "Resistencia",
+      "wil": "Voluntad",
+      "str": "Fuerza",
+      "per": "Percepción",
+      "ref": "Reflejos",
+      "awa": "Consciencia",
+      "agi": "Agilidad",
+      "int": "Inteligencia",
+      "wounds": "Heridas",
+      "armorTn": "NO de Armadura",
+      "armorTnBase": "NO Base Armadura",
+      "woundLevel": "Nivel Heridas",
+      "woundsSuffered": "Heridas sufridas",
+      "penalty": "Penalización",
+      "total": "Total",
+      "current": "Actual",
+      "woundHealRate": "Velocidad de Curación de Heridas",
+      "healthy": "Saludable",
+      "nicked": "Magullado",
+      "grazed": "Lesionado",
+      "hurt": "Herido",
+      "injured": "Malherido",
+      "crippled": "Tullido",
+      "down": "Caído",
+      "out": "Inconsciente"
+    },
+    "sheet": {
+      "skills": "Habilidades",
+      "addSkill": "Añadir habilidad",
+      "skillName": "Nombre habilidad",
+      "edit": "Editar",
+      "delete": "Borrar",
+      "weapons": "Armas",
+      "addWeapon": "Añadir arma",
+      "addEquipment": "Añadir equipamiento",
+      "new": "Nuevo",
+      "notes": "Notas",
+      "spell": "Conjuro",
+      "spells": "Conjuros",
+      "armors": "Armaduras",
+      "addArmor": "Añadir Armadura",
+      "effect": "Efecto",
+      "technique": "Técnica",
+      "techniques": "Técnicas",
+      "addTechSpell": "Añadir técnica/conjuro",
+      "shugenja": "Shugenja",
+      "equipment": "Equipamiento",
+      "rulesSummary": "Índice Reglas",
+      "description": "Descripción",
+      "nrWoundLvls": "Número niveles de herida"
+    },
+    "skillTypes": {
+      "high": "Alto",
+      "bugei": "Bugei",
+      "merch": "Comerciante",
+      "low": "Bajo"
+    },
+    "ranks": {
+      "honorRank": "Rango Honor",
+      "honorPoints": "Puntos Honor",
+      "gloryRank": "Rango Gloria",
+      "gloryPoints": "Puntos Gloria",
+      "statusRank": "Rango Estatus",
+      "statusPoints": "Puntos Estatus",
+      "shadowRank": "Mancha Tierras Sombrías",
+      "shadowPoints": "Puntos Sombra",
+      "insightRank": "Rango Perspicacia",
+      "insightPoints": "Puntos Perspicacia"
+    },
+    "arrows": {
+      "armor": "Perforarmaduras",
+      "flesh": "Desgarracarne",
+      "humming": "Zumbadora",
+      "rope": "Cortacuerdas",
+      "willow": "Hoja de Sauce"
+    }
+  },
+  "SETTINGS": {
+    "showTraitRollOptions":{
+      "name": "Preguntar por defecto por opciones de Tiradas de Rasgo.",
+      "label": "Mantener pulsada tecla Mayús para alternar."
+    },
+    "showSpellRollOptions":{
+      "name": "Preguntar por defecto si Tirada de Anillo es un conjuro.",
+      "label": "Mantener pulsada tecla Mayús para alternar."
+    },
+    "showSkillRollOptions":{
+      "name": "Preguntar por defecto por Tiradas de Habilidad y opciones de Tiradas de Daño.",
+      "label": "Mantener pulsada tecla Mayús para alternar."
+    }
+  }
+}
