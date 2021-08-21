@@ -5,10 +5,15 @@ Unofficial implementation of the Legend of the Five Rings 4th edition for Foundr
 ### Features
 
 - Trait rolls, ring rolls, spellcasting rolls, skill rolls and damage rolls from the character sheet.
+- Enforces the "Ten dice rule" for rolls from the character sheet.
 - Automatically calculates derived attributes such as initiative, Armor TN and rings.
 - Automatically calculates the current would level based on the wounds suffered.
 - A simplified sheet for npcs with rollable attacks, skills and damage.
 
+## Available languages
+
+- English
+- Español
 
 ## Installation
 
