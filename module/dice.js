@@ -467,7 +467,9 @@ function TenDiceRule(diceRoll, diceKeep, bonus) {
     }
   }
   
-  bonus += extras * 2;
+  if (diceKeep === 10 && diceRoll === 10) {
+    bonus += extras * 2;
+  }
 
   return {diceRoll, diceKeep, bonus}
 } 
