@@ -103,6 +103,7 @@
       "wounds": "Wounds",
       "armorTn": "Armor TN",
       "armorTnBase": "Armor TN Base",
+      "armorReduction" : "Reduction",
       "woundLevel": "Wounds Level",
       "woundsSuffered": "Wounds suffered",
       "penalty": "Penalty",
@@ -136,6 +137,14 @@
       "effect": "Effect",
       "technique": "Technique",
       "techniques": "Techniques",
+      "advantage": "Advantage",
+      "advantages": "Advantages",
+      "disadvantage": "Disadvantage",
+      "disadvantages": "Disadvantages",
+      "kata": "Kata",
+      "katas": "Katas",
+      "kiho": "Kiho",
+      "kihos": "Kihos",
       "addTechSpell": "Add technique/spell",
       "shugenja": "Shugenja",
       "equipment": "Equipment",
@@ -167,6 +176,28 @@
       "humming": "Humming Bulb",
       "rope": "Rope Cutter",
       "willow": "Willow Leaf"
+    },
+    "wealth": {
+      "koku":"Koku",
+      "bu":"Bu",
+      "zeni":"Zeni"
+    },
+    "special": {
+      "cost" : "Cost"
+    },
+    "kiho": {
+      "type": "Type",
+      "internal" : "Internal",
+      "karmic" : "Karmic",
+      "martial" : "Martial",
+      "mystic" : "Mystic"
+    },
+    "advantage": {
+      "physical":"Physical",
+      "mental":"Mental",
+      "social":"Social",
+      "material":"Material",
+      "spiritual":"Spriritual"
     }
   },
   "SETTINGS": {

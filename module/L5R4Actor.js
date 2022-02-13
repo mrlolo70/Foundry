@@ -71,7 +71,7 @@ export default class L5R4Actor extends Actor {
       data.armor_tn.bonus = 0;
 
 
-
+      let armorReduction = 0;
       let armorData = {};
       let armorBonus = 0;
       armors.forEach(armor => {
@@ -80,9 +80,13 @@ export default class L5R4Actor extends Actor {
           if (parseInt(armorData.bonus) > armorBonus) {
             armorBonus = parseInt(armorData.bonus);
           }
+          if(parseInt(armorData.reduction) > armorReduction) {
+            armorReduction = parseInt(armorData.reduction);
+          }
         }
       });
       data.armor_tn.bonus = armorBonus;
+      data.armor_tn.reduction = armorReduction;
       data.armor_tn.current = data.armor_tn.base + parseInt(data.armor_tn.mod) + data.armor_tn.bonus;
 
 

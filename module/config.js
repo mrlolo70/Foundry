@@ -51,3 +51,18 @@ l5r4.actionTypes = {
   complex: "l5r4.mech.complex",
   free: "l5r4.mech.free"
 }
+
+l5r4.kihoTypes = {
+  internal: "l5r4.kiho.internal",
+  karmic: "l5r4.kiho.karmic",
+  martial: "l5r4.kiho.martial",
+  mystic: "l5r4.kiho.mystic"
+}
+
+l5r4.advantageTypes = {
+  physical: "l5r4.advantage.physical",
+  mental: "l5r4.advantage.mental",
+  social: "l5r4.advantage.social",
+  material: "l5r4.advantage.material",
+  spiritual: "l5r4.advantage.spiritual"
+}

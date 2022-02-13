@@ -5,14 +5,13 @@
   }
 
   .main-sheet{
-  display: flex;
-  flex-flow: row;  
-  width: fit-content;
-
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    column-gap: 5px;
 
     .main-stats{
       order: 1;
-      flex: 0 0 75%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -20,7 +19,6 @@
 
     .sidebar {
       order: 2;
-      flex: 0 0 25%;
       display: flex;
       flex-direction: column;
       align-items: center;

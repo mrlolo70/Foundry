@@ -103,6 +103,7 @@
       "wounds": "Heridas",
       "armorTn": "NO de Armadura",
       "armorTnBase": "NO Base Armadura",
+      "armorReduction" : "Reducción",
       "woundLevel": "Nivel Heridas",
       "woundsSuffered": "Heridas sufridas",
       "penalty": "Penalización",
@@ -136,6 +137,14 @@
       "effect": "Efecto",
       "technique": "Técnica",
       "techniques": "Técnicas",
+      "advantage": "Ventaja",
+      "advantages": "Ventajas",
+      "disadvantage": "Desventaja",
+      "disadvantages": "Desventajas",
+      "kata": "Kata",
+      "katas": "Katas",
+      "kiho": "Kiho",
+      "kihos": "Kihos",
       "addTechSpell": "Añadir técnica/conjuro",
       "shugenja": "Shugenja",
       "equipment": "Equipamiento",
@@ -167,6 +176,28 @@
       "humming": "Zumbadora",
       "rope": "Cortacuerdas",
       "willow": "Hoja de Sauce"
+    },
+    "wealth": {
+      "koku":"Koku",
+      "bu":"Bu",
+      "zeni":"Zeni"
+    },
+    "special": {
+      "cost" : "Costo"
+    },
+    "kiho": {
+      "type": "Tipo",
+      "internal" : "Interna",
+      "karmic" : "Kármico",
+      "martial" : "Marcial",
+      "mystic" : "Místico"
+    },
+    "advantage": {
+      "physical":"Físico",
+      "mental":"Mental",
+      "social":"Social",
+      "material":"Material",
+      "spiritual":"Espiritual"
     }
   },
   "SETTINGS": {

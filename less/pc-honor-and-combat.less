@@ -1,15 +1,16 @@
 .l5r4.pc {
   .ranks {
-    text-align: center;
-    text-align-last: center;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
+    column-gap: 1.5em;
 
     .rank-name {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: baseline;
-      flex: 0 1 auto;
+      display:grid;
+      grid-template-columns : 1fr min-content;
+      column-gap: .8em;
+      align-items: center;
+      text-align: right;
     }
 
     select {
@@ -18,7 +19,7 @@
     input {
       border: none;
       margin-bottom: 0.25em;
-      flex-shrink: 7;
+      text-align: center;
     }
   }
 

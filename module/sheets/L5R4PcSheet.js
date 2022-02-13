@@ -57,15 +57,17 @@ export default class L5R4PcSheet extends ActorSheet {
       items: baseData.items
     }
 
-
+    sheetData.commonItems = sheetData.items.filter(function (item) { return item.type == "commonItem" });
     sheetData.weapons = sheetData.items.filter(function (item) { return item.type == "weapon" });
+    sheetData.bows = sheetData.items.filter(function (item) { return item.type == "bow" });
     sheetData.armors = sheetData.items.filter(function (item) { return item.type == "armor" });
     sheetData.skills = sheetData.items.filter(function (item) { return item.type == "skill" });
-    sheetData.spells = sheetData.items.filter(function (item) { return item.type == "spell" });
     sheetData.techniques = sheetData.items.filter(function (item) { return item.type == "technique" });
-    sheetData.bows = sheetData.items.filter(function (item) { return item.type == "bow" });
-
-
+    sheetData.advantages = sheetData.items.filter(function (item) { return item.type == "advantage" });
+    sheetData.disadvantages = sheetData.items.filter(function (item) { return item.type == "disadvantage" });
+    sheetData.spells = sheetData.items.filter(function (item) { return item.type == "spell" });
+    sheetData.katas = sheetData.items.filter(function (item) { return item.type == "kata" });
+    sheetData.kihos = sheetData.items.filter(function (item) { return item.type == "kiho" });
 
     return sheetData;
   }
@@ -80,10 +82,15 @@ export default class L5R4PcSheet extends ActorSheet {
       html.find(".item-delete").click(this._onItemDelete.bind(this));
       html.find(".inline-edit").change(this._onInlineItemEdit.bind(this));
 
+      new ContextMenu(html, ".commonItem-card", this.itemContextMenu);
       new ContextMenu(html, ".armor-card", this.itemContextMenu);
       new ContextMenu(html, ".weapon-card", this.itemContextMenu);
       new ContextMenu(html, ".spell-card", this.itemContextMenu);
       new ContextMenu(html, ".technique-card", this.itemContextMenu);
+      new ContextMenu(html, ".advantage-card", this.itemContextMenu);
+      new ContextMenu(html, ".disadvantage-card", this.itemContextMenu);
+      new ContextMenu(html, ".kata-card", this.itemContextMenu);
+      new ContextMenu(html, ".kiho-card", this.itemContextMenu);
 
       html.find(".item-roll").click(this._onItemRoll.bind(this));
       html.find(".weapon-roll").click(this._onWeaponRoll.bind(this));
