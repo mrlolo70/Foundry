@@ -1,0 +1,33 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+  <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+  <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+  </header>
+  <div class="sheet-content">
+    <table>
+      <tr>
+        <th>{{localize "l5r4.skill.type"}}</th>
+        <th>{{localize "l5r4.special.cost"}}</th>
+      </tr>
+      <tr>
+        <td>
+        <select name="data.type">
+          <option selected disabled>{{localize "l5r4.skill.type"}}</option>
+          {{#select data.type}}
+          {{#each config.advantageTypes as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+        </td>
+        <td>
+          <input name="data.cost" type="number" value="{{data.cost}}" data-type="Number" />
+        </td>
+      </tr>
+    </table>
+    <h2>{{localize "l5r4.sheet.rulesSummary"}}</h2>
+    {{editor content=data.specialRules target="data.specialRules" button=true owner=owner editable=editable}}
+    <h2>{{localize "l5r4.sheet.description"}}</h2>
+    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+  </div>
+</form>

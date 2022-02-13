@@ -1,0 +1,26 @@
+<div class="item-border {{data.type}}">
+  <div class="advantage-card item" data-item-id="{{_id}}">
+    <div class="advantage-info advantage-name">
+      <h3>
+        {{#if inSheet}}
+          <a title="{{localize "l5r4.sheet.edit"}}" class="item-edit">{{name}}</a>
+        {{else}}
+          {{name}}
+        {{/if}}
+      </h3>
+    </div>
+    <div class="advantage-info advantage-stats">
+      <div class="advantage-type">
+        {{localize "l5r4.skill.type"}}: {{localize (concat "l5r4.advantage." data.type)}}
+      </div>
+      <div class="advantage-cost">
+        {{localize "l5r4.special.cost"}}: {{data.cost}}
+      </div>
+    </div>
+    {{#if inSheet}}
+      <div>
+        <a class="item-edit"  title="{{localize "l5r4.sheet.edit"}}"><i class="fas fa-edit fa-fw"></i></a>
+      </div>
+    {{/if}}
+  </div>
+</div>
