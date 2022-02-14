@@ -221,7 +221,7 @@
       "templates": [
         "itemDescription"
       ],
-      "ring": "",
+      "ring": "Ring",
       "mastery": 1,
       "keywords": [],
       "range": "",
@@ -270,7 +270,7 @@
       "templates": [
         "itemDescription"
       ],
-      "ring": "",
+      "ring": "Ring",
       "mastery": 0,
       "type": ""
     }
