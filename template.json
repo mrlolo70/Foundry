@@ -155,23 +155,38 @@
         "current": 0,
         "mod": 0
       },
-      "woundsMod": 0
+      "woundsMod": 0,
+      "wealth": {
+        "koku": 0,
+        "bu": 0,
+        "zeni": 0
+      }
     }
   },
   "Item": {
     "types": [
+      "advantage",
+      "disadvantage",
+      "skill",
+      "commonItem",
       "weapon",
       "bow",
       "armor",
+      "technique",
       "spell",
-      "skill",
-      "technique"
+      "kata",
+      "kiho"
     ],
     "templates": {
       "itemDescription": {
         "description": "",
         "specialRules": ""
       }
+    },
+    "commonItem": {
+      "templates": [
+        "itemDescription"
+      ]
     },
     "weapon": {
       "templates": [
@@ -229,6 +244,35 @@
       "trait": "void",
       "emphasis": "",
       "school": false
+    },
+    "advantage": {
+      "templates": [
+        "itemDescription"
+      ],
+      "cost": 0,
+      "type": ""
+    },
+    "disadvantage": {
+      "templates": [
+        "itemDescription"
+      ],
+      "cost": 0,
+      "type": ""
+    },
+    "kata": {
+      "templates": [
+        "itemDescription"
+      ],
+      "ring": "",
+      "mastery": 0
+    },
+    "kiho": {
+      "templates": [
+        "itemDescription"
+      ],
+      "ring": "",
+      "mastery": 0,
+      "type": ""
     }
   }
 }

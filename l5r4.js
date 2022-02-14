@@ -8,11 +8,16 @@ import L5R4INpcSheet from "./module/sheets/L5R4NpcSheet.js";
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
     "systems/l5r4/templates/partials/pc-honor-and-combat.hbs",
+    "systems/l5r4/templates/partials/commonItem-card.hbs",
     "systems/l5r4/templates/partials/armor-card.hbs",
     "systems/l5r4/templates/partials/weapon-card.hbs",
     "systems/l5r4/templates/partials/spell-card.hbs",
     "systems/l5r4/templates/partials/skill-card.hbs",
     "systems/l5r4/templates/partials/technique-card.hbs",
+    "systems/l5r4/templates/partials/advantage-card.hbs",
+    "systems/l5r4/templates/partials/disadvantage-card.hbs",
+    "systems/l5r4/templates/partials/kata-card.hbs",
+    "systems/l5r4/templates/partials/kiho-card.hbs",
     "systems/l5r4/templates/partials/pc-wounds.hbs",
     "systems/l5r4/templates/partials/pc-stats.hbs",
     "systems/l5r4/templates/partials/pc-skills.hbs",

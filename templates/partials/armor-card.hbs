@@ -2,15 +2,10 @@
   <div class="armor-card item" data-item-id="{{_id}}">
     <div class="armor-info armor-name">
       {{#if inSheet}}
-      <h3 title="{{localize "l5r4.sheet.edit"}}">
-        <a class="item-edit">{{name}}</a>
-      </h3>
-      {{/if}}
-      {{#unless inSheet}}
-      <h3 title="{{localize "l5r4.sheet.edit"}}">
+        <h3><a class="item-edit">{{name}}</a></h3>
+      {{else}}
         {{name}}
-      </h3>
-      {{/unless}}
+      {{/if}}
     </div>
     <div class="armor-info armor-stats">
       <div class="armor-bonus">
@@ -26,5 +21,10 @@
       </div>
       {{/if}}
     </div>
+    {{#if inSheet}}
+      <div>
+        <a class="item-edit"  title="{{localize "l5r4.sheet.edit"}}"><i class="fas fa-edit fa-fw"></i></a>
+      </div>
+    {{/if}}
   </div>
 </div>

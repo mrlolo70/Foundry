@@ -5,7 +5,11 @@ export default class L5R4Item extends Item {
     "skill": "systems/l5r4/templates/partials/skill-card.hbs",
     "armor": "systems/l5r4/templates/partials/armor-card.hbs",
     "spell": "systems/l5r4/templates/partials/spell-card.hbs",
-    "technique": "systems/l5r4/templates/partials/technique-card.hbs"
+    "technique": "systems/l5r4/templates/partials/technique-card.hbs",
+    "advantage": "systems/l5r4/templates/partials/advantage-card.hbs",
+    "disadvantage": "systems/l5r4/templates/partials/disadvantage-card.hbs",
+    "kata": "systems/l5r4/templates/partials/kata-card.hbs",
+    "kiho": "systems/l5r4/templates/partials/kiho-card.hbs",
   };
 
   prepareData() {

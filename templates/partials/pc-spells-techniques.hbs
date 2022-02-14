@@ -5,12 +5,34 @@
         <i class="fas fa-plus"></i>
       </a>
     </h2>
-  <section class="techniques-list spells-list">
+  <section class="special-list advantage-list">
+    {{#each advantages as |advantage id|}}
+    {{> "systems/l5r4/templates/partials/advantage-card.hbs" advantage inSheet=true}}
+    {{/each}}
+  </section>
+  <section class="special-list disadvantage-list">
+    {{#each disadvantages as |disadvantage id|}}
+    {{> "systems/l5r4/templates/partials/disadvantage-card.hbs" disadvantage inSheet=true}}
+    {{/each}}
+  </section>
+  <section class="special-list techniques-list">
     {{#each techniques as |technique id|}}
     {{> "systems/l5r4/templates/partials/technique-card.hbs" technique inSheet=true}}
     {{/each}}
+  </section>
+  <section class="special-list spells-list">
     {{#each spells as |spell id|}}
     {{> "systems/l5r4/templates/partials/spell-card.hbs" spell inSheet=true}}
+    {{/each}}
+  </section>
+  <section class="special-list kata-list">
+    {{#each katas as |kata id|}}
+    {{> "systems/l5r4/templates/partials/kata-card.hbs" kata inSheet=true}}
+    {{/each}}
+  </section>
+  <section class="special-list kiho-list">
+    {{#each kihos as |kiho id|}}
+    {{> "systems/l5r4/templates/partials/kiho-card.hbs" kiho inSheet=true}}
     {{/each}}
   </section>
 </section>

@@ -1,6 +1,9 @@
 <section class="equipment panelBorder">
-  <h2>
+  <h2 class="equipement-title">
     <div>{{localize "l5r4.sheet.equipment"}}</div>
+    <div class="wealth wealth-koku">{{localize "l5r4.wealth.koku"}}: <input type="text" name="data.wealth.koku" value="{{data.wealth.koku}}" placeholder="{{localize "l5r4.wealth.koku"}}" /></div>
+    <div class="wealth wealth-koku">{{localize "l5r4.wealth.bu"}}: <input type="text" name="data.wealth.bu" value="{{data.wealth.bu}}" placeholder="{{localize "l5r4.wealth.bu"}}" /></div>
+    <div class="wealth wealth-koku">{{localize "l5r4.wealth.zeni"}}: <input type="text" name="data.wealth.zeni" value="{{data.wealth.zeni}}" placeholder="{{localize "l5r4.wealth.zeni"}}" /></div>
     <a class="item-create" data-type="equipment" title="{{localize "l5r4.sheet.addEquipment"}}">
       <i class="fas fa-plus"></i>
     </a>
@@ -18,6 +21,11 @@
     <section class="armors-list">
       {{#each armors as |armor id|}}
       {{> "systems/l5r4/templates/partials/armor-card.hbs" armor inSheet=true}}
+      {{/each}}
+    </section>
+    <section class="commonItems-list">
+      {{#each commonItems as |item id|}}
+      {{> "systems/l5r4/templates/partials/commonItem-card.hbs" item inSheet=true}}
       {{/each}}
     </section>
   </section>
