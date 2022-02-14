@@ -132,5 +132,101 @@ Hooks.once("init", function () {
 
 });
 
+/**
+ * Drag and drop of characters, items and journals entry on the hot bar
+ */
+Hooks.on('hotbarDrop', async (bar, data, slot) => {
 
+	const elementsTypes = {
+		'Actor' : {
+			'collection' : 'actors',
+			'defaultImg' : "icons/svg/cowled.svg"
+		},
+		'Item' : {
+			'collection' : 'items',
+			'defaultImg' : "icons/svg/coins.svg"
+		},
+		'JournalEntry' : {
+			'collection' : 'journal',
+			'defaultImg' : "icons/svg/book.svg"
+		}
+	};
 
+	// With the workaround, some elements dont have their type set
+	if(!elementsTypes[data.type]) {
+		for(let type in elementsTypes)
+			if(game[elementsTypes[type].collection].get(data.id))
+				data.type = type;
+		if(!elementsTypes[data.type])
+			return;
+	}
+
+	const collection = elementsTypes[data.type].collection;
+	const defaultImg = elementsTypes[data.type].defaultImg;
+
+	const command = `
+		(function () {
+			const element = game.${collection}.get('${data.id}');
+			if (element?.sheet.rendered) {
+				element.sheet.close();
+			} else {
+				element.sheet.render(true);
+			}
+		})();
+	`.trim();
+	const element = game[collection].get(data.id);
+	const name = element.name;
+	const img = element.img ? element.img : defaultImg;
+
+	let macro = game.macros.find(macro => {
+		let found = macro.data.name === name && macro.data.command === command
+		return found;
+	});
+
+	if (!macro) {
+		macro = await Macro.create({
+			name: name,
+			type: 'script',
+			img: img,
+			command: command
+		}, {renderSheet: false});
+	}
+
+	game.user.assignHotbarMacro(macro, slot);
+	return false;
+});
+
+/**
+ * Work around to enable drag&drop of the journal entries for the non GM/Assistant player
+ */
+Hooks.on('renderJournalDirectory', async (journalDirectory, html, data) => {
+	const role = game.users.get(game.userId).role
+	if(role == CONST.USER_ROLES.ASSISTANT || role == CONST.USER_ROLES.GAMEMASTER)
+		return;
+
+	const journalElements = html.find('li.journal.flexrow');
+	journalElements.each((index, element) => {
+		const journalId = element.dataset.documentId;
+		if(!journalId)
+			return;
+		element.draggable = true;
+		element.ondragstart = journalDirectory._onDragStart;
+	});
+});
+
+/**
+ * Work around to enable drag&drop of the actors for user that dont have the right to create tokens
+ */
+Hooks.on('renderActorDirectory', async (actorDirectory, html, data) => {
+	if(TokenDocument.canUserCreate(game.user))
+		return;
+
+	const actorElements = html.find('li.actor.flexrow');
+	actorElements.each((index, element) => {
+		const actorId = element.dataset.documentId;
+		if(!actorId)
+			return;
+		element.draggable = true;
+		element.ondragstart = actorDirectory._onDragStart;
+	});
+});
