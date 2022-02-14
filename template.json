@@ -221,7 +221,7 @@
       "templates": [
         "itemDescription"
       ],
-      "ring": "",
+      "ring": "earth",
       "mastery": 1,
       "keywords": [],
       "range": "",
@@ -250,29 +250,29 @@
         "itemDescription"
       ],
       "cost": 0,
-      "type": ""
+      "type": "physical"
     },
     "disadvantage": {
       "templates": [
         "itemDescription"
       ],
       "cost": 0,
-      "type": ""
+      "type": "physical"
     },
     "kata": {
       "templates": [
         "itemDescription"
       ],
-      "ring": "",
-      "mastery": 0
+      "ring": "earth",
+      "mastery": 1
     },
     "kiho": {
       "templates": [
         "itemDescription"
       ],
-      "ring": "",
-      "mastery": 0,
-      "type": ""
+      "ring": "earth",
+      "mastery": 1,
+      "type": "internal"
     }
   }
 }
