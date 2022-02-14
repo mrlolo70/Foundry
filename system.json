@@ -3,7 +3,7 @@
   "title": "Legend of the Five Rings 4th Edition",
   "description": "System to play L5R 4th edition",
   "author": "Mateo Caycedo Alvarez",
-  "version": "0.5.3",
+  "version": "0.6",
   "minumCoreVersion": "0.8.7",
   "compatibleCoreVersion": "9",
   "esmodules": [
@@ -37,5 +37,5 @@
   "gridUnits": "ft",
   "url": "https://bitbucket.org/TeoCay/l5r4",
   "manifest": "https://bitbucket.org/TeoCay/l5r4/raw/master/system.json",
-  "download": "https://bitbucket.org/TeoCay/l5r4/get/v0.5.1.zip"
+  "download": "https://bitbucket.org/TeoCay/l5r4/get/v0.6.zip"
 }

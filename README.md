@@ -14,6 +14,7 @@ Unofficial implementation of the Legend of the Five Rings 4th edition for Foundr
 
 - English
 - Español
+- Français 
 
 ## Installation
 
@@ -26,6 +27,12 @@ https://github.com/eupolemo/fvtt-l5r4ed-dice-roller
 
 Compatible with Dice So Nice!
 https://gitlab.com/riccisi/foundryvtt-dice-so-nice
+
+## Special thanks to contributors
+
+Sylvain «Greewi» Dumazet
+Roberto Lorite
+Teddy
 
 ## License
 
