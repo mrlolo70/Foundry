@@ -670,6 +670,12 @@
   column-gap: 0.2em;
   align-items: center;
 }
+.l5r4.pc .masteries-list .mastery-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 0.2em;
+  align-items: center;
+}
 .l5r4.pc .spells-list .spell-stats {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

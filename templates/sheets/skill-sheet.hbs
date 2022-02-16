@@ -3,41 +3,54 @@
   <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
   </header>
   <div class="sheet-content">
-  <table>
-    <tr>
-    <th>{{localize "l5r4.skill.rank"}}</th>
-    <th>{{localize "l5r4.skill.school"}}</th>
-    <th>{{localize "l5r4.skill.emphasis"}}</th>
-    </tr>
-    <tr>
-      <select name="data.type">
-        <option selected disabled>{{localize "l5r4.skill.type"}}</option>
-        {{#select data.type}}
-        {{#each config.skillTypes as |name type|}}
-        <option value="{{type}}">{{localize name}}</option>
-        {{/each}}
-        {{/select}}
-      </select>
-    </tr>
-    <tr>
-      <select name="data.trait">
-        <option selected disabled>{{localize "l5r4.skill.trait"}}</option>
-        {{#select data.trait}}
-        {{#each config.traits as |name trait|}}
-        <option value="{{trait}}">{{localize name}}</option>
-        {{/each}}
-        {{/select}}
-      </select>
-    </tr>
-    <td>
-    <input name="data.rank" type="number" value="{{data.rank}}" data-type="Number" />
-    </td>
-    <td>
-    <input name="data.school" type="checkbox" {{checked data.school}} data-type="Boolean" />
-    </td>
-    <td>
-    <input name="data.emphasis" type="text" value="{{data.emphasis}}" data-type="String"/>
-    </td>
-  </table>
+    <table>
+      <tr>
+      <th>{{localize "l5r4.skill.rank"}}</th>
+      <th>{{localize "l5r4.skill.school"}}</th>
+      <th>{{localize "l5r4.skill.emphasis"}}</th>
+      </tr>
+      <tr>
+        <select name="data.type">
+          <option selected disabled>{{localize "l5r4.skill.type"}}</option>
+          {{#select data.type}}
+          {{#each config.skillTypes as |name type|}}
+          <option value="{{type}}">{{localize name}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </tr>
+      <tr>
+        <select name="data.trait">
+          <option selected disabled>{{localize "l5r4.skill.trait"}}</option>
+          {{#select data.trait}}
+          {{#each config.traits as |name trait|}}
+          <option value="{{trait}}">{{localize name}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </tr>
+      <tr>
+      <td>
+      <input name="data.rank" type="number" value="{{data.rank}}" data-type="Number" />
+      </td>
+      <td>
+      <input name="data.school" type="checkbox" {{checked data.school}} data-type="Boolean" />
+      </td>
+      <td>
+      <input name="data.emphasis" type="text" value="{{data.emphasis}}" data-type="String"/>
+      </td>
+      </tr>
+      <tr>
+        <th>{{localize "l5r4.skill.mastery3"}}:</th><td colspan="2"><input name="data.mastery_3" type="text" value="{{data.mastery_3}}" data-type="String"/></td>
+      </tr>
+      <tr>
+        <th>{{localize "l5r4.skill.mastery5"}}:</th><td colspan="2"><input name="data.mastery_5" type="text" value="{{data.mastery_5}}" data-type="String"/></td>
+      </tr>
+      <tr>
+        <th>{{localize "l5r4.skill.mastery7"}}:</th><td colspan="2"><input name="data.mastery_7" type="text" value="{{data.mastery_7}}" data-type="String"/></td>
+      </tr>
+    </table>
+    <h2>{{localize "l5r4.sheet.rulesSummary"}}</h2>
+    {{editor content=data.specialRules target="data.specialRules" button=true owner=owner editable=editable}}
   </div>
 </form>

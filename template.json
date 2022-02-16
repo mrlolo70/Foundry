@@ -239,10 +239,16 @@
       "deficiency": ""
     },
     "skill": {
+      "templates": [
+        "itemDescription"
+      ],
       "rank": 0,
       "type": "high",
       "trait": "void",
       "emphasis": "",
+      "mastery_3": "",
+      "mastery_5": "",
+      "mastery_7": "",
       "school": false
     },
     "advantage": {

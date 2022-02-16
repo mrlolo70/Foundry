@@ -13,6 +13,7 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/weapon-card.hbs",
     "systems/l5r4/templates/partials/spell-card.hbs",
     "systems/l5r4/templates/partials/skill-card.hbs",
+    "systems/l5r4/templates/partials/mastery-card.hbs",
     "systems/l5r4/templates/partials/technique-card.hbs",
     "systems/l5r4/templates/partials/advantage-card.hbs",
     "systems/l5r4/templates/partials/disadvantage-card.hbs",

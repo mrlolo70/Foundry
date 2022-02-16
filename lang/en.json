@@ -83,7 +83,10 @@
       "type": "Type",
       "trait": "Trait",
       "emphasis": "Emphases",
-      "school": "School skill"
+      "school": "School skill",
+      "mastery3" : "Rank 3 Mastery",
+      "mastery5" : "Rank 5 Mastery",
+      "mastery7" : "Rank 7 Mastery"
     },
     "traits": {
       "name": "Name",
