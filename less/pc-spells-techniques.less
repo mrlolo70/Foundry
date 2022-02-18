@@ -12,7 +12,14 @@
     }
 
     h3 {
+      display: flex;
       margin: 0.25rem 0;
+      img {
+        align-self: baseline;
+        margin-right: 5px;
+        width: 15px;
+        height: 15px;
+      }
     }
   }
 
@@ -36,6 +43,14 @@
     .technique-stats{
       display: grid;
       grid-template-columns: 1fr 2fr;
+      column-gap:.2em;
+      align-items: center;
+    }
+  }
+  .masteries-list {
+    .mastery-stats{
+      display: grid;
+      grid-template-columns: 1fr;
       column-gap:.2em;
       align-items: center;
     }

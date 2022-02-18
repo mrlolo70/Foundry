@@ -20,6 +20,11 @@
     {{> "systems/l5r4/templates/partials/technique-card.hbs" technique inSheet=true}}
     {{/each}}
   </section>
+  <section class="special-list masteries-list">
+    {{#each masteries as |mastery id|}}
+    {{> "systems/l5r4/templates/partials/mastery-card.hbs" mastery inSheet=true}}
+    {{/each}}
+  </section>
   <section class="special-list spells-list">
     {{#each spells as |spell id|}}
     {{> "systems/l5r4/templates/partials/spell-card.hbs" spell inSheet=true}}

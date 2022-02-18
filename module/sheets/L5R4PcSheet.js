@@ -69,6 +69,16 @@ export default class L5R4PcSheet extends ActorSheet {
     sheetData.katas = sheetData.items.filter(function (item) { return item.type == "kata" });
     sheetData.kihos = sheetData.items.filter(function (item) { return item.type == "kiho" });
 
+    sheetData.masteries = [];
+    for(let skill of sheetData.skills) {
+      if(skill.data.mastery_3!="" && skill.data.rank>=3)
+        sheetData.masteries.push({_id:skill._id, name: `${skill.name} 3`, mastery: skill.data.mastery_3});
+      if(skill.data.mastery_5!="" && skill.data.rank>=5)
+        sheetData.masteries.push({_id:skill._id, name: `${skill.name} 5`, mastery: skill.data.mastery_5});
+      if(skill.data.mastery_7!="" && skill.data.rank>=7)
+        sheetData.masteries.push({_id:skill._id, name: `${skill.name} 7`, mastery: skill.data.mastery_7});
+    }
+
     return sheetData;
   }
 
@@ -82,6 +92,7 @@ export default class L5R4PcSheet extends ActorSheet {
       html.find(".item-delete").click(this._onItemDelete.bind(this));
       html.find(".inline-edit").change(this._onInlineItemEdit.bind(this));
 
+      new ContextMenu(html, ".skill-item", this.itemContextMenu);
       new ContextMenu(html, ".commonItem-card", this.itemContextMenu);
       new ContextMenu(html, ".armor-card", this.itemContextMenu);
       new ContextMenu(html, ".weapon-card", this.itemContextMenu);

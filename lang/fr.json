@@ -83,7 +83,10 @@
       "type": "Type",
       "trait": "Trait",
       "emphasis": "Spécialisation",
-      "school": "École"
+      "school": "École",
+      "mastery3" : "Maîtrise Rang 3",
+      "mastery5" : "Maîtrise Rang 5",
+      "mastery7" : "Maîtrise Rang 7"
     },
     "traits": {
       "name": "Nom",
