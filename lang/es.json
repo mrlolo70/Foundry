@@ -22,13 +22,13 @@
       "current": "Actual",
       "total": "Total",
       "ringRoll": "Tirada anillo",
-      "traitRoll": "Tirada rasgo",
+      "traitRoll": "Tirada característica",
       "skillRoll": "Tirada habilidad",
       "damageRoll": "Tirada daño",
       "attackRoll": "Tirada ataque",
       "spellCasting": "Tirada para Lanzamiento de Conjuro",
       "unskilledRoll": "Tirada sin habilidad",
-      "emphasis": "Énfasis",
+      "emphasis": "Especialidad",
       "toChat": "Al chat",
       "effect": "Efecto",
       "simple": "Simple",
@@ -45,7 +45,7 @@
       "attackType": "Tipo de Ataque",
       "size": "Tamaño",
       "damageRoll": "Tirada daño",
-      "damageKeep": "Mantener daño",
+      "damageKeep": "Guardar daño",
       "str": "Fuerza",
       "range": "Alcance",
       "arrow": "Flecha",
@@ -65,7 +65,7 @@
       "range": "Alcance",
       "aoe": "Área de Efecto",
       "duration": "Duración",
-      "raises": "Aumentar",
+      "raises": "Aumentos",
       "affinity": "Afinidad",
       "deficiency": "Deficiencia"
     },
@@ -81,8 +81,8 @@
     "skill": {
       "rank": "Rango",
       "type": "Tipo",
-      "trait": "Rasgo",
-      "emphasis": "Énfasis",
+      "trait": "Característica",
+      "emphasis": "Especialidad",
       "school": "Escuela de habilidad",
       "mastery3" : "Maestría Rango 3",
       "mastery5" : "Maestría Rango 5",
@@ -151,7 +151,7 @@
       "addTechSpell": "Añadir técnica/conjuro",
       "shugenja": "Shugenja",
       "equipment": "Equipamiento",
-      "rulesSummary": "Índice Reglas",
+      "rulesSummary": "Resumen Reglas",
       "description": "Descripción",
       "nrWoundLvls": "Número niveles de herida"
     },
@@ -205,7 +205,7 @@
   },
   "SETTINGS": {
     "showTraitRollOptions":{
-      "name": "Preguntar por defecto por opciones de Tiradas de Rasgo.",
+      "name": "Preguntar por defecto por opciones de Tiradas de Característica.",
       "label": "Mantener pulsada tecla Mayús para alternar."
     },
     "showSpellRollOptions":{
