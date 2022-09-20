@@ -3,7 +3,7 @@ export default class L5R4Actor extends Actor {
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
-    if (this.data.type === "pc") { 
+    if (this.data.type === "pc") {
       // pc token settings
       this.data.token.update(
         {
@@ -80,7 +80,7 @@ export default class L5R4Actor extends Actor {
           if (parseInt(armorData.bonus) > armorBonus) {
             armorBonus = parseInt(armorData.bonus);
           }
-          if(parseInt(armorData.reduction) > armorReduction) {
+          if (parseInt(armorData.reduction) > armorReduction) {
             armorReduction = parseInt(armorData.reduction);
           }
         }
@@ -110,10 +110,9 @@ export default class L5R4Actor extends Actor {
       let insightRings = ((data.rings.air + data.rings.earth + data.rings.fire + data.rings.water + data.rings.void.rank) * 10);
       let insighSkills = 0;
       for (const [skill, skillData] of Object.entries(skills)) {
-        insighSkills += parseInt(skillData.data.data.rank);
+        insighSkills += parseInt(skillData.data.data.rank) + parseInt(skillData.data.data.insight_bonus);
       }
       data.insight.points = insightRings + insighSkills;
-
     }
 
     if (actorData.type == "npc") {

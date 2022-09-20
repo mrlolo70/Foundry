@@ -84,9 +84,10 @@
       "trait": "Característica",
       "emphasis": "Especialidad",
       "school": "Escuela de habilidad",
-      "mastery3" : "Maestría Rango 3",
-      "mastery5" : "Maestría Rango 5",
-      "mastery7" : "Maestría Rango 7"
+      "mastery3": "Maestría Rango 3",
+      "mastery5": "Maestría Rango 5",
+      "mastery7": "Maestría Rango 7",
+      "insightbonus": "Bono de Reconocimiento"
     },
     "traits": {
       "name": "Nombre",
@@ -106,7 +107,7 @@
       "wounds": "Heridas",
       "armorTn": "NO de Armadura",
       "armorTnBase": "NO Base Armadura",
-      "armorReduction" : "Reducción",
+      "armorReduction": "Reducción",
       "woundLevel": "Nivel Heridas",
       "woundsSuffered": "Heridas sufridas",
       "penalty": "Penalización",
@@ -181,38 +182,38 @@
       "willow": "Hoja de Sauce"
     },
     "wealth": {
-      "koku":"Koku",
-      "bu":"Bu",
-      "zeni":"Zeni"
+      "koku": "Koku",
+      "bu": "Bu",
+      "zeni": "Zeni"
     },
     "special": {
-      "cost" : "Costo"
+      "cost": "Costo"
     },
     "kiho": {
       "type": "Tipo",
-      "internal" : "Interna",
-      "karmic" : "Kármico",
-      "martial" : "Marcial",
-      "mystic" : "Místico"
+      "internal": "Interna",
+      "karmic": "Kármico",
+      "martial": "Marcial",
+      "mystic": "Místico"
     },
     "advantage": {
-      "physical":"Físico",
-      "mental":"Mental",
-      "social":"Social",
-      "material":"Material",
-      "spiritual":"Espiritual"
+      "physical": "Físico",
+      "mental": "Mental",
+      "social": "Social",
+      "material": "Material",
+      "spiritual": "Espiritual"
     }
   },
   "SETTINGS": {
-    "showTraitRollOptions":{
+    "showTraitRollOptions": {
       "name": "Preguntar por defecto por opciones de Tiradas de Característica.",
       "label": "Mantener pulsada tecla Mayús para alternar."
     },
-    "showSpellRollOptions":{
+    "showSpellRollOptions": {
       "name": "Preguntar por defecto si Tirada de Anillo es un conjuro.",
       "label": "Mantener pulsada tecla Mayús para alternar."
     },
-    "showSkillRollOptions":{
+    "showSkillRollOptions": {
       "name": "Preguntar por defecto por Tiradas de Habilidad y opciones de Tiradas de Daño.",
       "label": "Mantener pulsada tecla Mayús para alternar."
     }

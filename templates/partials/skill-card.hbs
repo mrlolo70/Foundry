@@ -46,6 +46,13 @@
           </div>
         {{/if}}
       {{/if}}
+      {{#if (gte data.insight bonus) }}
+        {{#if data.insight_bonus}}
+          <div>
+            <p>{{localize "l5r4.skill.insightbonus"}}: {{data.insight_bonus}}</p>
+          </div>
+        {{/if}}
+      {{/if}}
     </div>
     {{#if inSheet}}
       <div>
