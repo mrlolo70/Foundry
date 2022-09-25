@@ -11,21 +11,21 @@
   <section class="equipment-list">
     <section class="weapons-list">
       {{#each weapons as |weapon id|}}
-      {{> "systems/l5r4/templates/partials/weapon-card.hbs" weapon ranged=false inSheet=true}}
+      {{> "systems/l5r4/templates/partials/weapon-card.hbs" data=weapon.data ranged=false inSheet=true}}
       {{/each}}
 
       {{#each bows as |weapon id|}}
-      {{> "systems/l5r4/templates/partials/weapon-card.hbs" weapon ranged=true inSheet=true}}
+      {{> "systems/l5r4/templates/partials/weapon-card.hbs" data=weapon.data ranged=true inSheet=true}}
       {{/each}}
     </section>
     <section class="armors-list">
       {{#each armors as |armor id|}}
-      {{> "systems/l5r4/templates/partials/armor-card.hbs" armor inSheet=true}}
+      {{> "systems/l5r4/templates/partials/armor-card.hbs" data=armor.data inSheet=true}}
       {{/each}}
     </section>
     <section class="commonItems-list">
       {{#each commonItems as |item id|}}
-      {{> "systems/l5r4/templates/partials/commonItem-card.hbs" item inSheet=true}}
+      {{> "systems/l5r4/templates/partials/commonItem-card.hbs" data=item.data inSheet=true}}
       {{/each}}
     </section>
   </section>
