@@ -7,37 +7,37 @@
     </h2>
   <section class="special-list advantage-list">
     {{#each advantages as |advantage id|}}
-    {{> "systems/l5r4/templates/partials/advantage-card.hbs" advantage inSheet=true}}
+    {{> "systems/l5r4/templates/partials/advantage-card.hbs" data=advantage.data inSheet=true}}
     {{/each}}
   </section>
   <section class="special-list disadvantage-list">
     {{#each disadvantages as |disadvantage id|}}
-    {{> "systems/l5r4/templates/partials/disadvantage-card.hbs" disadvantage inSheet=true}}
+    {{> "systems/l5r4/templates/partials/disadvantage-card.hbs" data=disadvantage.data inSheet=true}}
     {{/each}}
   </section>
   <section class="special-list techniques-list">
     {{#each techniques as |technique id|}}
-    {{> "systems/l5r4/templates/partials/technique-card.hbs" technique inSheet=true}}
+    {{> "systems/l5r4/templates/partials/technique-card.hbs" data=technique.data inSheet=true}}
     {{/each}}
   </section>
   <section class="special-list masteries-list">
     {{#each masteries as |mastery id|}}
-    {{> "systems/l5r4/templates/partials/mastery-card.hbs" mastery inSheet=true}}
+    {{> "systems/l5r4/templates/partials/mastery-card.hbs" data=mastery.data inSheet=true}}
     {{/each}}
   </section>
   <section class="special-list spells-list">
     {{#each spells as |spell id|}}
-    {{> "systems/l5r4/templates/partials/spell-card.hbs" spell inSheet=true}}
+    {{> "systems/l5r4/templates/partials/spell-card.hbs" data=spell.data inSheet=true}}
     {{/each}}
   </section>
   <section class="special-list kata-list">
     {{#each katas as |kata id|}}
-    {{> "systems/l5r4/templates/partials/kata-card.hbs" kata inSheet=true}}
+    {{> "systems/l5r4/templates/partials/kata-card.hbs" data=kata.data inSheet=true}}
     {{/each}}
   </section>
   <section class="special-list kiho-list">
     {{#each kihos as |kiho id|}}
-    {{> "systems/l5r4/templates/partials/kiho-card.hbs" kiho inSheet=true}}
+    {{> "systems/l5r4/templates/partials/kiho-card.hbs" data=kiho.data inSheet=true}}
     {{/each}}
   </section>
 </section>
