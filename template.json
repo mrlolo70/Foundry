@@ -96,12 +96,12 @@
         "keep": 2,
         "type": ""
       },
-      "damage1":{
+      "damage1": {
         "roll": 2,
         "keep": 2,
         "type": ""
       },
-      "damage2":{
+      "damage2": {
         "roll": 2,
         "keep": 2,
         "type": ""
@@ -249,6 +249,7 @@
       "mastery_3": "",
       "mastery_5": "",
       "mastery_7": "",
+      "insight_bonus": 0,
       "school": false
     },
     "advantage": {

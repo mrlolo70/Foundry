@@ -84,9 +84,10 @@
       "trait": "Trait",
       "emphasis": "Spécialisation",
       "school": "École",
-      "mastery3" : "Maîtrise Rang 3",
-      "mastery5" : "Maîtrise Rang 5",
-      "mastery7" : "Maîtrise Rang 7"
+      "mastery3": "Maîtrise Rang 3",
+      "mastery5": "Maîtrise Rang 5",
+      "mastery7": "Maîtrise Rang 7",
+      "insightbonus": "Prime de Réputation"
     },
     "traits": {
       "name": "Nom",
@@ -106,7 +107,7 @@
       "wounds": "Blessures",
       "armorTn": "ND Armure",
       "armorTnBase": "Base ND Armure",
-      "armorReduction" : "Réduction",
+      "armorReduction": "Réduction",
       "woundLevel": "Niveau de Blessure",
       "woundsSuffered": "Blessures subies",
       "penalty": "Pénalité",
@@ -181,38 +182,38 @@
       "willow": "Feuille de Saule"
     },
     "wealth": {
-      "koku":"Koku",
-      "bu":"Bu",
-      "zeni":"Zeni"
+      "koku": "Koku",
+      "bu": "Bu",
+      "zeni": "Zeni"
     },
     "special": {
-      "cost" : "Coût"
+      "cost": "Coût"
     },
     "kiho": {
       "type": "Type",
-      "internal" : "Interne",
-      "karmic" : "Karmique",
-      "martial" : "Martial",
-      "mystic" : "Mystique"
+      "internal": "Interne",
+      "karmic": "Karmique",
+      "martial": "Martial",
+      "mystic": "Mystique"
     },
     "advantage": {
-      "physical":"Physique",
-      "mental":"Mental",
-      "social":"Social",
-      "material":"Matériel",
-      "spiritual":"Spirituel"
+      "physical": "Physique",
+      "mental": "Mental",
+      "social": "Social",
+      "material": "Matériel",
+      "spiritual": "Spirituel"
     }
   },
   "SETTINGS": {
-    "showTraitRollOptions":{
+    "showTraitRollOptions": {
       "name": "Demander les options des jets de Trait par défaut.",
       "label": "Appuyer sur MAJ pour inverser."
     },
-    "showSpellRollOptions":{
+    "showSpellRollOptions": {
       "name": "Demander si le jet d'Anneau est un sort, par defaut.",
-      "label":"Appuyer sur MAJ pour inverser."
+      "label": "Appuyer sur MAJ pour inverser."
     },
-    "showSkillRollOptions":{
+    "showSkillRollOptions": {
       "name": "Demander les options des jets de Compétences et de Dégâts par défaut.",
       "label": "Appuyer sur MAJ pour inverser."
     }

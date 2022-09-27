@@ -84,9 +84,10 @@
       "trait": "Trait",
       "emphasis": "Emphases",
       "school": "School skill",
-      "mastery3" : "Rank 3 Mastery",
-      "mastery5" : "Rank 5 Mastery",
-      "mastery7" : "Rank 7 Mastery"
+      "mastery3": "Rank 3 Mastery",
+      "mastery5": "Rank 5 Mastery",
+      "mastery7": "Rank 7 Mastery",
+      "insightbonus": "Insight Bonus"
     },
     "traits": {
       "name": "Name",
@@ -106,7 +107,7 @@
       "wounds": "Wounds",
       "armorTn": "Armor TN",
       "armorTnBase": "Armor TN Base",
-      "armorReduction" : "Reduction",
+      "armorReduction": "Reduction",
       "woundLevel": "Wounds Level",
       "woundsSuffered": "Wounds suffered",
       "penalty": "Penalty",
@@ -181,38 +182,38 @@
       "willow": "Willow Leaf"
     },
     "wealth": {
-      "koku":"Koku",
-      "bu":"Bu",
-      "zeni":"Zeni"
+      "koku": "Koku",
+      "bu": "Bu",
+      "zeni": "Zeni"
     },
     "special": {
-      "cost" : "Cost"
+      "cost": "Cost"
     },
     "kiho": {
       "type": "Type",
-      "internal" : "Internal",
-      "karmic" : "Karmic",
-      "martial" : "Martial",
-      "mystic" : "Mystic"
+      "internal": "Internal",
+      "karmic": "Karmic",
+      "martial": "Martial",
+      "mystic": "Mystic"
     },
     "advantage": {
-      "physical":"Physical",
-      "mental":"Mental",
-      "social":"Social",
-      "material":"Material",
-      "spiritual":"Spriritual"
+      "physical": "Physical",
+      "mental": "Mental",
+      "social": "Social",
+      "material": "Material",
+      "spiritual": "Spriritual"
     }
   },
   "SETTINGS": {
-    "showTraitRollOptions":{
+    "showTraitRollOptions": {
       "name": "Ask for Trait Rolls options by default.",
       "label": "Hold Shift to Toggle."
     },
-    "showSpellRollOptions":{
+    "showSpellRollOptions": {
       "name": "Ask if the Ring Roll is a spell by default.",
-      "label":"Hold Shift to Toggle."
+      "label": "Hold Shift to Toggle."
     },
-    "showSkillRollOptions":{
+    "showSkillRollOptions": {
       "name": "Ask for Skill Rolls and Damage Roll options by default.",
       "label": "Hold Shift to Toggle."
     }
