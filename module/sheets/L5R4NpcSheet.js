@@ -2,11 +2,18 @@ import * as Dice from "../dice.js";
 
 export default class L5R4NpcSheet extends ActorSheet {
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions,{
+    return mergeObject(super.defaultOptions, {
       template: "systems/l5r4/templates/sheets/npc-sheet.hbs",
       classes: ["l5r4", "npc"],
       width: 650
     })
+  }
+
+  get template() {
+    if (!game.user.isGM && this.actor.limited) {
+      return "systems/l5r4/templates/sheets/limited-npc-sheet.hbs";
+    }
+    return this.options.template;
   }
 
   getData() {

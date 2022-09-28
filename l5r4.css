@@ -878,6 +878,24 @@
   display: flex;
   flex-flow: column;
 }
+.l5r4.npc .limited-sheet {
+  flex-flow: column;
+}
+.l5r4.npc .limited-sheet .actor-img {
+  width: 100%;
+  max-height: none;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+}
+.l5r4.npc .limited {
+  display: flex;
+  flex-flow: column;
+}
+.l5r4.npc .limited .limited-info {
+  display: flex;
+  flex-flow: column;
+}
 body {
   /*  background: url("assets/textures/background.webp") no-repeat center;
   background-size: cover;*/
