@@ -1,6 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
   <section class="top">
-    <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <div class="actor-img-box">
+      <img class="actor-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
     <div class="npc-stats">
       {{> "systems/l5r4/templates/partials/npc-stats.hbs"}}
     </div>
