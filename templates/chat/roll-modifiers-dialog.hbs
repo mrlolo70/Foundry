@@ -1,4 +1,10 @@
 <form>
+  {{#unless weapon}}
+  <div class="form-group">
+    <label>{{localize "l5r4.mech.woundPenalty"}}?</label>
+    <input type="checkbox" name="woundPenalty" checked="checked" />
+  </div>
+  {{/unless}}
   <div class="form-group">
     <label>{{localize "l5r4.rings.void"}}?</label>
     <input type="checkbox" name="void" />

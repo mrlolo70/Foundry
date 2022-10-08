@@ -1,10 +1,11 @@
 export async function SkillRoll({
+  woundPenalty = 0,
   actorTrait = null,
   skillRank = null,
   skillName = null,
   askForOptions = true } = {}) {
   const messageTemplate = "systems/l5r4/templates/chat/simple-roll.hbs";
-  
+
   let optionsSettings = game.settings.get("l5r4", "showSkillRollOptions");
   let rollType = game.i18n.localize("l5r4.mech.skillRoll");
   let label = `${rollType}: ${skillName}`
@@ -12,18 +13,20 @@ export async function SkillRoll({
   let rollMod = 0;
   let keepMod = 0;
   let totalMod = 0;
+  let applyWoundPenalty = true;
+
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetSkillOptions(skillName);
-
     if (checkOptions.cancelled) {
       return;
     }
 
     emphasis = checkOptions.emphasis;
+    applyWoundPenalty = checkOptions.applyWoundPenalty
     rollMod = parseInt(checkOptions.rollMod);
     keepMod = parseInt(checkOptions.keepMod);
     totalMod = parseInt(checkOptions.totalMod);
-    
+
     if (checkOptions.void) {
       rollMod += 1;
       keepMod += 1;
@@ -31,17 +34,21 @@ export async function SkillRoll({
     }
   }
 
+  if (applyWoundPenalty) {
+    totalMod = totalMod - woundPenalty;
+  }
+
   let diceToRoll = parseInt(actorTrait) + parseInt(skillRank) + parseInt(rollMod);
   let diceToKeep = parseInt(actorTrait) + parseInt(keepMod);
-  let {diceRoll, diceKeep, bonus} = TenDiceRule(diceToRoll, diceToKeep, totalMod);
+  let { diceRoll, diceKeep, bonus } = TenDiceRule(diceToRoll, diceToKeep, totalMod);
   let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
 
   if (emphasis) {
     label += ` (${game.i18n.localize("l5r4.mech.emphasis")})`;
     rollFormula = `${diceRoll}d10r1k${diceKeep}x10+${bonus}`;
   }
-  let rollResult = await new Roll(rollFormula).roll({async: true});
-  
+  let rollResult = await new Roll(rollFormula).roll({ async: true });
+
   let renderedRoll = await rollResult.render({
     template: messageTemplate,
     flavor: label
@@ -56,6 +63,7 @@ export async function SkillRoll({
 }
 
 export async function RingRoll({
+  woundPenalty = 0,
   ringRank = null,
   ringName = null,
   schoolRank = null,
@@ -72,6 +80,8 @@ export async function RingRoll({
   let keepMod = 0;
   let totalMod = 0;
   let voidRoll = false;
+  let applyWoundPenalty = true;
+
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetSpellOptions(ringName);
 
@@ -79,6 +89,7 @@ export async function RingRoll({
       return;
     }
 
+    applyWoundPenalty = checkOptions.applyWoundPenalty
     affinity = checkOptions.affinity;
     deficiency = checkOptions.deficiency;
     normalRoll = checkOptions.normalRoll;
@@ -86,7 +97,7 @@ export async function RingRoll({
     keepMod = parseInt(checkOptions.keepMod);
     totalMod = parseInt(checkOptions.totalMod);
     voidRoll = checkOptions.void;
-    
+
     if (voidRoll) {
       rollMod += 1;
       keepMod += 1;
@@ -94,12 +105,16 @@ export async function RingRoll({
     }
   }
 
+  if (applyWoundPenalty) {
+    totalMod = totalMod - woundPenalty;
+  }
+
   if (normalRoll) {
     let diceToRoll = parseInt(ringRank) + parseInt(rollMod);
     let diceToKeep = parseInt(ringRank) + parseInt(keepMod);
-    let {diceRoll, diceKeep, bonus} = TenDiceRule(diceToRoll, diceToKeep, totalMod);
+    let { diceRoll, diceKeep, bonus } = TenDiceRule(diceToRoll, diceToKeep, totalMod);
     let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
-    let rollResult = await new Roll(rollFormula).roll({async: true});
+    let rollResult = await new Roll(rollFormula).roll({ async: true });
 
     let renderedRoll = await rollResult.render({
       template: messageTemplate,
@@ -128,9 +143,9 @@ export async function RingRoll({
     }
     let diceToRoll = parseInt(ringRank) + parseInt(schoolRank) + parseInt(rollMod);
     let diceToKeep = parseInt(ringRank) + parseInt(keepMod);
-    let {diceRoll, diceKeep, bonus} = TenDiceRule(diceToRoll, diceToKeep, totalMod);
+    let { diceRoll, diceKeep, bonus } = TenDiceRule(diceToRoll, diceToKeep, totalMod);
     let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
-    let rollResult = await new Roll(rollFormula).roll({async: true});
+    let rollResult = await new Roll(rollFormula).roll({ async: true });
 
     let renderedRoll = await rollResult.render({
       template: messageTemplate,
@@ -142,10 +157,11 @@ export async function RingRoll({
       content: renderedRoll
     }
     rollResult.toMessage(messageData);
-  } 
+  }
 }
 
 export async function TraitRoll({
+  woundPenalty = 0,
   traitRank = null,
   traitName = null,
   askForOptions = true,
@@ -155,10 +171,12 @@ export async function TraitRoll({
   let label = `${rollType}: ${traitName}`
 
   let optionsSettings = game.settings.get("l5r4", "showTraitRollOptions");
-  
+
   let rollMod = 0;
   let keepMod = 0;
   let totalMod = 0;
+  let applyWoundPenalty = true;
+
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetTraitRollOptions(traitName);
 
@@ -167,24 +185,30 @@ export async function TraitRoll({
     }
 
     unskilled = checkOptions.unskilled;
+    applyWoundPenalty = checkOptions.applyWoundPenalty;
     rollMod = parseInt(checkOptions.rollMod);
     keepMod = parseInt(checkOptions.keepMod);
     totalMod = parseInt(checkOptions.totalMod);
-    
+
     if (checkOptions.void) {
       rollMod += 1;
       keepMod += 1;
       label += ` ${game.i18n.localize("l5r4.rings.void")}!`
     }
   }
+
+  if (applyWoundPenalty) {
+    totalMod = totalMod - woundPenalty;
+  }
+
   let diceToRoll = parseInt(traitRank) + parseInt(rollMod);
   let diceToKeep = parseInt(traitRank) + parseInt(keepMod);
-  let {diceRoll, diceKeep, bonus} = TenDiceRule(diceToRoll, diceToKeep, totalMod);
+  let { diceRoll, diceKeep, bonus } = TenDiceRule(diceToRoll, diceToKeep, totalMod);
   let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
-  let rollResult = await new Roll(rollFormula).roll({async: true});
+  let rollResult = await new Roll(rollFormula).roll({ async: true });
   if (unskilled) {
     rollFormula = `${diceRoll}d10k${diceKeep}`;
-    rollResult = await new Roll(rollFormula).roll({async: true});
+    rollResult = await new Roll(rollFormula).roll({ async: true });
     label += ` (${game.i18n.localize("l5r4.mech.unskilledRoll")})`
   }
 
@@ -203,7 +227,7 @@ export async function TraitRoll({
 
 async function GetSkillOptions(skillName) {
   const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
-  const html = await renderTemplate(template, {skill: true});
+  const html = await renderTemplate(template, { skill: true });
 
   return new Promise(resolve => {
     const data = {
@@ -229,6 +253,7 @@ async function GetSkillOptions(skillName) {
 
 function _processSkillRollOptions(form) {
   return {
+    applyWoundPenalty: form.woundPenalty.checked,
     emphasis: form.emphasis.checked,
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
@@ -239,7 +264,7 @@ function _processSkillRollOptions(form) {
 
 async function GetTraitRollOptions(traitName) {
   const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
-  const html = await renderTemplate(template, {trait: true});
+  const html = await renderTemplate(template, { trait: true });
 
   return new Promise(resolve => {
     const data = {
@@ -265,6 +290,7 @@ async function GetTraitRollOptions(traitName) {
 
 function _processTraitRollOptions(form) {
   return {
+    applyWoundPenalty: form.woundPenalty.checked,
     unskilled: form.unskilled.checked,
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
@@ -275,7 +301,7 @@ function _processTraitRollOptions(form) {
 
 async function GetSpellOptions(ringName) {
   const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
-  const html = await renderTemplate(template, {spell: true});
+  const html = await renderTemplate(template, { spell: true });
 
   return new Promise(resolve => {
     const data = {
@@ -305,6 +331,7 @@ async function GetSpellOptions(ringName) {
 
 function _processSpellRollOptions(form) {
   return {
+    applyWoundPenalty: form.woundPenalty.checked,
     affinity: form.affinity.checked,
     deficiency: form.deficiency.checked,
     rollMod: form.rollMod.value,
@@ -314,8 +341,9 @@ function _processSpellRollOptions(form) {
   }
 }
 
-function _processRingRollOptions(form){
+function _processRingRollOptions(form) {
   return {
+    applyWoundPenalty: form.woundPenalty.checked,
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
     totalMod: form.totalMod.value,
@@ -329,7 +357,7 @@ export async function WeaponRoll({
   diceKeep = null,
   weaponName = null,
   description = null,
-  askForOptions = true} = {}) {
+  askForOptions = true } = {}) {
   const messageTemplate = "systems/l5r4/templates/chat/weapon-chat.hbs";
 
   let optionsSettings = game.settings.get("l5r4", "showSkillRollOptions");
@@ -339,6 +367,7 @@ export async function WeaponRoll({
   let rollMod = 0;
   let keepMod = 0;
   let totalMod = 0;
+
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetWeaponOptions(weaponName);
 
@@ -349,7 +378,7 @@ export async function WeaponRoll({
     rollMod = parseInt(checkOptions.rollMod);
     keepMod = parseInt(checkOptions.keepMod);
     totalMod = parseInt(checkOptions.totalMod);
-    
+
     if (checkOptions.void) {
       rollMod += 1;
       keepMod += 1;
@@ -357,12 +386,12 @@ export async function WeaponRoll({
     }
   }
 
-  
+
   let diceToRoll = parseInt(diceRoll) + parseInt(rollMod);
   let diceToKeep = parseInt(diceKeep) + parseInt(keepMod);
   let rollFormula = `${diceToRoll}d10k${diceToKeep}x10+${totalMod}`;
 
-  let rollResult = await new Roll(rollFormula).roll({async: true});
+  let rollResult = await new Roll(rollFormula).roll({ async: true });
   let renderedRoll = await rollResult.render();
 
   let templateContext = {
@@ -386,7 +415,7 @@ export async function WeaponRoll({
 
 async function GetWeaponOptions(weaponName) {
   const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
-  const html = await renderTemplate(template, {});
+  const html = await renderTemplate(template, { weapon: true });
 
   return new Promise(resolve => {
     const data = {
@@ -420,16 +449,19 @@ function _processWeaponRollOptions(form) {
 }
 
 export function NpcRoll({
+  woundPenalty = 0,
   diceRoll = null,
   diceKeep = null,
   rollName = null,
   description = null } = {}) {
   let label = `${rollName}`;
   let bonus = 0;
-  ({diceRoll, diceKeep, bonus} = TenDiceRule(diceRoll, diceKeep, 0));
-  console.log(diceRoll, diceKeep, bonus)
+
+  let totalMod = bonus - woundPenalty;
+
+  ({ diceRoll, diceKeep, bonus } = TenDiceRule(diceRoll, diceKeep, totalMod));
   let rollFormula = `${diceRoll}d10k${diceKeep}x10+${bonus}`;
-  
+
   if (description) {
     label += ` (${description})`
   }
@@ -439,16 +471,16 @@ export function NpcRoll({
     speaker: ChatMessage.getSpeaker()
   }
 
-  new Roll(rollFormula).roll({async: false}).toMessage(messageData)
+  new Roll(rollFormula).roll({ async: false }).toMessage(messageData)
 }
 
 function TenDiceRule(diceRoll, diceKeep, bonus) {
-	let extras = 0;
+  let extras = 0;
   if (diceRoll > 10) {
     extras = diceRoll - 10;
     diceRoll = 10;
   }
-	
+
   if (diceRoll < 10) {
     if (diceKeep > 10) {
       diceKeep = 10;
@@ -466,10 +498,10 @@ function TenDiceRule(diceRoll, diceKeep, bonus) {
       break;
     }
   }
-  
+
   if (diceKeep === 10 && diceRoll === 10) {
     bonus += extras * 2;
   }
 
-  return {diceRoll, diceKeep, bonus}
+  return { diceRoll, diceKeep, bonus }
 } 
