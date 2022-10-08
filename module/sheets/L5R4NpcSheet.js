@@ -26,6 +26,19 @@ export default class L5R4NpcSheet extends ActorSheet {
     return sheetData;
   }
 
+  _getCurrentWoundLevel() {
+    const woundLvls = Object.values(this.actor.data.data.woundLvlsUsed);
+    const currentLevel = woundLvls.filter(woundLvl => woundLvl.current === true).reduce((maxWoundLevel, currentWoundLevel) => {
+      return Number(maxWoundLevel.penalty) > Number(currentWoundLevel.penalty) ? maxWoundLevel : currentWoundLevel;
+    });
+    return currentLevel || this.actor.data.data.woundLvlsUsed.healthy
+  }
+
+  get woundPenalty() {
+    const currentWoundLevel = this._getCurrentWoundLevel();
+    return Number(currentWoundLevel.penalty);
+  }
+
   activateListeners(html) {
     //TEMPLATE: html.find(cssSelector).event(this._someCallBack.bind(this)); 
 
@@ -55,6 +68,7 @@ export default class L5R4NpcSheet extends ActorSheet {
 
     Dice.NpcRoll(
       {
+        woundPenalty: this.woundPenalty,
         diceRoll: diceRoll,
         diceKeep: diceKeep,
         rollName: rollName
@@ -70,6 +84,7 @@ export default class L5R4NpcSheet extends ActorSheet {
 
     Dice.NpcRoll(
       {
+        woundPenalty: this.woundPenalty,
         diceRoll: diceRoll,
         diceKeep: diceKeep,
         rollName: rollName,
@@ -83,6 +98,7 @@ export default class L5R4NpcSheet extends ActorSheet {
     let diceKeep = event.currentTarget.dataset.keep;
     let rollName = `${this.actor.name}: ${game.i18n.localize("l5r4.mech.damageRoll")}`;
     let description = event.currentTarget.dataset.desc;
+
 
     Dice.NpcRoll(
       {
@@ -171,6 +187,7 @@ export default class L5R4NpcSheet extends ActorSheet {
     let skillName = item.name;
 
     Dice.SkillRoll({
+      woundPenalty: this.woundPenalty,
       actorTrait: actorTrait,
       skillRank: skillRank,
       skillName: skillName,

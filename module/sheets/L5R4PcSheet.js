@@ -31,16 +31,26 @@ export default class L5R4PcSheet extends ActorSheet {
       name: game.i18n.localize("l5r4.sheet.delete"),
       icon: '<i class="fas fa-trash"></i>',
       callback: element => {
-        this.actor.deleteEmbeddedDocuments("Item",[element.data("item-id")]);
+        this.actor.deleteEmbeddedDocuments("Item", [element.data("item-id")]);
       }
     }
   ];
 
   get template() {
     if (!game.user.isGM && this.actor.limited) {
-        return "systems/l5r4/templates/sheets/limited-pc-sheet.hbs";
+      return "systems/l5r4/templates/sheets/limited-pc-sheet.hbs";
     }
     return this.options.template;
+  }
+
+  _getCurrentWoundLevel() {
+    const woundLvls = Object.values(this.actor.data.data.wound_lvl);
+    return woundLvls.filter(lvl => lvl.current)[0] || this.actor.data.data.wound_lvl.healthy
+  }
+
+  get woundPenalty() {
+    const currentWoundLevel = this._getCurrentWoundLevel();
+    return currentWoundLevel.penalty;
   }
 
   getData() {
@@ -70,13 +80,13 @@ export default class L5R4PcSheet extends ActorSheet {
     sheetData.kihos = sheetData.items.filter(function (item) { return item.type == "kiho" });
 
     sheetData.masteries = [];
-    for(let skill of sheetData.skills) {
-      if(skill.data.mastery_3!="" && skill.data.rank>=3)
-        sheetData.masteries.push({_id:skill._id, name: `${skill.name} 3`, mastery: skill.data.mastery_3});
-      if(skill.data.mastery_5!="" && skill.data.rank>=5)
-        sheetData.masteries.push({_id:skill._id, name: `${skill.name} 5`, mastery: skill.data.mastery_5});
-      if(skill.data.mastery_7!="" && skill.data.rank>=7)
-        sheetData.masteries.push({_id:skill._id, name: `${skill.name} 7`, mastery: skill.data.mastery_7});
+    for (let skill of sheetData.skills) {
+      if (skill.data.mastery_3 != "" && skill.data.rank >= 3)
+        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 3`, mastery: skill.data.mastery_3 });
+      if (skill.data.mastery_5 != "" && skill.data.rank >= 5)
+        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 5`, mastery: skill.data.mastery_5 });
+      if (skill.data.mastery_7 != "" && skill.data.rank >= 7)
+        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 7`, mastery: skill.data.mastery_7 });
     }
 
     return sheetData;
@@ -120,6 +130,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
     Dice.RingRoll(
       {
+        woundPenalty: this.woundPenalty,
         ringRank: ringRank,
         ringName: ringName,
         schoolRank: schoolRank,
@@ -134,6 +145,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
     Dice.TraitRoll(
       {
+        woundPenalty: this.woundPenalty,
         traitRank: traitRank,
         traitName: traitName,
         askForOptions: event.shiftKey
@@ -189,6 +201,7 @@ export default class L5R4PcSheet extends ActorSheet {
     let skillName = item.name;
 
     Dice.SkillRoll({
+      woundPenalty: this.woundPenalty,
       actorTrait: actorTrait,
       skillRank: skillRank,
       skillName: skillName,
