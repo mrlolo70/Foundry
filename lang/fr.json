@@ -28,6 +28,7 @@
       "attackRoll": "Jet d'Attaque",
       "spellCasting": "Jet d'Incantation",
       "unskilledRoll": "Jet sans Compétence",
+      "woundPenalty": "Pénalité de blessure",
       "emphasis": "Spécialisation",
       "toChat": "Envoyer au chat",
       "effect": "Effet",
