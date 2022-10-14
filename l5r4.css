@@ -775,18 +775,33 @@
 .l5r4.npc .top {
   display: flex;
   flex-flow: row;
-  width: fit-content;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+.l5r4.npc .top .npc-stats {
+  width: 350px;
+  margin-left: 32px;
 }
 .l5r4.npc .bottom {
   display: flex;
   flex-flow: row;
-  width: fit-content;
+  width: 100%;
+  justify-content: space-between;
 }
-.l5r4.npc .actor-img {
+.l5r4.npc .bottom .npc-stats {
+  margin-right: 32px;
+}
+.l5r4.npc .actor-img-box {
   width: 256px;
-  max-height: 256px;
-  border: none;
+  max-height: 307px;
   border-radius: 8px;
+  overflow: hidden;
+}
+.l5r4.npc .actor-img-box .actor-img {
+  width: 256px;
+  height: auto;
+  border: none;
 }
 .l5r4.npc input {
   width: 2rem;
@@ -805,6 +820,24 @@
 }
 .l5r4.npc .npc-damage2 {
   display: flex;
+}
+.l5r4.npc .npc-stats {
+  min-width: 350px;
+}
+.l5r4.npc .npc-stats .npc-skills {
+  margin-bottom: 32px;
+}
+.l5r4.npc .npc-stats-list {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.l5r4.npc .npc-stats-list .icon-item {
+  margin-right: 2px;
+}
+.l5r4.npc .npc-rings {
+  margin-bottom: 32px;
 }
 .l5r4.npc .npc-wounds {
   display: flex;
@@ -838,6 +871,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.26);
 }
 .l5r4.npc .npc-skills .skill-item img {
   height: 1rem;
@@ -878,12 +912,35 @@
   display: flex;
   flex-flow: column;
 }
+.l5r4.npc .limited-sheet {
+  flex-flow: column;
+}
+.l5r4.npc .limited-sheet .actor-img {
+  width: 100%;
+  max-height: none;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+}
+.l5r4.npc .limited {
+  display: flex;
+  flex-flow: column;
+}
+.l5r4.npc .limited .limited-info {
+  display: flex;
+  flex-flow: column;
+}
 body {
   /*  background: url("assets/textures/background.webp") no-repeat center;
   background-size: cover;*/
 }
 body > * {
   scrollbar-width: thin;
+}
+.icon-item {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
 }
 .l5r4.pc {
   font-family: "Rotis Serif";
