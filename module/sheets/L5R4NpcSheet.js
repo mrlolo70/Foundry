@@ -184,10 +184,10 @@ export default class L5R4NpcSheet extends ActorSheet {
     console.log(item)
 
     if (element.type == "checkbox") {
-      return item.update({ [field]: element.checked })
+      return item.updateSource({ [field]: element.checked })
     }
 
-    return item.update({ [field]: element.value })
+    return item.updateSource({ [field]: element.value })
   }
 
   _onSkillRoll(event) {

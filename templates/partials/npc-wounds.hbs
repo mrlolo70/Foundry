@@ -1,8 +1,8 @@
 <div class="npc-nr-wounds">
   {{localize "l5r4.sheet.nrWoundLvls"}}
-  <select name="data.nrWoundLvls">
-    {{#select data.nrWoundLvls}}
-    {{#each data.wound_lvl}}
+  <select name="system.nrWoundLvls">
+    {{#select system.nrWoundLvls}}
+    {{#each system.wound_lvl}}
     <option value="{{math @index "+" 1}}">{{math @index "+" 1}}</option>
     {{/each}}
     {{/select}}
@@ -14,12 +14,12 @@
   <div>{{localize "l5r4.traits.current"}}</div>
 </div>
 <div class="npc-wound-lvls">
-  {{#each data.woundLvlsUsed as |wound_lvl name|}}
+  {{#each system.woundLvlsUsed as |wound_lvl name|}}
   <div class="npc-wound-lvl">
-    <input type="number" name="data.wound_lvl.{{name}}.value" value="{{value}}" class="wounds-lvl-value-{{@index}}" />
-    <input type="text" name="data.wound_lvl.{{name}}.penalty" value="{{penalty}}"
+    <input type="number" name="system.wound_lvl.{{name}}.value" value="{{value}}" class="wounds-lvl-value-{{@index}}" />
+    <input type="text" name="system.wound_lvl.{{name}}.penalty" value="{{penalty}}"
       class="wounds-lvl-penalty-{{@index}}" />
-    <input type="checkbox" disabled name="data.wound_lvl.{{name}}.current" class="wounds-lvl-current-{{@index}}"
+    <input type="checkbox" disabled name="system.wound_lvl.{{name}}.current" class="wounds-lvl-current-{{@index}}"
       {{checked current}} data-type="Boolean" />
   </div>
   {{/each}}
