@@ -54,42 +54,41 @@ export default class L5R4PcSheet extends ActorSheet {
   }
 
   getData() {
-    const baseData = {
-      ...super.getData(),
-      items: this.actor.items.map(item => item.system)
-    };
-    let sheetData = {
-      owner: this.actor.isOwner,
-      editable: this.actor.isEditable,
-      actor: baseData.actor,
-      data: baseData.actor.system,
-      config: CONFIG.l5r4,
-      items: baseData.items
-    }
+    // Retrieve the data structure from the base sheet.
+    const baseData = super.getData();
 
-    sheetData.commonItems = sheetData.items.filter(function (item) { return item.type == "commonItem" });
-    sheetData.weapons = sheetData.items.filter(function (item) { return item.type == "weapon" });
-    sheetData.bows = sheetData.items.filter(function (item) { return item.type == "bow" });
-    sheetData.armors = sheetData.items.filter(function (item) { return item.type == "armor" });
-    sheetData.skills = sheetData.items.filter(function (item) { return item.type == "skill" });
-    sheetData.techniques = sheetData.items.filter(function (item) { return item.type == "technique" });
-    sheetData.advantages = sheetData.items.filter(function (item) { return item.type == "advantage" });
-    sheetData.disadvantages = sheetData.items.filter(function (item) { return item.type == "disadvantage" });
-    sheetData.spells = sheetData.items.filter(function (item) { return item.type == "spell" });
-    sheetData.katas = sheetData.items.filter(function (item) { return item.type == "kata" });
-    sheetData.kihos = sheetData.items.filter(function (item) { return item.type == "kiho" });
+    // Use a safe clone of the actor data for further operations.
+    const actorData = this.actor.toObject(false);
 
-    sheetData.masteries = [];
-    for (let skill of sheetData.skills) {
+    // Add the actor's data to base structure for easier access
+    baseData.system = actorData.system;
+
+    // Add config data to base sctructure
+    baseData.config = CONFIG.l5r4;
+
+    baseData.commonItems = baseData.items.filter(function (item) { return item.type == "commonItem" });
+    baseData.weapons = baseData.items.filter(function (item) { return item.type == "weapon" });
+    baseData.bows = baseData.items.filter(function (item) { return item.type == "bow" });
+    baseData.armors = baseData.items.filter(function (item) { return item.type == "armor" });
+    baseData.skills = baseData.items.filter(function (item) { return item.type == "skill" });
+    baseData.techniques = baseData.items.filter(function (item) { return item.type == "technique" });
+    baseData.advantages = baseData.items.filter(function (item) { return item.type == "advantage" });
+    baseData.disadvantages = baseData.items.filter(function (item) { return item.type == "disadvantage" });
+    baseData.spells = baseData.items.filter(function (item) { return item.type == "spell" });
+    baseData.katas = baseData.items.filter(function (item) { return item.type == "kata" });
+    baseData.kihos = baseData.items.filter(function (item) { return item.type == "kiho" });
+
+    baseData.masteries = [];
+    for (let skill of baseData.skills) {
       if (skill.system.mastery_3 != "" && skill.system.rank >= 3)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 3`, mastery: skill.system.mastery_3 });
+        baseData.masteries.push({ _id: skill._id, name: `${skill.name} 3`, mastery: skill.system.mastery_3 });
       if (skill.system.mastery_5 != "" && skill.system.rank >= 5)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 5`, mastery: skill.system.mastery_5 });
+        baseData.masteries.push({ _id: skill._id, name: `${skill.name} 5`, mastery: skill.system.mastery_5 });
       if (skill.system.mastery_7 != "" && skill.system.rank >= 7)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 7`, mastery: skill.system.mastery_7 });
+        baseData.masteries.push({ _id: skill._id, name: `${skill.name} 7`, mastery: skill.system.mastery_7 });
     }
 
-    return sheetData;
+    return baseData;
   }
 
   activateListeners(html) {

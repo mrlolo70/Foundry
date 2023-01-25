@@ -64,10 +64,11 @@ export default class L5R4Item extends Item {
 
   async roll() {
     const item = this;
-    let cardData = item.system;
 
     // Initialize chat data.
-    let content = await renderTemplate(this.chatTemplate[this.type], cardData);
+
+    let content = await renderTemplate(this.chatTemplate[this.type], item);
+    console.log("content", content)
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
     const label = `[${item.type}]`;

@@ -22,27 +22,27 @@
     </a>
     <input class="skill-name inline-edit" type="text" value="{{skill.name}}" data-field="name" placeholder="{{localize "
       l5r4.sheet.skillName"}}" />
-    <input class="skill-value inline-edit" type="number" value="{{skill.data.rank}}" data-field="data.rank"
+    <input class="skill-value inline-edit" type="number" value="{{skill.system.rank}}" data-field="system.rank"
       placeholder="0" data-type="Number">
-    <select class="skill-trait inline-edit" data-field="data.trait">
+    <select class="skill-trait inline-edit" data-field="system.trait">
       <option selected disabled>{{localize "l5r4.skill.trait"}}</option>
-      {{#select skill.data.trait}}
+      {{#select skill.system.trait}}
       {{#each @root.config.traits as |name type|}}
       <option value="{{type}}">{{localize name}}</option>
       {{/each}}
       {{/select}}
     </select>
-    <select class="skill-type inline-edit" data-field="data.type">
+    <select class="skill-type inline-edit" data-field="system.type">
       <option selected disabled>{{localize "l5r4.skill.type"}}</option>
-      {{#select skill.data.type}}
+      {{#select skill.system.type}}
       {{#each @root.config.skillTypes as |name type|}}
       <option value="{{type}}">{{localize name}}</option>
       {{/each}}
       {{/select}}
     </select>
-    <input class="school-check inline-edit" data-field="data.school" type="checkbox" {{checked skill.data.school}}
+    <input class="school-check inline-edit" data-field="system.school" type="checkbox" {{checked skill.system.school}}
       data-type="Boolean" />
-    <input class="skill-emphasis inline-edit" data-field="data.emphasis" type="text" value="{{skill.data.emphasis}}" />
+    <input class="skill-emphasis inline-edit" data-field="system.emphasis" type="text" value="{{skill.system.emphasis}}" />
     <a class="item-edit"  title="{{localize "l5r4.sheet.edit"}}"><i class="fas fa-edit fa-fw"></i></a>
   </div>
   {{/each}}
