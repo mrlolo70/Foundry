@@ -2,10 +2,17 @@
   "name": "l5r4",
   "title": "Legend of the Five Rings 4th Edition",
   "description": "System to play L5R 4th edition",
-  "author": "Mateo Caycedo Alvarez",
-  "version": "0.6.2",
-  "minumCoreVersion": "0.8.7",
-  "compatibleCoreVersion": "9",
+  "authors": [
+    {
+      "name": "Mateo Caycedo Alvarez"
+    }
+  ],
+  "version": "0.7.1",
+  "compatibility": {
+    "minimum": 10,
+    "verified": 10,
+    "maximum": 10
+  },
   "esmodules": [
     "l5r4.js"
   ],
@@ -13,9 +20,7 @@
     "l5r4.css"
   ],
   "background": "l5r4cover.webp",
-  "packs": [
-
-  ],
+  "packs": [],
   "languages": [
     {
       "lang": "en",
@@ -37,5 +42,5 @@
   "gridUnits": "ft",
   "url": "https://bitbucket.org/TeoCay/l5r4",
   "manifest": "https://bitbucket.org/TeoCay/l5r4/raw/master/system.json",
-  "download": "https://bitbucket.org/TeoCay/l5r4/get/v0.6.2.zip"
+  "download": "https://bitbucket.org/TeoCay/l5r4/get/v7.1.zip"
 }

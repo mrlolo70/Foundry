@@ -63,20 +63,23 @@ export default class L5R4Item extends Item {
   }
 
   async roll() {
-    let chatData = {
-      user: game.user.id,
-      speaker: ChatMessage.getSpeaker()
-    };
+    const item = this;
+    let cardData = item.data;
+    
+    // Initialize chat data.
+    let content = await renderTemplate(this.chatTemplate[this.type], cardData);
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    const rollMode = game.settings.get('core', 'rollMode');
+    const label = `[${item.type}]`;
 
-    let cardData = {
-      ...this.data,
-      owner: this.actor.id
-    };
+    // send a chat message.
 
-    chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);
+    ChatMessage.create({
+      speaker: speaker,
+      rollMode: rollMode,
+      flavor: label,
+      content: content ?? ''
+    });
 
-    chatData.roll = true; // cheating, revise later
-
-    return ChatMessage.create(chatData);
   }
 }
