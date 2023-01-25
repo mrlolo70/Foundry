@@ -44,8 +44,8 @@ export default class L5R4PcSheet extends ActorSheet {
   }
 
   _getCurrentWoundLevel() {
-    const woundLvls = Object.values(this.actor.data.data.wound_lvl);
-    return woundLvls.filter(lvl => lvl.current)[0] || this.actor.data.data.wound_lvl.healthy
+    const woundLvls = Object.values(this.actor.system.wound_lvl);
+    return woundLvls.filter(lvl => lvl.current)[0] || this.actor.system.wound_lvl.healthy
   }
 
   get woundPenalty() {
@@ -56,13 +56,13 @@ export default class L5R4PcSheet extends ActorSheet {
   getData() {
     const baseData = {
       ...super.getData(),
-      items: this.actor.items.map(item => item.data)
+      items: this.actor.items.map(item => item.system)
     };
     let sheetData = {
       owner: this.actor.isOwner,
       editable: this.actor.isEditable,
       actor: baseData.actor,
-      data: baseData.actor.data.data,
+      data: baseData.actor.system,
       config: CONFIG.l5r4,
       items: baseData.items
     }
@@ -81,12 +81,12 @@ export default class L5R4PcSheet extends ActorSheet {
 
     sheetData.masteries = [];
     for (let skill of sheetData.skills) {
-      if (skill.data.mastery_3 != "" && skill.data.rank >= 3)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 3`, mastery: skill.data.mastery_3 });
-      if (skill.data.mastery_5 != "" && skill.data.rank >= 5)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 5`, mastery: skill.data.mastery_5 });
-      if (skill.data.mastery_7 != "" && skill.data.rank >= 7)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 7`, mastery: skill.data.mastery_7 });
+      if (skill.system.mastery_3 != "" && skill.system.rank >= 3)
+        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 3`, mastery: skill.system.mastery_3 });
+      if (skill.system.mastery_5 != "" && skill.system.rank >= 5)
+        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 5`, mastery: skill.system.mastery_5 });
+      if (skill.system.mastery_7 != "" && skill.system.rank >= 7)
+        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 7`, mastery: skill.system.mastery_7 });
     }
 
     return sheetData;
@@ -126,7 +126,7 @@ export default class L5R4PcSheet extends ActorSheet {
   _onRingRoll(event) {
     let ringRank = event.currentTarget.dataset.ringRank;
     let ringName = event.currentTarget.dataset.ringName;
-    let schoolRank = this.actor.data.data.insight.rank;
+    let schoolRank = this.actor.system.insight.rank;
 
     Dice.RingRoll(
       {
@@ -162,9 +162,9 @@ export default class L5R4PcSheet extends ActorSheet {
     let actorTrait;
     let diceRoll;
     let diceKeep;
-    if (item.data.type == 'weapon') {
-      actorTrait = this.actor.data.data.traits.str;
-      diceRoll = parseInt(actorTrait) + parseInt(item.data.data.damageRoll);
+    if (item.type == 'weapon') {
+      actorTrait = this.actor.system.traits.str;
+      diceRoll = parseInt(actorTrait) + parseInt(item.system.damageRoll);
     } else if (item.data.type == 'bow') {
       diceRoll = rollData.damageRoll;
       diceKeep = rollData.damageKeep;
@@ -173,7 +173,7 @@ export default class L5R4PcSheet extends ActorSheet {
     }
 
 
-    diceKeep = parseInt(item.data.data.damageKeep)
+    diceKeep = parseInt(item.system.damageKeep)
     Dice.WeaponRoll(
       {
         diceRoll: diceRoll,
@@ -189,15 +189,15 @@ export default class L5R4PcSheet extends ActorSheet {
   _onSkillRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.items.get(itemID);
-    let skillTrait = item.data.data.trait;
+    let skillTrait = item.system.trait;
     let actorTrait = null;
     // some skills use the void ring as a trait
     if (skillTrait == 'void') {
-      actorTrait = this.actor.data.data.rings.void.rank;
+      actorTrait = this.actor.system.rings.void.rank;
     } else {
-      actorTrait = this.actor.data.data.traits[skillTrait];
+      actorTrait = this.actor.system.traits[skillTrait];
     }
-    let skillRank = item.data.data.rank;
+    let skillRank = item.system.rank;
     let skillName = item.name;
 
     Dice.SkillRoll({

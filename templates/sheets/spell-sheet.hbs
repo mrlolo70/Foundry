@@ -13,9 +13,9 @@
         <th>{{localize "l5r4.spell.raises"}}</th>
       </tr>
       <tr>
-      <select name="data.ring">
+      <select name="system.ring">
         <option selected disabled>{{localize "l5r4.spell.ring"}}</option>
-        {{#select data.ring}}
+        {{#select item.system.ring}}
         {{#each config.rings as |name type|}}
         <option value="{{type}}">{{localize name}}</option>
         {{/each}}
@@ -23,24 +23,24 @@
       </select>
       </tr>
       <td>
-        <input name="data.mastery" type="number" value="{{data.mastery}}" data-type="Number" />
+        <input name="system.mastery" type="number" value="{{item.system.mastery}}" data-type="Number" />
       </td>
       <td>
-        <input name="data.range" type="text" value="{{data.range}}" data-type="String" />
+        <input name="system.range" type="text" value="{{item.system.range}}" data-type="String" />
       </td>
       <td>
-        <input name="data.aoe" type="text" value="{{data.aoe}}" data-type="String" />
+        <input name="system.aoe" type="text" value="{{item.system.aoe}}" data-type="String" />
       </td>
       <td>
-        <input name="data.duration" type="text" value="{{data.duration}}" data-type="String" />
+        <input name="system.duration" type="text" value="{{item.system.duration}}" data-type="String" />
       </td>
       <td>
-        <input name="data.raises" type="text" value="{{data.raises}}" data-type="String" />
+        <input name="system.raises" type="text" value="{{item.system.raises}}" data-type="String" />
       </td>
     </table>
     <h2>{{localize "l5r4.sheet.rulesSummary"}}</h2>
-    {{editor content=data.specialRules target="data.specialRules" button=true owner=owner editable=editable}}
+    {{editor item.system.specialRules target="system.specialRules" button=true owner=owner editable=editable}}
     <h2>{{localize "l5r4.sheet.description"}}</h2>
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
   </div>
 </form>

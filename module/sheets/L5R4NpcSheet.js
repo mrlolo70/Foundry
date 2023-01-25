@@ -181,8 +181,6 @@ export default class L5R4NpcSheet extends ActorSheet {
     let item = this.actor.items.get(itemId);
     let field = element.dataset.field;
 
-    console.log(item)
-
     if (element.type == "checkbox") {
       return item.updateSource({ [field]: element.checked })
     }

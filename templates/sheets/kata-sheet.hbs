@@ -11,9 +11,9 @@
       </tr>
       <tr>
         <td>
-        <select name="data.ring">
+        <select name="system.ring">
           <option selected disabled>{{localize "l5r4.spell.ring"}}</option>
-          {{#select data.ring}}
+          {{#select item.system.ring}}
           {{#each config.rings as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
           {{/each}}
@@ -21,13 +21,13 @@
         </select>
         </td>
         <td>
-          <input name="data.mastery" type="number" value="{{data.mastery}}" data-type="Number" />
+          <input name="system.mastery" type="number" value="{{item.system.mastery}}" data-type="Number" />
         </td>
       </tr>
     </table>
     <h2>{{localize "l5r4.sheet.rulesSummary"}}</h2>
-    {{editor content=data.specialRules target="data.specialRules" button=true owner=owner editable=editable}}
+    {{editor item.system.specialRules target="system.specialRules" button=true owner=owner editable=editable}}
     <h2>{{localize "l5r4.sheet.description"}}</h2>
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
   </div>
 </form>

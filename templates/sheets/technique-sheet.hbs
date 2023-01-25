@@ -5,39 +5,39 @@
   <div class="sheet-content">
     <table>
       <tr>
-        {{#unless data.shugenja}}
+        {{#unless item.system.shugenja}}
         <th>{{localize "l5r4.skill.rank"}}</th>
         {{/unless}}
         <th>{{localize "l5r4.sheet.shugenja"}}</th>
-        {{#if data.shugenja}}
+        {{#if item.system.shugenja}}
         <th>{{localize "l5r4.spell.affinity"}}</th>
         <th>{{localize "l5r4.spell.deficiency"}}</th>
         {{/if}}
       </tr>
-      {{#unless data.shugenja}}
+      {{#unless item.system.shugenja}}
       <td>
-        <input name="data.rank" type="number" value="{{data.rank}}" data-type="Number" />
+        <input name="system.rank" type="number" value="{{item.system.rank}}" data-type="Number" />
       </td>
       {{/unless}}
       <td>
-        <input type="checkbox" name="data.shugenja" {{checked data.shugenja}} data-type="Boolean" />
+        <input type="checkbox" name="system.shugenja" {{checked item.system.shugenja}} data-type="Boolean" />
       </td>
-      {{#if data.shugenja}}
+      {{#if item.system.shugenja}}
       <td>
-        <select name="data.affinity">
+        <select name="system.affinity">
           <option selected disabled>{{localize "l5r4.spell.ring"}}</option>
-          {{#select data.affinity}}
+          {{#select item.system.affinity}}
           {{#each config.rings as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
           {{/each}}
           {{/select}}
         </select>
-        {{log data.affinity}}
+        {{log item.system.affinity}}
       </td>
       <td>
-        <select name="data.deficiency">
+        <select name="system.deficiency">
           <option selected disabled>{{localize "l5r4.spell.ring"}}</option>
-          {{#select data.deficiency}}
+          {{#select item.system.deficiency}}
           {{#each config.rings as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
           {{/each}}
@@ -47,8 +47,8 @@
       {{/if}}
     </table>
     <h2>{{localize "l5r4.sheet.rulesSummary"}}</h2>
-    {{editor content=data.specialRules target="data.specialRules" button=true owner=owner editable=editable}}
+    {{editor item.system.specialRules target="system.specialRules" button=true owner=owner editable=editable}}
     <h2>{{localize "l5r4.sheet.description"}}</h2>
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
   </div>
 </form>

@@ -11,15 +11,15 @@
     <th>{{localize "l5r4.weapon.damageKeep"}}</th>
     </tr>
     <td>
-    <input name="data.size" type="text" value="{{data.size}}" />
+    <input name="system.size" type="text" value="{{item.system.size}}" />
     </td>
     <td>
-    <input name="data.damageRoll" type="number" value="{{data.damageRoll}}" data-type="Number" />
+    <input name="system.damageRoll" type="number" value="{{item.system.damageRoll}}" data-type="Number" />
     </td>
     <td>
-    <input name="data.damageKeep" type="number" value="{{data.damageKeep}}" data-type="Number" />
+    <input name="system.damageKeep" type="number" value="{{item.system.damageKeep}}" data-type="Number" />
     </td>
   </table>
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
   </div>
 </form>
