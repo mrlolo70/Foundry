@@ -1,4 +1,4 @@
-<div class="item-border {{data.type}}">
+<div class="item-border {{type}}">
   <div class="weapon-card item" data-item-id="{{_id}}">
     <div class="weapon-info weapon-name">
       {{#if inSheet}}
@@ -11,15 +11,15 @@
     </div>
     <div class="weapon-info weapon-stats">
       <div>
-        {{localize "l5r4.weapon.damage"}}: {{data.damageRoll}}k{{data.damageKeep}}
+        {{localize "l5r4.weapon.damage"}}: {{system.damageRoll}}k{{system.damageKeep}}
       </div>
       {{#if ranged}}
         <div>
-          {{localize "l5r4.weapon.str"}}: {{data.str}}
+          {{localize "l5r4.weapon.str"}}: {{system.str}}
         </div>
-        <select class="arrow-type inline-edit" data-field="data.arrow">
+        <select class="arrow-type inline-edit" data-field="system.arrow">
           <option selected disabled>{{localize "l5r4.weapon.arrow"}}</option>
-          {{#select data.arrow}}
+          {{#select system.arrow}}
           {{#each @root.config.arrows as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
           {{/each}}
@@ -28,8 +28,8 @@
       {{/if}}
     </div>
     {{#unless inSheet}}
-      <div class="spell-effects">
-        {{{data.description}}}
+      <div class="weapon-effects">
+        {{{system.description}}}
       </div>
     {{/unless}}
     {{#if inSheet}}
