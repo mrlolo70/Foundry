@@ -1,4 +1,4 @@
-<div class="item-border {{data.type}}">
+<div class="item-border {{type}}">
   <div class="skill-card skill" data-item-id="{{_id}}">
     <div class="skill-name"><h3>
         {{#if inSheet}}
@@ -10,46 +10,46 @@
     </div>
     <div class="skill-info skill-stats">
       <div class="skill-type">
-          {{localize "l5r4.skill.type"}}: {{localize (concat "l5r4.skillTypes." data.type)}}
+          {{localize "l5r4.skill.type"}}: {{localize (concat "l5r4.skillTypes." system.type)}}
       </div>
       <div class="skill-rank">
-        {{localize "l5r4.skill.rank"}}: {{data.rank}} {{#if data.school}}{{localize "l5r4.skill.school"}}{{/if}}
+        {{localize "l5r4.skill.rank"}}: {{system.rank}} {{#if system.school}}{{localize "l5r4.skill.school"}}{{/if}}
       </div>
-      {{#if data.emphasis}}
+      {{#if system.emphasis}}
         <div class="skill-emphasis">
-          {{localize "l5r4.skill.emphasis"}}: {{data.emphasis}}
+          {{localize "l5r4.skill.emphasis"}}: {{system.emphasis}}
         </div>
       {{/if}}
       {{#unless inSheet}}
       <div class="spell-effects">
-        {{{data.specialRules}}}
+        {{{system.specialRules}}}
       </div>
       {{/unless}}
-      {{#if (gte data.rank 3) }}
-        {{#if data.mastery_3}}
+      {{#if (gte system.rank 3) }}
+        {{#if system.mastery_3}}
           <div>
-            <p>{{localize "l5r4.skill.mastery3"}}: {{data.mastery_3}}</p>
+            <p>{{localize "l5r4.skill.mastery3"}}: {{system.mastery_3}}</p>
           </div>
         {{/if}}
       {{/if}}
-      {{#if (gte data.rank 5) }}
-        {{#if data.mastery_5}}
+      {{#if (gte system.rank 5) }}
+        {{#if system.mastery_5}}
           <div>
-            <p>{{localize "l5r4.skill.mastery5"}}: {{data.mastery_5}}</p>
+            <p>{{localize "l5r4.skill.mastery5"}}: {{system.mastery_5}}</p>
           </div>
         {{/if}}
       {{/if}}
-      {{#if (gte data.rank 7) }}
-        {{#if data.mastery_7}}
+      {{#if (gte system.rank 7) }}
+        {{#if system.mastery_7}}
           <div>
-            <p>{{localize "l5r4.skill.mastery7"}}: {{data.mastery_7}}</p>
+            <p>{{localize "l5r4.skill.mastery7"}}: {{system.mastery_7}}</p>
           </div>
         {{/if}}
       {{/if}}
-      {{#if (gte data.insight bonus) }}
-        {{#if data.insight_bonus}}
+      {{#if (gte system.insight bonus) }}
+        {{#if system.insight_bonus}}
           <div>
-            <p>{{localize "l5r4.skill.insightbonus"}}: {{data.insight_bonus}}</p>
+            <p>{{localize "l5r4.skill.insightbonus"}}: {{system.insight_bonus}}</p>
           </div>
         {{/if}}
       {{/if}}
