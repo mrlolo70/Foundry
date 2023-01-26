@@ -29,15 +29,6 @@ export default class L5R4NpcSheet extends ActorSheet {
     // Add config data to base sctructure
     baseData.config = CONFIG.l5r4;
 
-    // let sheetData = {
-    //   owner: this.actor.isOwner,
-    //   editable: this.actor.isEditable,
-    //   actor: baseData.actor,
-    //   data: baseData.actor.system,
-    //   config: CONFIG.l5r4,
-    //   items: baseData.items
-    // }
-
     baseData.skills = baseData.items.filter(function (item) { return item.type == "skill" });
 
     return baseData;

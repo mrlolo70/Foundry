@@ -118,6 +118,10 @@ export default class L5R4Actor extends Actor {
       }
       prev = lvlData
     }
+    // calculate woundPenalty
+    let woundLvls = Object.values(l5r4Data.wound_lvl);
+    l5r4Data.currentWoundLevel = woundLvls.filter(lvl => lvl.current)[0] || this.actor.system.wound_lvl.healthy
+    l5r4Data.woundPenalty = l5r4Data.currentWoundLevel.penalty
 
     // calculate insight points
     let insightRings = ((l5r4Data.rings.air + l5r4Data.rings.earth + l5r4Data.rings.fire + l5r4Data.rings.water + l5r4Data.rings.void.rank) * 10);

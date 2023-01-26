@@ -43,16 +43,6 @@ export default class L5R4PcSheet extends ActorSheet {
     return this.options.template;
   }
 
-  _getCurrentWoundLevel() {
-    const woundLvls = Object.values(this.actor.system.wound_lvl);
-    return woundLvls.filter(lvl => lvl.current)[0] || this.actor.system.wound_lvl.healthy
-  }
-
-  get woundPenalty() {
-    const currentWoundLevel = this._getCurrentWoundLevel();
-    return currentWoundLevel.penalty;
-  }
-
   getData() {
     // Retrieve the data structure from the base sheet.
     const baseData = super.getData();
@@ -129,7 +119,7 @@ export default class L5R4PcSheet extends ActorSheet {
 
     Dice.RingRoll(
       {
-        woundPenalty: this.woundPenalty,
+        woundPenalty: this.actor.system.woundPenalty,
         ringRank: ringRank,
         ringName: ringName,
         schoolRank: schoolRank,
@@ -141,10 +131,9 @@ export default class L5R4PcSheet extends ActorSheet {
   _onTraitRoll(event) {
     let traitRank = event.currentTarget.dataset.traitRank;
     let traitName = event.currentTarget.dataset.traitName;
-
     Dice.TraitRoll(
       {
-        woundPenalty: this.woundPenalty,
+        woundPenalty: this.actor.system.woundPenalty,
         traitRank: traitRank,
         traitName: traitName,
         askForOptions: event.shiftKey
@@ -200,7 +189,7 @@ export default class L5R4PcSheet extends ActorSheet {
     let skillName = item.name;
 
     Dice.SkillRoll({
-      woundPenalty: this.woundPenalty,
+      woundPenalty: this.actor.system.woundPenalty,
       actorTrait: actorTrait,
       skillRank: skillRank,
       skillName: skillName,

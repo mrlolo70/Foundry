@@ -196,7 +196,6 @@ export async function TraitRoll({
       label += ` ${game.i18n.localize("l5r4.rings.void")}!`
     }
   }
-
   if (applyWoundPenalty) {
     totalMod = totalMod - woundPenalty;
   }
