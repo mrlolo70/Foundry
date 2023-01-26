@@ -4,123 +4,123 @@
       <h3 class="title">{{localize "l5r4.traits.name"}}</h3>
       <input type="text" name="name" value="{{actor.name}}" placeholder="Name" />
       <h3 class="title">{{localize "l5r4.ranks.insightRank"}}</h3>
-      <input type="number" name="data.insight.rank" value="{{data.insight.rank}}" data-type="Number" />
+      <input type="number" name="system.insight.rank" value="{{system.insight.rank}}" data-type="Number" />
     </div>
     <div>
       <h3 class="title">{{localize "l5r4.traits.clan"}}</h3>
-      <input name="data.clan" type="text" value="{{data.clan}}" />
+      <input name="system.clan" type="text" value="{{system.clan}}" />
       <h3 class="title">{{localize "l5r4.traits.xp"}}</h3>
-      <input type="number" name="data.xp" value="{{data.xp}}" data-type="Number" />
+      <input type="number" name="system.xp" value="{{system.xp}}" data-type="Number" />
     </div>
     <div>
       <h3 class="title">{{localize "l5r4.traits.school"}}</h3>
-      <input type="text" name="data.school" value="{{data.school}}" data-type="String" />
+      <input type="text" name="system.school" value="{{system.school}}" data-type="String" />
       <h3 class="title">{{localize "l5r4.traits.insight"}}</h3>
-      <input type="number" name="data.insight.points" value="{{data.insight.points}}" data-type="Number" />
+      <input type="number" name="system.insight.points" value="{{system.insight.points}}" data-type="Number" />
     </div>
   </label>
   <label class="traits-rings">
     <!-- Earth ring -->
     <h3 class="ring-name ring-name-earth">{{localize "l5r4.rings.earth"}}</h3>
-    <h3 class="ring-rank ring-rank-earth">{{data.rings.earth}}</h3>
+    <h3 class="ring-rank ring-rank-earth">{{system.rings.earth}}</h3>
     <div class="earth-ring">
-      <a class="ring-roll" data-ring-rank="{{data.rings.earth}}" data-ring-name="{{localize "l5r4.rings.earth"}}">
+      <a class="ring-roll" data-ring-rank="{{system.rings.earth}}" data-ring-name="{{localize "l5r4.rings.earth"}}">
         <img src="systems/l5r4/assets/icons/earth.png" width="128px" height="128px" title="{{localize "l5r4.mech.ringRoll"}}"
           class="earth-ring-img" />
       </a>
     </div>
     <div class="trait trait-stamina">
-      <a class="trait-roll" data-trait-rank="{{data.traits.sta}}" data-trait-name="{{localize "l5r4.traits.sta"}}">
+      <a class="trait-roll" data-trait-rank="{{system.traits.sta}}" data-trait-name="{{localize "l5r4.traits.sta"}}">
         <p title="{{localize "l5r4.mech.traitRoll"}}">{{localize "l5r4.traits.sta"}}</p>
       </a>
-      <input class="trait-rank" type="number" value='{{data.traits.sta}}' name="data.traits.sta" data-type="Number" />
+      <input class="trait-rank" type="number" value='{{system.traits.sta}}' name="system.traits.sta" data-type="Number" />
     </div>
     <div class="trait trait-willpower">
-      <a class="trait-roll" data-trait-rank="{{data.traits.wil}}" data-trait-name="{{localize "l5r4.traits.wil"}}">
+      <a class="trait-roll" data-trait-rank="{{system.traits.wil}}" data-trait-name="{{localize "l5r4.traits.wil"}}">
         <p title="{{localize "l5r4.mech.traitRoll"}}">{{localize "l5r4.traits.wil"}}</p>
       </a>
-      <input class="trait-rank" type="number" value='{{data.traits.wil}}' name="data.traits.wil" data-type="Number" />
+      <input class="trait-rank" type="number" value='{{system.traits.wil}}' name="system.traits.wil" data-type="Number" />
     </div>
 
     <!-- Air ring -->
     <h3 class="ring-name ring-name-air">{{localize "l5r4.rings.air"}}</h3>
-    <h3 class="ring-rank ring-rank-air">{{data.rings.air}}</h3>
+    <h3 class="ring-rank ring-rank-air">{{system.rings.air}}</h3>
     <div class="air-ring">
-      <a class="ring-roll" data-ring-rank="{{data.rings.air}}" data-ring-name="{{localize "l5r4.rings.air"}}">
+      <a class="ring-roll" data-ring-rank="{{system.rings.air}}" data-ring-name="{{localize "l5r4.rings.air"}}">
         <img src="systems/l5r4/assets/icons/air.png" width="128px" height="128px" title="{{localize "l5r4.mech.ringRoll"}}" class="air-ring-img" />
       </a>
     </div>
     <div class="trait trait-reflexe">
-      <a class="trait-roll" data-trait-rank="{{data.traits.ref}}" data-trait-name="{{localize "l5r4.traits.ref"}}">
+      <a class="trait-roll" data-trait-rank="{{system.traits.ref}}" data-trait-name="{{localize "l5r4.traits.ref"}}">
         <p title="{{localize "l5r4.mech.traitRoll"}}">{{localize "l5r4.traits.ref"}}</p>
       </a>
-      <input class="trait-rank" name="data.traits.ref" type="number" value='{{data.traits.ref}}' data-type="Number" />
+      <input class="trait-rank" name="system.traits.ref" type="number" value='{{system.traits.ref}}' data-type="Number" />
     </div>
     <div class="trait trait-awarness">
-      <a class="trait-roll" data-trait-rank="{{data.traits.awa}}" data-trait-name="{{localize "l5r4.traits.awa"}}">
+      <a class="trait-roll" data-trait-rank="{{system.traits.awa}}" data-trait-name="{{localize "l5r4.traits.awa"}}">
         <p title="{{localize "l5r4.mech.traitRoll"}}">{{localize "l5r4.traits.awa"}}</p>
       </a>
-      <input class="trait-rank" type="number" value='{{data.traits.awa}}' name="data.traits.awa" data-type="Number" />
+      <input class="trait-rank" type="number" value='{{system.traits.awa}}' name="system.traits.awa" data-type="Number" />
     </div>
 
     <!-- Water ring -->
     <h3 class="ring-name ring-name-water">{{localize "l5r4.rings.water"}}</h3>
-    <h3 class="ring-rank ring-rank-water">{{data.rings.water}}</h3>
+    <h3 class="ring-rank ring-rank-water">{{system.rings.water}}</h3>
     <div class="water-ring">
-      <a class="ring-roll" data-ring-rank="{{data.rings.water}}" data-ring-name="{{localize "l5r4.rings.water"}}">
+      <a class="ring-roll" data-ring-rank="{{system.rings.water}}" data-ring-name="{{localize "l5r4.rings.water"}}">
         <img src="systems/l5r4/assets/icons/water.png" width="128px" height="128px" title="{{localize "l5r4.mech.ringRoll"}}"
           class="water-ring-img" />
       </a>
     </div>
     <div class="trait trait-strength">
-      <a class="trait-roll" data-trait-rank="{{data.traits.str}}" data-trait-name="{{localize "l5r4.traits.str"}}">
+      <a class="trait-roll" data-trait-rank="{{system.traits.str}}" data-trait-name="{{localize "l5r4.traits.str"}}">
         <p title="{{localize "l5r4.mech.traitRoll"}}">{{localize "l5r4.traits.str"}}</p>
       </a>
-      <input class="trait-rank" type="number" value='{{data.traits.str}}' name="data.traits.str" data-type="Number" />
+      <input class="trait-rank" type="number" value='{{system.traits.str}}' name="system.traits.str" data-type="Number" />
     </div>
     <div class="trait trait-perception">
-      <a class="trait-roll" data-trait-rank="{{data.traits.per}}" data-trait-name="{{localize "l5r4.traits.per"}}">
+      <a class="trait-roll" data-trait-rank="{{system.traits.per}}" data-trait-name="{{localize "l5r4.traits.per"}}">
         <p title="{{localize "l5r4.mech.traitRoll"}}">{{localize "l5r4.traits.per"}}</p>
       </a>
-      <input class="trait-rank" type="number" value='{{data.traits.per}}' name="data.traits.per" data-type="Number" />
+      <input class="trait-rank" type="number" value='{{system.traits.per}}' name="system.traits.per" data-type="Number" />
     </div>
 
     <!-- Fire ring -->
     <h3 class="ring-name ring-name-fire">{{localize "l5r4.rings.fire"}}</h3>
-    <h3 class="ring-rank ring-rank-fire">{{data.rings.fire}}</h3>
+    <h3 class="ring-rank ring-rank-fire">{{system.rings.fire}}</h3>
     <div class="fire-ring">
       <div>
-        <a class="ring-roll" data-ring-rank="{{data.rings.fire}}" data-ring-name="{{localize "l5r4.rings.fire"}}">
+        <a class="ring-roll" data-ring-rank="{{system.rings.fire}}" data-ring-name="{{localize "l5r4.rings.fire"}}">
           <img src="systems/l5r4/assets/icons/fire.png" width="128px" height="128px" title="{{localize "l5r4.mech.ringRoll"}}"
             class="fire-ring-img" />
         </a>
       </div>
     </div>
     <div class="trait trait-agility">
-      <a class="trait-roll" data-trait-rank="{{data.traits.agi}}" data-trait-name="{{localize "l5r4.traits.agi"}}">
+      <a class="trait-roll" data-trait-rank="{{system.traits.agi}}" data-trait-name="{{localize "l5r4.traits.agi"}}">
         <p title="{{localize "l5r4.mech.traitRoll"}}">{{localize "l5r4.traits.agi"}}</p>
       </a>
-      <input class="trait-rank" type="number" value='{{data.traits.agi}}' name="data.traits.agi" data-type="Number" />
+      <input class="trait-rank" type="number" value='{{system.traits.agi}}' name="system.traits.agi" data-type="Number" />
     </div>
     <div class="trait trait-intelligence">
-      <a class="trait-roll" data-trait-rank="{{data.traits.int}}" data-trait-name="{{localize "l5r4.traits.int"}}">
+      <a class="trait-roll" data-trait-rank="{{system.traits.int}}" data-trait-name="{{localize "l5r4.traits.int"}}">
         <p title="{{localize "l5r4.mech.traitRoll"}}">{{localize "l5r4.traits.int"}}</p>
       </a>
-      <input class="trait-rank" type="number" value='{{data.traits.int}}' name="data.traits.int" data-type="Number" />
+      <input class="trait-rank" type="number" value='{{system.traits.int}}' name="system.traits.int" data-type="Number" />
     </div>
     
     <!-- Void ring -->
     <h3 class="ring-name ring-name-void">{{localize "l5r4.rings.void"}}</h3>
-    <input class="ring-rank ring-rank-void" type="number" name="data.rings.void.rank" value="{{data.rings.void.rank}}" data-type="Number" />
+    <input class="ring-rank ring-rank-void" type="number" name="system.rings.void.rank" value="{{system.rings.void.rank}}" data-type="Number" />
     <div class="void-ring">
-      <a class="ring-roll" data-ring-rank="{{data.rings.void.rank}}" data-ring-name="{{localize "l5r4.rings.void"}}">
+      <a class="ring-roll" data-ring-rank="{{system.rings.void.rank}}" data-ring-name="{{localize "l5r4.rings.void"}}">
         <img src="systems/l5r4/assets/icons/void.png" width="128px" height="128px" title="{{localize "l5r4.mech.ringRoll"}}"
           class="void-ring-img" />
       </a>
     </div>
     <div class="void-points">
       <p class="void-points-name">{{localize "l5r4.rings.voidPoints"}}</p>
-      <input class="void-points-amount" type="number" value='{{data.rings.void.value}}' name="data.rings.void.value" data-type="Number" />
+      <input class="void-points-amount" type="number" value='{{system.rings.void.value}}' name="system.rings.void.value" data-type="Number" />
     </div>
   </label>
 
@@ -129,6 +129,6 @@
   {{> "systems/l5r4/templates/partials/pc-spells-techniques.hbs"}}
   <h2>{{localize "l5r4.sheet.notes"}}</h2>
   
-    {{editor content=data.notes target="data.notes" button=true owner=owner editable=true}}
+    {{editor system.notes target="system.notes" button=true owner=owner editable=true}}
   
 </section>

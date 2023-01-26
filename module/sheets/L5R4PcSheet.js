@@ -43,53 +43,42 @@ export default class L5R4PcSheet extends ActorSheet {
     return this.options.template;
   }
 
-  _getCurrentWoundLevel() {
-    const woundLvls = Object.values(this.actor.data.data.wound_lvl);
-    return woundLvls.filter(lvl => lvl.current)[0] || this.actor.data.data.wound_lvl.healthy
-  }
-
-  get woundPenalty() {
-    const currentWoundLevel = this._getCurrentWoundLevel();
-    return currentWoundLevel.penalty;
-  }
-
   getData() {
-    const baseData = {
-      ...super.getData(),
-      items: this.actor.items.map(item => item.data)
-    };
-    let sheetData = {
-      owner: this.actor.isOwner,
-      editable: this.actor.isEditable,
-      actor: baseData.actor,
-      data: baseData.actor.data.data,
-      config: CONFIG.l5r4,
-      items: baseData.items
+    // Retrieve the data structure from the base sheet.
+    const baseData = super.getData();
+
+    // Use a safe clone of the actor data for further operations.
+    const actorData = this.actor.toObject(false);
+
+    // Add the actor's data to base structure for easier access
+    baseData.system = actorData.system;
+
+    // Add config data to base sctructure
+    baseData.config = CONFIG.l5r4;
+
+    baseData.commonItems = baseData.items.filter(function (item) { return item.type == "commonItem" });
+    baseData.weapons = baseData.items.filter(function (item) { return item.type == "weapon" });
+    baseData.bows = baseData.items.filter(function (item) { return item.type == "bow" });
+    baseData.armors = baseData.items.filter(function (item) { return item.type == "armor" });
+    baseData.skills = baseData.items.filter(function (item) { return item.type == "skill" });
+    baseData.techniques = baseData.items.filter(function (item) { return item.type == "technique" });
+    baseData.advantages = baseData.items.filter(function (item) { return item.type == "advantage" });
+    baseData.disadvantages = baseData.items.filter(function (item) { return item.type == "disadvantage" });
+    baseData.spells = baseData.items.filter(function (item) { return item.type == "spell" });
+    baseData.katas = baseData.items.filter(function (item) { return item.type == "kata" });
+    baseData.kihos = baseData.items.filter(function (item) { return item.type == "kiho" });
+
+    baseData.masteries = [];
+    for (let skill of baseData.skills) {
+      if (skill.system.mastery_3 != "" && skill.system.rank >= 3)
+        baseData.masteries.push({ _id: skill._id, name: `${skill.name} 3`, mastery: skill.system.mastery_3 });
+      if (skill.system.mastery_5 != "" && skill.system.rank >= 5)
+        baseData.masteries.push({ _id: skill._id, name: `${skill.name} 5`, mastery: skill.system.mastery_5 });
+      if (skill.system.mastery_7 != "" && skill.system.rank >= 7)
+        baseData.masteries.push({ _id: skill._id, name: `${skill.name} 7`, mastery: skill.system.mastery_7 });
     }
 
-    sheetData.commonItems = sheetData.items.filter(function (item) { return item.type == "commonItem" });
-    sheetData.weapons = sheetData.items.filter(function (item) { return item.type == "weapon" });
-    sheetData.bows = sheetData.items.filter(function (item) { return item.type == "bow" });
-    sheetData.armors = sheetData.items.filter(function (item) { return item.type == "armor" });
-    sheetData.skills = sheetData.items.filter(function (item) { return item.type == "skill" });
-    sheetData.techniques = sheetData.items.filter(function (item) { return item.type == "technique" });
-    sheetData.advantages = sheetData.items.filter(function (item) { return item.type == "advantage" });
-    sheetData.disadvantages = sheetData.items.filter(function (item) { return item.type == "disadvantage" });
-    sheetData.spells = sheetData.items.filter(function (item) { return item.type == "spell" });
-    sheetData.katas = sheetData.items.filter(function (item) { return item.type == "kata" });
-    sheetData.kihos = sheetData.items.filter(function (item) { return item.type == "kiho" });
-
-    sheetData.masteries = [];
-    for (let skill of sheetData.skills) {
-      if (skill.data.mastery_3 != "" && skill.data.rank >= 3)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 3`, mastery: skill.data.mastery_3 });
-      if (skill.data.mastery_5 != "" && skill.data.rank >= 5)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 5`, mastery: skill.data.mastery_5 });
-      if (skill.data.mastery_7 != "" && skill.data.rank >= 7)
-        sheetData.masteries.push({ _id: skill._id, name: `${skill.name} 7`, mastery: skill.data.mastery_7 });
-    }
-
-    return sheetData;
+    return baseData;
   }
 
   activateListeners(html) {
@@ -126,11 +115,11 @@ export default class L5R4PcSheet extends ActorSheet {
   _onRingRoll(event) {
     let ringRank = event.currentTarget.dataset.ringRank;
     let ringName = event.currentTarget.dataset.ringName;
-    let schoolRank = this.actor.data.data.insight.rank;
+    let schoolRank = this.actor.system.insight.rank;
 
     Dice.RingRoll(
       {
-        woundPenalty: this.woundPenalty,
+        woundPenalty: this.actor.system.woundPenalty,
         ringRank: ringRank,
         ringName: ringName,
         schoolRank: schoolRank,
@@ -142,10 +131,9 @@ export default class L5R4PcSheet extends ActorSheet {
   _onTraitRoll(event) {
     let traitRank = event.currentTarget.dataset.traitRank;
     let traitName = event.currentTarget.dataset.traitName;
-
     Dice.TraitRoll(
       {
-        woundPenalty: this.woundPenalty,
+        woundPenalty: this.actor.system.woundPenalty,
         traitRank: traitRank,
         traitName: traitName,
         askForOptions: event.shiftKey
@@ -162,9 +150,9 @@ export default class L5R4PcSheet extends ActorSheet {
     let actorTrait;
     let diceRoll;
     let diceKeep;
-    if (item.data.type == 'weapon') {
-      actorTrait = this.actor.data.data.traits.str;
-      diceRoll = parseInt(actorTrait) + parseInt(item.data.data.damageRoll);
+    if (item.type == 'weapon') {
+      actorTrait = this.actor.system.traits.str;
+      diceRoll = parseInt(actorTrait) + parseInt(item.system.damageRoll);
     } else if (item.data.type == 'bow') {
       diceRoll = rollData.damageRoll;
       diceKeep = rollData.damageKeep;
@@ -173,7 +161,7 @@ export default class L5R4PcSheet extends ActorSheet {
     }
 
 
-    diceKeep = parseInt(item.data.data.damageKeep)
+    diceKeep = parseInt(item.system.damageKeep)
     Dice.WeaponRoll(
       {
         diceRoll: diceRoll,
@@ -189,19 +177,19 @@ export default class L5R4PcSheet extends ActorSheet {
   _onSkillRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.items.get(itemID);
-    let skillTrait = item.data.data.trait;
+    let skillTrait = item.system.trait;
     let actorTrait = null;
     // some skills use the void ring as a trait
     if (skillTrait == 'void') {
-      actorTrait = this.actor.data.data.rings.void.rank;
+      actorTrait = this.actor.system.rings.void.rank;
     } else {
-      actorTrait = this.actor.data.data.traits[skillTrait];
+      actorTrait = this.actor.system.traits[skillTrait];
     }
-    let skillRank = item.data.data.rank;
+    let skillRank = item.system.rank;
     let skillName = item.name;
 
     Dice.SkillRoll({
-      woundPenalty: this.woundPenalty,
+      woundPenalty: this.actor.system.woundPenalty,
       actorTrait: actorTrait,
       skillRank: skillRank,
       skillName: skillName,

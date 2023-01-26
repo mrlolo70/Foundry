@@ -12,26 +12,26 @@
     <th>{{localize "l5r4.weapon.damage"}}</th>
     </tr>
     <td>
-    <input name="data.size" type="text" value="{{data.size}}" />
+    <input name="system.size" type="text" value="{{item.system.size}}" />
     </td>
     <td>
-    <input name="data.str" type="number" value="{{data.str}}" data-type="Number" />
+    <input name="system.str" type="number" value="{{item.system.str}}" data-type="Number" />
     </td>
     <td>
-    <input name="data.range" type="number" value="{{data.range}}" data-type="Number" />
+    <input name="system.range" type="number" value="{{item.system.range}}" data-type="Number" />
     </td>
-    <select name="data.arrow">
+    <select name="system.arrow">
         <option selected disabled>{{localize "l5r4.weapon.arrow"}}</option>
-        {{#select data.arrow}}
+        {{#select item.system.arrow}}
         {{#each config.arrows as |name type|}}
         <option value="{{type}}">{{localize name}}</option>
         {{/each}}
         {{/select}}
     </select>
     <td>
-    {{data.damageRoll}}k{{data.damageKeep}}
+    {{item.system.damageRoll}}k{{item.system.damageKeep}}
     </td>
   </table>
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
   </div>
 </form>

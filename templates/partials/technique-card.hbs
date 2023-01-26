@@ -1,4 +1,4 @@
-<div class="item-border {{data.type}}">
+<div class="item-border {{type}}">
   <div class="technique-card item" data-item-id="{{_id}}">
     <div class="technique-info technique-name">
       <h3>
@@ -11,22 +11,22 @@
       </h3>
     </div>
     <div class="technique-info technique-stats">
-      {{#unless data.shugenja}}
+      {{#unless system.shugenja}}
       <div class="technique-rank">
-        {{localize "l5r4.skill.rank"}}: {{data.rank}}
+        {{localize "l5r4.skill.rank"}}: {{system.rank}}
       </div>
       {{/unless}}
-      {{#if data.shugenja}}
+      {{#if system.shugenja}}
       <div class="technique-affiniy">
-        {{localize "l5r4.spell.affinity"}}: {{localize (concat "l5r4.rings." data.affinity)}}
+        {{localize "l5r4.spell.affinity"}}: {{localize (concat "l5r4.rings." system.affinity)}}
       </div>
       <div class="technique-deficiency">
-        {{localize "l5r4.spell.deficiency"}}: {{localize (concat "l5r4.rings." data.deficiency)}}
+        {{localize "l5r4.spell.deficiency"}}: {{localize (concat "l5r4.rings." system.deficiency)}}
       </div>
       {{/if}}
       {{#unless inSheet}}
       <div class="technique-effects">
-        {{{data.specialRules}}}
+        {{{system.specialRules}}}
       </div>
       {{/unless}}
     </div>

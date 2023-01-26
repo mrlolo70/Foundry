@@ -13,7 +13,6 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/weapon-card.hbs",
     "systems/l5r4/templates/partials/spell-card.hbs",
     "systems/l5r4/templates/partials/skill-card.hbs",
-    "systems/l5r4/templates/partials/mastery-card.hbs",
     "systems/l5r4/templates/partials/technique-card.hbs",
     "systems/l5r4/templates/partials/advantage-card.hbs",
     "systems/l5r4/templates/partials/disadvantage-card.hbs",
@@ -75,12 +74,12 @@ Hooks.once("init", function () {
   // custom initiative
   Combatant.prototype._getInitiativeFormula = function() {
     const actor = this.actor;
-    const initRoll = actor.data.data.initiative.roll;
-    const initKeep = actor.data.data.initiative.keep;
-    if (actor.data.type == "npc") {
+    const initRoll = actor.system.initiative.roll;
+    const initKeep = actor.system.initiative.keep;
+    if (actor.type == "npc") {
       return `${initRoll}d10k${initKeep}x10`;
     }
-    const initMod = actor.data.data.initiative.total_mod;
+    const initMod = actor.system.initiative.total_mod;
 
     return `${initRoll}d10k${initKeep}x10+${initMod}`;
   }

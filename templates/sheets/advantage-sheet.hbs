@@ -11,9 +11,9 @@
       </tr>
       <tr>
         <td>
-        <select name="data.type">
+        <select name="system.type">
           <option selected disabled>{{localize "l5r4.skill.type"}}</option>
-          {{#select data.type}}
+          {{#select item.system.type}}
           {{#each config.advantageTypes as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
           {{/each}}
@@ -21,13 +21,13 @@
         </select>
         </td>
         <td>
-          <input name="data.cost" type="number" value="{{data.cost}}" data-type="Number" />
+          <input name="system.cost" type="number" value="{{item.system.cost}}" data-type="Number" />
         </td>
       </tr>
     </table>
     <h2>{{localize "l5r4.sheet.rulesSummary"}}</h2>
-    {{editor content=data.specialRules target="data.specialRules" button=true owner=owner editable=editable}}
+    {{editor item.system.specialRules target="system.specialRules" button=true owner=owner editable=editable}}
     <h2>{{localize "l5r4.sheet.description"}}</h2>
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
   </div>
 </form>

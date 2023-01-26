@@ -17,11 +17,11 @@
     </a>
     <input class="skill-name inline-edit" type="text" value="{{skill.name}}" data-field="name" 
     placeholder="{{localize "l5r4.sheet.skillName"}}" />
-    <input class="skill-value inline-edit" type="number" value="{{skill.data.rank}}" data-field="data.rank"
+    <input class="skill-value inline-edit" type="number" value="{{skill.system.rank}}" data-field="system.rank"
       placeholder="0" data-type="Number">
-    <select class="skill-trait inline-edit" data-field="data.trait">
+    <select class="skill-trait inline-edit" data-field="system.trait">
       <option selected disabled>{{localize "l5r4.skill.trait"}}</option>
-      {{#select skill.data.trait}}
+      {{#select skill.system.trait}}
       {{#each @root.config.npcTraits as |name type|}}
       <option value="{{type}}">{{localize name}}</option>
       {{/each}}

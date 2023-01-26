@@ -1,5 +1,5 @@
 {
-  "name": "l5r4",
+  "id": "l5r4",
   "title": "Legend of the Five Rings 4th Edition",
   "description": "System to play L5R 4th edition",
   "authors": [
@@ -7,7 +7,7 @@
       "name": "Mateo Caycedo Alvarez"
     }
   ],
-  "version": "0.7.1",
+  "version": "0.7.2",
   "compatibility": {
     "minimum": 10,
     "verified": 10,

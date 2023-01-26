@@ -15,8 +15,8 @@ export default class L5R4Item extends Item {
   prepareData() {
     super.prepareData();
 
-    let itemData = this.data;
-    let data = itemData.data;
+    let itemData = this;
+    let l5r4Data = itemData.system;
 
     // get damage from arrows for bows
     if (itemData.type == "bow") {
@@ -24,14 +24,14 @@ export default class L5R4Item extends Item {
       let actorStr = 0;
       // get pc str
       if (this.actor) {
-        if (this.actor.data) {
-          actorData = this.actor.data.data;
+        if (this.actor.system) {
+          actorData = this.actor.system;
           actorStr = parseInt(actorData.traits.str);
         }
       }
       let arrowRoll = 0;
       let arrowKeep = 0;
-      let arrow = game.i18n.localize(`l5r4.arrows.${data.arrow}`);
+      let arrow = game.i18n.localize(`l5r4.arrows.${l5r4Data.arrow}`);
       switch (arrow) {
         case game.i18n.localize("l5r4.arrows.armor"):
           arrowRoll = 1;
@@ -54,9 +54,9 @@ export default class L5R4Item extends Item {
           arrowKeep = 2;
           break;
       }
-      data.damageRoll = Math.min(parseInt(data.str), actorStr) + arrowRoll;
-      data.damageKeep = arrowKeep;
-      data.damageFormula = `${data.damageRoll}k${data.damageKeep}`;
+      l5r4Data.damageRoll = Math.min(parseInt(l5r4Data.str), actorStr) + arrowRoll;
+      l5r4Data.damageKeep = arrowKeep;
+      l5r4Data.damageFormula = `${l5r4Data.damageRoll}k${l5r4Data.damageKeep}`;
     }
 
 
@@ -64,10 +64,10 @@ export default class L5R4Item extends Item {
 
   async roll() {
     const item = this;
-    let cardData = item.data;
-    
+
     // Initialize chat data.
-    let content = await renderTemplate(this.chatTemplate[this.type], cardData);
+
+    let content = await renderTemplate(this.chatTemplate[this.type], item);
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
     const label = `[${item.type}]`;

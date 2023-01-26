@@ -17,28 +17,29 @@ export default class L5R4NpcSheet extends ActorSheet {
   }
 
   getData() {
+    // Retrieve the data structure from the base sheet.
     const baseData = super.getData();
 
-    let sheetData = {
-      owner: this.actor.isOwner,
-      editable: this.actor.isEditable,
-      actor: baseData.actor,
-      data: baseData.actor.data.data,
-      config: CONFIG.l5r4,
-      items: baseData.items
-    }
+    // Use a safe clone of the actor data for further operations.
+    const actorData = this.actor.toObject(false);
 
-    sheetData.skills = sheetData.items.filter(function (item) { return item.type == "skill" });
+    // Add the actor's data to base structure for easier access
+    baseData.system = actorData.system;
 
-    return sheetData;
+    // Add config data to base sctructure
+    baseData.config = CONFIG.l5r4;
+
+    baseData.skills = baseData.items.filter(function (item) { return item.type == "skill" });
+
+    return baseData;
   }
 
   _getCurrentWoundLevel() {
-    const woundLvls = Object.values(this.actor.data.data.woundLvlsUsed);
+    const woundLvls = Object.values(this.actor.system.woundLvlsUsed);
     const currentLevel = woundLvls.filter(woundLvl => woundLvl.current === true).reduce((maxWoundLevel, currentWoundLevel) => {
       return Number(maxWoundLevel.penalty) > Number(currentWoundLevel.penalty) ? maxWoundLevel : currentWoundLevel;
     });
-    return currentLevel || this.actor.data.data.woundLvlsUsed.healthy
+    return currentLevel || this.actor.system.woundLvlsUsed.healthy
   }
 
   get woundPenalty() {
@@ -171,26 +172,25 @@ export default class L5R4NpcSheet extends ActorSheet {
     let item = this.actor.items.get(itemId);
     let field = element.dataset.field;
 
-
     if (element.type == "checkbox") {
-      return item.update({ [field]: element.checked })
+      return item.updateSource({ [field]: element.checked })
     }
 
-    return item.update({ [field]: element.value })
+    return item.updateSource({ [field]: element.value })
   }
 
   _onSkillRoll(event) {
     const itemID = event.currentTarget.closest(".item").dataset.itemId;
     const item = this.actor.items.get(itemID);
-    let skillTrait = item.data.data.trait;
+    let skillTrait = item.system.trait;
     let actorTrait = null;
     // some skills use the void ring as a trait
     if (skillTrait == 'void') {
       return ui.notifications.error(`NPCs don't have Void`);
     } else {
-      actorTrait = this.actor.data.data.traits[skillTrait];
+      actorTrait = this.actor.system.traits[skillTrait];
     }
-    let skillRank = item.data.data.rank;
+    let skillRank = item.system.rank;
     let skillName = item.name;
 
     Dice.SkillRoll({
