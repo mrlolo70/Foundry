@@ -4,7 +4,8 @@
       "traitRoll": "Tirada rasgo {trait}",
       "ringRoll": "Tirada anillo {ring}",
       "skillRoll": "Tirada habilidad {skill}",
-      "damageRoll": "Tirada daño {weapon}"
+      "damageRoll": "Tirada daño {weapon}",
+      "useSpellSlot": "Usar especio de conjuro?"
     },
     "errors": {
       "scoolRankZero": "No puedes lanzar ningún conjuro con rango de escuela reducido a cero."

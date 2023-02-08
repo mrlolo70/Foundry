@@ -4,7 +4,8 @@
       "traitRoll": "Jet de trait {trait}",
       "ringRoll": "Jet d'anneau {ring}",
       "skillRoll": "Jet de compétence {skill}",
-      "damageRoll": "Jet de dégat {weapon}"
+      "damageRoll": "Jet de dégat {weapon}",
+      "useSpellSlot": "Utiliser l'emplacement de sort?"
     },
     "errors": {
       "scoolRankZero": "Vous ne pouvez lancer un sort avec un Rang d'École réduit à zéro"
