@@ -155,7 +155,8 @@
       "equipment": "Equipment",
       "rulesSummary": "Rules Summary",
       "description": "Description",
-      "nrWoundLvls": "Number of Wound levels"
+      "nrWoundLvls": "Number of Wound levels",
+      "spellSlots": "Spell slots"
     },
     "skillTypes": {
       "high": "High",

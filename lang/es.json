@@ -155,7 +155,8 @@
       "equipment": "Equipamiento",
       "rulesSummary": "Resumen Reglas",
       "description": "Descripción",
-      "nrWoundLvls": "Número niveles de herida"
+      "nrWoundLvls": "Número niveles de herida",
+      "spellSlots": "Espacios para Conjuros"
     },
     "skillTypes": {
       "high": "Alto",

@@ -155,7 +155,8 @@
       "equipment": "Équipement",
       "rulesSummary": "Résumés des règles",
       "description": "Description",
-      "nrWoundLvls": "Nombre de niveaux de blessure"
+      "nrWoundLvls": "Nombre de niveaux de blessure",
+      "spellSlots": "Emplacements de Sorts"
     },
     "skillTypes": {
       "high": "Noble",
