@@ -115,8 +115,8 @@ export default class L5R4PcSheet extends ActorSheet {
   async _onRingRoll(event) {
     let ringRank = event.currentTarget.dataset.ringRank;
     let ringName = event.currentTarget.dataset.ringName;
+    let systemRing = event.currentTarget.dataset.systemRing;
     let schoolRank = this.actor.system.insight.rank;
-
     let spell = false
 
     spell = await Dice.RingRoll(
@@ -124,6 +124,7 @@ export default class L5R4PcSheet extends ActorSheet {
         woundPenalty: this.actor.system.woundPenalty,
         ringRank: ringRank,
         ringName: ringName,
+        systemRing: systemRing,
         schoolRank: schoolRank,
         askForOptions: event.shiftKey
       }
@@ -131,19 +132,19 @@ export default class L5R4PcSheet extends ActorSheet {
     if (spell.voidSlot) {
       this._consumeSpellSlot('void')
     } else if (spell.spellSlot) {
-      this._consumeSpellSlot(spell.ring.toLowerCase())
+      this._consumeSpellSlot(spell.systemRing, spell.ringName)
     }
   }
 
-  _consumeSpellSlot(ring) {
-    let currentSlots = this.actor.system.spellSlots[ring];
+  _consumeSpellSlot(systemRing, ringName) {
+    let currentSlots = this.actor.system.spellSlots[systemRing];
     if (currentSlots <= 0) {
-      let warning = `${game.i18n.localize("l5r4.errors.noSpellSlots")}: ${ring}`;
+      let warning = `${game.i18n.localize("l5r4.errors.noSpellSlots")}: ${ringName}`;
       ui.notifications.warn(warning);
       return;
     }
     let newSlotValue = currentSlots - 1;
-    let ringToUpdate = `system.spellSlots.${ring}`
+    let ringToUpdate = `system.spellSlots.${systemRing}`
     this.actor.update({ [`${ringToUpdate}`]: newSlotValue })   
   }
 

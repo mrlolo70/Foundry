@@ -66,12 +66,12 @@ export async function RingRoll({
   woundPenalty = 0,
   ringRank = null,
   ringName = null,
+  systemRing = null,
   schoolRank = null,
   askForOptions = true } = {}) {
   const messageTemplate = "systems/l5r4/templates/chat/simple-roll.hbs";
   let rollType = game.i18n.localize("l5r4.mech.ringRoll");
   let label = `${rollType}: ${ringName}`;
-
   let optionsSettings = game.settings.get("l5r4", "showSpellRollOptions");
   let affinity = false;
   let deficiency = false;
@@ -161,7 +161,7 @@ export async function RingRoll({
       content: renderedRoll
     }
     rollResult.toMessage(messageData);
-    return {spellSlot: spellSlot, voidSlot: voidSlot, ring: ringName};
+    return {spellSlot: spellSlot, voidSlot: voidSlot, systemRing: systemRing, ringName: ringName};
   }
   return false;
 }

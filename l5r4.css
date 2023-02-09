@@ -955,10 +955,7 @@
   display: flex;
   flex-flow: column;
 }
-body {
-  /*  background: url("assets/textures/background.webp") no-repeat center;
-  background-size: cover;*/
-}
+
 body > * {
   scrollbar-width: thin;
 }

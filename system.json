@@ -8,7 +8,7 @@
       "url": "https://gitlab.com/teo-cay/l5r4"
     }
   ],
-  "version": "0.7.7",
+  "version": "0.7.8",
   "compatibility": {
     "minimum": 10,
     "verified": 10,
@@ -43,6 +43,6 @@
   "gridUnits": "ft",
   "url": "https://gitlab.com/teo-cay/l5r4",
   "manifest": "https://gitlab.com/teo-cay/l5r4/-/raw/master/system.json",
-  "download": "https://gitlab.com/teo-cay/l5r4/-/archive/0.7.7/l5r4-0.7.7.zip",
+  "download": "https://gitlab.com/teo-cay/l5r4/-/archive/0.7.8/l5r4-0.7.8.zip",
   "license": "GPL v3"
 }
