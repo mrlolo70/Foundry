@@ -88,7 +88,7 @@ export async function RingRoll({
     let checkOptions = await GetSpellOptions(ringName);
 
     if (checkOptions.cancelled) {
-      return;
+      return false;
     }
 
     applyWoundPenalty = checkOptions.applyWoundPenalty

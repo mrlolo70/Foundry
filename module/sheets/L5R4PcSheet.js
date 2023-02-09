@@ -128,37 +128,23 @@ export default class L5R4PcSheet extends ActorSheet {
         askForOptions: event.shiftKey
       }
     );
-    if (spell.spellSlot) {
-      this._consumeSpellSlot(spell.ring.toLowerCase())
-    } else if (spell.voidSlot) {
+    if (spell.voidSlot) {
       this._consumeSpellSlot('void')
+    } else if (spell.spellSlot) {
+      this._consumeSpellSlot(spell.ring.toLowerCase())
     }
   }
 
   _consumeSpellSlot(ring) {
-    let newSlotValue = 0;
-    switch (ring) {
-      case 'fire':
-        newSlotValue = this.actor.system.spellSlots.fire - 1;
-        this.actor.update({"system.spellSlots.fire": newSlotValue})
-        break;
-      case 'water':
-        newSlotValue = this.actor.system.spellSlots.water - 1;
-        this.actor.update({"system.spellSlots.water": newSlotValue})
-        break;
-      case 'air':
-        newSlotValue = this.actor.system.spellSlots.air - 1;
-        this.actor.update({"system.spellSlots.air": newSlotValue})
-        break;
-      case 'earth':
-        newSlotValue = this.actor.system.spellSlots.earth - 1;
-        this.actor.update({"system.spellSlots.earth": newSlotValue})
-        break;
-      case 'void':
-        newSlotValue = this.actor.system.spellSlots.void - 1;
-        this.actor.update({"system.spellSlots.void": newSlotValue})
-        break;
+    let currentSlots = this.actor.system.spellSlots[ring];
+    if (currentSlots <= 0) {
+      let warning = `${game.i18n.localize("l5r4.errors.noSpellSlots")}: ${ring}`;
+      ui.notifications.warn(warning);
+      return;
     }
+    let newSlotValue = currentSlots - 1;
+    let ringToUpdate = `system.spellSlots.${ring}`
+    this.actor.update({ [`${ringToUpdate}`]: newSlotValue })   
   }
 
   _onTraitRoll(event) {

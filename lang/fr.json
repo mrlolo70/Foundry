@@ -5,10 +5,12 @@
       "ringRoll": "Jet d'anneau {ring}",
       "skillRoll": "Jet de compétence {skill}",
       "damageRoll": "Jet de dégat {weapon}",
-      "useSpellSlot": "Utiliser l'emplacement de sort?"
+      "useSpellSlot": "Utiliser l'emplacement de sort",
+      "voidSlot": "Utiliser l'emplacement de vide?"
     },
     "errors": {
-      "scoolRankZero": "Vous ne pouvez lancer un sort avec un Rang d'École réduit à zéro"
+      "scoolRankZero": "Vous ne pouvez lancer un sort avec un Rang d'École réduit à zéro",
+      "noSpellSlots": "Vous n'avez pas assez d'emplacements pour les sorts de cet anneau"
     },
     "mech": {
       "roll": "Jeter",

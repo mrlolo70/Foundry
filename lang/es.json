@@ -5,15 +5,17 @@
       "ringRoll": "Tirada anillo {ring}",
       "skillRoll": "Tirada habilidad {skill}",
       "damageRoll": "Tirada daño {weapon}",
-      "useSpellSlot": "Usar especio de conjuro?"
+      "useSpellSlot": "Usar espacio de conjuro",
+      "voidSlot": "Usar especio de Vacío?"
     },
     "errors": {
-      "scoolRankZero": "No puedes lanzar ningún conjuro con rango de escuela reducido a cero."
+      "scoolRankZero": "No puedes lanzar ningún conjuro con rango de escuela reducido a cero.",
+      "noSpellSlots": "No tienes suficientes espacios para conjuro de este anillo"
     },
     "mech": {
       "roll": "Tirada",
       "cancel": "Cancelar",
-      "ok": "Vale",
+      "ok": "OK",
       "keep": "Guardar",
       "raise": "Aumentar",
       "init": "Iniciativa",
@@ -29,18 +31,18 @@
       "attackRoll": "Tirada ataque",
       "spellCasting": "Tirada para Lanzamiento de Conjuro",
       "unskilledRoll": "Tirada sin habilidad",
-      "woundPenalty": "Penalidade de ferimento",
+      "woundPenalty": "Penalizadores por heridas",
       "emphasis": "Especialidad",
       "toChat": "Al chat",
       "effect": "Efecto",
       "simple": "Simple",
       "complex": "Complejo",
-      "free": "Libre",
+      "free": "Gratuita",
       "attack": "Ataque",
       "action": "Acción"
     },
     "attack": {
-      "melee": "Melé",
+      "melee": "Cuerpo a cuerpo",
       "ranged": "A distancia"
     },
     "weapon": {
@@ -85,7 +87,7 @@
       "type": "Tipo",
       "trait": "Característica",
       "emphasis": "Especialidad",
-      "school": "Escuela de habilidad",
+      "school": "Habilidad de escuela",
       "mastery3": "Maestría Rango 3",
       "mastery5": "Maestría Rango 5",
       "mastery7": "Maestría Rango 7",
@@ -172,10 +174,10 @@
       "gloryPoints": "Puntos Gloria",
       "statusRank": "Rango Estatus",
       "statusPoints": "Puntos Estatus",
-      "shadowRank": "Mancha Tierras Sombrías",
+      "shadowRank": "Mancha de las Tierras Sombrías",
       "shadowPoints": "Puntos Sombra",
-      "insightRank": "Rango Perspicacia",
-      "insightPoints": "Puntos Perspicacia"
+      "insightRank": "Rango Reconocimiento",
+      "insightPoints": "Puntos Reconocimiento"
     },
     "arrows": {
       "armor": "Perforarmaduras",

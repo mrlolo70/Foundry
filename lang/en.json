@@ -6,10 +6,11 @@
       "skillRoll": "Skill roll {skill}",
       "damageRoll": "Damage roll {weapon}",
       "useSpellSlot": "Use spell slot",
-      "voidSlot": "Use void spell slot?"
+      "voidSlot": "Use Void spell slot?"
     },
     "errors": {
-      "scoolRankZero": "You can't cast a spell with School Rank reduced to zero"
+      "scoolRankZero": "You can't cast a spell with School Rank reduced to zero",
+      "noSpellSlots": "You ran out of spell slots for this ring"
     },
     "mech": {
       "roll": "Roll",
