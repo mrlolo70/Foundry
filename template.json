@@ -160,6 +160,13 @@
         "koku": 0,
         "bu": 0,
         "zeni": 0
+      },
+      "spellSlots": {
+        "water": 2,
+        "fire": 2,
+        "earth": 2,
+        "air": 2,
+        "void": 2
       }
     }
   },

@@ -23,6 +23,7 @@ async function preloadHandlebarsTemplates() {
     "systems/l5r4/templates/partials/pc-skills.hbs",
     "systems/l5r4/templates/partials/pc-equipment.hbs",
     "systems/l5r4/templates/partials/pc-spells-techniques.hbs",
+    "systems/l5r4/templates/partials/pc-spell-slots.hbs",
     "systems/l5r4/templates/partials/pc-armors.hbs",
     "systems/l5r4/templates/partials/pc-armor-tn.hbs",
     "systems/l5r4/templates/partials/npc-skills.hbs",

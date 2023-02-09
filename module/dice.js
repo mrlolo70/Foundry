@@ -81,12 +81,14 @@ export async function RingRoll({
   let totalMod = 0;
   let voidRoll = false;
   let applyWoundPenalty = true;
+  let spellSlot = false;
+  let voidSlot = false;
 
   if (askForOptions != optionsSettings) {
     let checkOptions = await GetSpellOptions(ringName);
 
     if (checkOptions.cancelled) {
-      return;
+      return false;
     }
 
     applyWoundPenalty = checkOptions.applyWoundPenalty
@@ -97,6 +99,8 @@ export async function RingRoll({
     keepMod = parseInt(checkOptions.keepMod);
     totalMod = parseInt(checkOptions.totalMod);
     voidRoll = checkOptions.void;
+    spellSlot = checkOptions.spellSlot;
+    voidSlot = checkOptions.voidSlot;
 
     if (voidRoll) {
       rollMod += 1;
@@ -157,7 +161,9 @@ export async function RingRoll({
       content: renderedRoll
     }
     rollResult.toMessage(messageData);
+    return {spellSlot: spellSlot, voidSlot: voidSlot, ring: ringName};
   }
+  return false;
 }
 
 export async function TraitRoll({
@@ -300,7 +306,7 @@ function _processTraitRollOptions(form) {
 
 async function GetSpellOptions(ringName) {
   const template = "systems/l5r4/templates/chat/roll-modifiers-dialog.hbs"
-  const html = await renderTemplate(template, { spell: true });
+  const html = await renderTemplate(template, { spell: true, ring: ringName });
 
   return new Promise(resolve => {
     const data = {
@@ -336,7 +342,9 @@ function _processSpellRollOptions(form) {
     rollMod: form.rollMod.value,
     keepMod: form.keepMod.value,
     totalMod: form.totalMod.value,
-    void: form.void.checked
+    void: form.void.checked,
+    spellSlot: form.spellSlot.checked,
+    voidSlot: form.voidSlot.checked
   }
 }
 
