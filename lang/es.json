@@ -6,7 +6,7 @@
       "skillRoll": "Tirada habilidad {skill}",
       "damageRoll": "Tirada daño {weapon}",
       "useSpellSlot": "Usar espacio de conjuro",
-      "voidSlot": "Usar especio de Vacío?"
+      "voidSlot": "Usar espacio de Vacío?"
     },
     "errors": {
       "scoolRankZero": "No puedes lanzar ningún conjuro con rango de escuela reducido a cero.",
