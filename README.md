@@ -1,7 +1,8 @@
 # Unofficial L5R 4th Edition System for Foundry VTT 
-![Logo](banner.webp)
+![Banner](banner.webp)
 [![FoundryVTT version](https://img.shields.io/badge/FVTT-v10.x-informational)](https://foundryvtt.com/)
-![Release](https://img.shields.io/gitlab/v/tag/43350653?label=Latest%20Release)
+[![Release](https://img.shields.io/gitlab/v/tag/43350653?label=Latest%20Release)]()
+[![GitLab contributors](https://img.shields.io/gitlab/contributors/43350653?logo=GitLab)]()
 
 Unofficial implementation of the Legend of the Five Rings 4th edition for Foundry VTT. Provides character sheets for pcs and npcs.
 
