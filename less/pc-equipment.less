@@ -19,6 +19,10 @@
   .equipment-list{
     display: flex;
     flex-direction: column;
+    img {
+      border: none
+    }
+
     .item {
       display : grid;
       grid-template-columns: 1fr max-content;
@@ -59,7 +63,7 @@
       grid-template-columns: 1fr 2fr max-content;
       .weapon-name{
         display: grid;
-        grid-template-columns: max-content 1fr;
+        grid-template-columns: max-content max-content 1fr;;
         column-gap:.2em;
         align-items: center;
       }

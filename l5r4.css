@@ -61,6 +61,50 @@
 .l5r4.sheet.item td {
   text-align: center;
 }
+.l5r4.item {
+  font-family: "Rotis Serif";
+}
+.l5r4.item .window-content {
+  background: #fffae6 url("assets/textures/scroll2.webp") no-repeat;
+  background-size: cover;
+}
+.l5r4.item input,
+.l5r4.item select,
+.l5r4.item textarea {
+  background: none;
+  border: none;
+  background-color: #d6cd9fa3;
+}
+.l5r4.item img {
+  border: none;
+}
+.l5r4.item .title {
+  font-family: "Rotis Serif";
+  text-transform: none;
+  font-weight: bold;
+}
+.l5r4.item .sheet-header {
+  font-family: "Rotis Serif";
+  text-transform: none;
+  background: url("assets/textures/brush.webp") no-repeat 0 0;
+  background-size: 100% 100%;
+}
+.l5r4.item .sheet-header input {
+  background-color: transparent;
+}
+.sheet.journal-sheet .journal-entry-content {
+  background: #fffae6 url("assets/textures/scroll2.webp") no-repeat;
+  background-size: cover;
+  font-family: "Rotis Serif";
+}
+.sheet.journal-sheet .journal-entry-content .journal-entry-pages {
+  background: none;
+}
+.sheet.journal-sheet .editable {
+  background: #fffae6 url("assets/textures/scroll2.webp") no-repeat;
+  background-size: cover;
+  font-family: "Rotis Serif";
+}
 .l5r4.pc .ranks {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -546,6 +590,9 @@
   display: flex;
   flex-direction: column;
 }
+.l5r4.pc .equipment-list img {
+  border: none;
+}
 .l5r4.pc .equipment-list .item {
   display: grid;
   grid-template-columns: 1fr max-content;
@@ -580,7 +627,7 @@
 }
 .l5r4.pc .weapons-list .item .weapon-name {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: max-content max-content 1fr;
   column-gap: 0.2em;
   align-items: center;
 }
@@ -687,6 +734,7 @@
   margin-right: 5px;
   width: 15px;
   height: 15px;
+  border: none;
 }
 .l5r4.pc .advantage-list .advantage-stats {
   display: grid;
@@ -955,7 +1003,6 @@
   display: flex;
   flex-flow: column;
 }
-
 body > * {
   scrollbar-width: thin;
 }

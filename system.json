@@ -5,10 +5,10 @@
   "authors": [
     {
       "name": "Mateo Caycedo Alvarez",
-      "url": "https://gitlab.com/teo-cay/l5r4"
+      "url": "https://gitlab.com/teo-cay/"
     }
   ],
-  "version": "0.7.8",
+  "version": "0.7.9",
   "compatibility": {
     "minimum": 10,
     "verified": 10,
@@ -41,8 +41,8 @@
   ],
   "gridDistance": 5,
   "gridUnits": "ft",
-  "url": "https://gitlab.com/teo-cay/l5r4",
-  "manifest": "https://gitlab.com/teo-cay/l5r4/-/raw/master/system.json",
-  "download": "https://gitlab.com/teo-cay/l5r4/-/archive/0.7.8/l5r4-0.7.8.zip",
+  "url": "https://gitlab.com/team-l5r4/l5r4",
+  "manifest": "https://gitlab.com/team-l5r4/l5r4/-/raw/master/system.json",
+  "download": "https://gitlab.com/team-l5r4/l5r4/-/archive/0.7.9/l5r4-0.7.9.zip",
   "license": "GPL v3"
 }

@@ -16,6 +16,7 @@ export default class L5R4Actor extends Actor {
           vision: true,
           actorLink: true,
         });
+      this.updateSource({ img: "systems/l5r4/assets/icons/helm.png" });
     } else {
       // npc token settings
       this.prototypeToken.updateSource(
@@ -27,6 +28,7 @@ export default class L5R4Actor extends Actor {
           disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
           name: this.name,
         });
+      this.updateSource({ img: "systems/l5r4/assets/icons/ninja.png" });
     }
 
   }

@@ -1,13 +1,14 @@
-<form class="{{cssClass}}" autocomplete="off">.
+<form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header">
-  <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64" />
+    <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
   </header>
   <div class="sheet-content">
     <table>
       <tr>
-      <th>{{localize "l5r4.skill.rank"}}</th>
-      <th>{{localize "l5r4.skill.school"}}</th>
-      <th>{{localize "l5r4.skill.emphasis"}}</th>
+        <th>{{localize "l5r4.skill.rank"}}</th>
+        <th>{{localize "l5r4.skill.school"}}</th>
+        <th>{{localize "l5r4.skill.emphasis"}}</th>
       </tr>
       <tr>
         <select name="system.type">
@@ -30,27 +31,35 @@
         </select>
       </tr>
       <tr>
-      <td>
-      <input name="system.rank" type="number" value="{{item.system.rank}}" data-type="Number" />
-      </td>
-      <td>
-      <input name="system.school" type="checkbox" {{checked item.system.school}} data-type="Boolean" />
-      </td>
-      <td>
-      <input name="system.emphasis" type="text" value="{{item.system.emphasis}}" data-type="String"/>
-      </td>
+        <td>
+          <input name="system.rank" type="number" value="{{item.system.rank}}" data-type="Number" />
+        </td>
+        <td>
+          <input name="system.school" type="checkbox" {{checked item.system.school}} data-type="Boolean" />
+        </td>
+        <td>
+          <input name="system.emphasis" type="text" value="{{item.system.emphasis}}" data-type="String" />
+        </td>
       </tr>
       <tr>
-        <th>{{localize "l5r4.skill.mastery3"}}:</th><td colspan="2"><input name="system.mastery_3" type="text" value="{{item.system.mastery_3}}" data-type="String"/></td>
+        <th>{{localize "l5r4.skill.mastery3"}}:</th>
+        <td colspan="2"><input name="system.mastery_3" type="text" value="{{item.system.mastery_3}}"
+            data-type="String" /></td>
       </tr>
       <tr>
-        <th>{{localize "l5r4.skill.mastery5"}}:</th><td colspan="2"><input name="system.mastery_5" type="text" value="{{item.system.mastery_5}}" data-type="String"/></td>
+        <th>{{localize "l5r4.skill.mastery5"}}:</th>
+        <td colspan="2"><input name="system.mastery_5" type="text" value="{{item.system.mastery_5}}"
+            data-type="String" /></td>
       </tr>
       <tr>
-        <th>{{localize "l5r4.skill.mastery7"}}:</th><td colspan="2"><input name="system.mastery_7" type="text" value="{{item.system.mastery_7}}" data-type="String"/></td>
+        <th>{{localize "l5r4.skill.mastery7"}}:</th>
+        <td colspan="2"><input name="system.mastery_7" type="text" value="{{item.system.mastery_7}}"
+            data-type="String" /></td>
       </tr>
       <tr>
-        <th>{{localize "l5r4.skill.insightbonus"}}:</th><td colspan="2"><input name="system.insight_bonus" type="number" value="{{item.system.insight_bonus}}" data-type="Number"/></td>
+        <th>{{localize "l5r4.skill.insightbonus"}}:</th>
+        <td colspan="2"><input name="system.insight_bonus" type="number" value="{{item.system.insight_bonus}}"
+            data-type="Number" /></td>
       </tr>
     </table>
     <h2>{{localize "l5r4.sheet.rulesSummary"}}</h2>
