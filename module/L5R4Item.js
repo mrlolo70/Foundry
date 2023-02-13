@@ -12,6 +12,48 @@ export default class L5R4Item extends Item {
     "kiho": "systems/l5r4/templates/partials/kiho-card.hbs",
   };
 
+  async _preCreate(data, options, userId) {
+    await super._preCreate(data, options, userId);
+    // change default image
+    let img = null;
+    if (data.img === undefined) {
+      switch (this.type) {
+        case 'weapon':
+          img = "systems/l5r4/assets/icons/sword.png";
+          break;
+        case 'bow':
+          img = "systems/l5r4/assets/icons/bow.png";
+          break;
+        case 'skill':
+          img = "systems/l5r4/assets/icons/flower.png";
+          break;
+        case 'armor':
+          img = "systems/l5r4/assets/icons/hat.png";
+          break;
+        case 'spell':
+          img = "systems/l5r4/assets/icons/scroll2.png";
+          break;
+        case 'technique':
+          img = "systems/l5r4/assets/icons/kanji.png";
+          break;
+        case 'advantage':
+          img = "systems/l5r4/assets/icons/yin-yang.png";
+          break;
+        case 'disadvantage':
+          img = "systems/l5r4/assets/icons/yin-yang.png";
+          break;
+        case 'kata':
+          img = "systems/l5r4/assets/icons/scroll.png";
+          break;
+        case 'kiho':
+          img = "systems/l5r4/assets/icons/tori.png";
+          break;
+
+      }
+      if (img) await this.updateSource({ img: img });
+    }
+  }
+
   prepareData() {
     super.prepareData();
 

@@ -2,9 +2,10 @@
   <div class="armor-card item" data-item-id="{{_id}}">
     <div class="armor-info armor-name">
       {{#if inSheet}}
-        <h3><a class="item-edit">{{name}}</a></h3>
+      <img width="15px" height="15px" src="{{img}}" />
+      <h3><a class="item-edit">{{name}}</a></h3>
       {{else}}
-        {{name}}
+      {{name}}
       {{/if}}
     </div>
     <div class="armor-info armor-stats">
@@ -17,19 +18,19 @@
       {{#if inSheet}}
       <div>{{localize "l5r4.armor.equiped"}}?
         <input class="equiped-check inline-edit" data-field="system.equiped" type="checkbox" {{checked system.equiped}}
-        data-type="Boolean" />
+          data-type="Boolean" />
       </div>
       {{/if}}
     </div>
     {{#unless inSheet}}
-      <div class="armor-effects">
-        {{{system.description}}}
-      </div>
+    <div class="armor-effects">
+      {{{system.description}}}
+    </div>
     {{/unless}}
     {{#if inSheet}}
-      <div>
-        <a class="item-edit"  title="{{localize "l5r4.sheet.edit"}}"><i class="fas fa-edit fa-fw"></i></a>
-      </div>
+    <div>
+      <a class="item-edit" title="{{localize " l5r4.sheet.edit"}}"><i class="fas fa-edit fa-fw"></i></a>
+    </div>
     {{/if}}
   </div>
 </div>
