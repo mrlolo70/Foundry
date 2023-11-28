@@ -10,8 +10,8 @@
   ],
   "version": "0.7.9",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10,
+    "minimum": 11,
+    "verified": 11,
     "maximum": 11
   },
   "esmodules": [
